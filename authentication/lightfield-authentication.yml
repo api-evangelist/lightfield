@@ -1,0 +1,85 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/lightfield-openapi-original.yml
+docs: https://docs.lightfield.app/using-the-api/api-keys/
+summary:
+  types:
+  - http
+  - oauth2
+  http_schemes: [bearer]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+  note: >-
+    The REST API uses a scoped bearer API key. OAuth 2.1 applies only to the hosted MCP server, not
+    to the REST surface.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  surface: rest-api
+  header: Authorization
+  format: 'Bearer [example key]'
+  key_prefix: sk_lf_
+  sources:
+  - openapi/lightfield-openapi-original.yml
+  docs: https://docs.lightfield.app/using-the-api/api-keys/
+  scoped: true
+  scopes_artifact: scopes/lightfield-scopes.yml
+  scope_count: 26
+  management:
+    url: https://crm.lightfield.app/crm/settings/api-keys
+    who_can_manage: admin users only
+    display_policy: Keys are shown once at creation and cannot be viewed again.
+    revocation: immediate and permanent
+  authorization_model: >-
+    A key's access is the intersection of the scopes selected at creation and the roles of the admin
+    who created it, evaluated at creation time.
+  additional_required_headers:
+  - name: Lightfield-Version
+    value: '2026-03-01'
+    required: true
+    error_code_when_missing: version_header
+  failure_modes:
+  - status: 401
+    type: unauthorized
+    cause: Missing or invalid API key.
+  - status: 403
+    type: forbidden
+    cause: Valid key without the required scope for the operation.
+  cli_support:
+    env_var: LIGHTFIELD_API_KEY
+    flag: --api-key
+  leaked_key_remediation: https://docs.lightfield.app/using-the-api/leaked-api-key-remediation/
+- name: mcpOAuth
+  type: oauth2
+  surface: mcp-server
+  resource: https://mcp.lightfield.app/mcp
+  spec: OAuth 2.1
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://crm.lightfield.app/mcp/authorize
+    tokenUrl: https://api.stytch.lightfield.app/v1/oauth2/token
+    registrationUrl: https://api.stytch.lightfield.app/v1/oauth2/register
+    refreshSupported: true
+    pkce: [S256]
+    scopes:
+      openid: OpenID Connect authentication
+      offline_access: Refresh-token issuance
+  issuer: https://api.stytch.lightfield.app
+  dynamic_client_registration: true
+  token_endpoint_auth_methods: [none]
+  sources:
+  - well-known/lightfield-oauth-authorization-server.json
+  - well-known/lightfield-oauth-protected-resource.json
+  docs: https://docs.lightfield.app/getting-started/mcp-quickstart/
+sso:
+  supported: true
+  note: >-
+    Single sign-on was announced in the 2026-05-29 changelog entry; it applies to the application,
+    not to API authentication.
+best_practices:
+- Use the narrowest scope an integration requires.
+- Never expose keys in client-side code, public repositories, or logs; use environment variables or
+  a secrets manager.
+- Use separate keys per integration so access can be revoked independently.
+- Rotate keys periodically.
