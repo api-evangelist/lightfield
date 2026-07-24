@@ -1,0 +1,1777 @@
+openapi: 3.1.1
+info:
+  title: API Reference Accounts Lists API
+  version: 0.0.0
+tags:
+- name: Lists
+paths:
+  /v1/lists:
+    post:
+      operationId: list.create
+      summary: Create a list
+      description: 'Creates a new list. The `$name` and `$objectType` fields are required.
+
+
+        Supports idempotency via the `Idempotency-Key` header.
+
+
+        **[Required scope](/using-the-api/scopes/):** `lists:create`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  properties:
+                    $name:
+                      type: string
+                      description: Display name of the list.
+                    $objectType:
+                      type: string
+                      description: The type of entities this list contains. Use `$account`, `$contact`, or `$opportunity` (the `$` prefix identifies system types). Bare slugs without the prefix (e.g. `account`) are accepted for backward compatibility but are deprecated.
+                  required:
+                  - $name
+                  - $objectType
+                  additionalProperties: false
+                  description: 'Field values for the new list. Required: `$name` (string) and `$objectType`.'
+                relationships:
+                  anyOf:
+                  - type: object
+                    properties:
+                      $accounts:
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        description: Account ID(s) to add as initial members. List `$objectType` must be `account`.
+                    required:
+                    - $accounts
+                    additionalProperties: false
+                  - type: object
+                    properties:
+                      $contacts:
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        description: Contact ID(s) to add as initial members. List `$objectType` must be `contact`.
+                    required:
+                    - $contacts
+                    additionalProperties: false
+                  - type: object
+                    properties:
+                      $opportunities:
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        description: Opportunity ID(s) to add as initial members. List `$objectType` must be `opportunity`.
+                    required:
+                    - $opportunities
+                    additionalProperties: false
+                  description: Relationships to set on the new list.
+              required:
+              - fields
+              additionalProperties: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCreateResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+    get:
+      operationId: list.list
+      summary: List lists
+      description: 'Returns a paginated list of lists. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.
+
+
+        **[Required scope](/using-the-api/scopes/):** `lists:read`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Number of records to skip for pagination. Defaults to 0.
+        allowEmptyValue: true
+        allowReserved: true
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+          description: Maximum number of records to return. Defaults to 25, maximum 25.
+        allowEmptyValue: true
+        allowReserved: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListListResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+  /v1/lists/{id}:
+    post:
+      operationId: list.update
+      summary: Update a list
+      description: 'Updates an existing list by ID. Only included fields are modified.
+
+
+        Supports idempotency via the `Idempotency-Key` header.
+
+
+        **[Required scope](/using-the-api/scopes/):** `lists:update`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the list to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  properties:
+                    $name:
+                      type: string
+                      description: Display name of the list.
+                  additionalProperties: false
+                  description: Field values to update — only provided fields are modified; omitted fields are left unchanged.
+                relationships:
+                  anyOf:
+                  - type: object
+                    properties:
+                      $accounts:
+                        type: object
+                        properties:
+                          add:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to add to the list.
+                          remove:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to remove from the list.
+                        additionalProperties: false
+                        description: Add/remove accounts. List `$objectType` must be `account`.
+                    required:
+                    - $accounts
+                    additionalProperties: false
+                  - type: object
+                    properties:
+                      $contacts:
+                        type: object
+                        properties:
+                          add:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to add to the list.
+                          remove:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to remove from the list.
+                        additionalProperties: false
+                        description: Add/remove contacts. List `$objectType` must be `contact`.
+                    required:
+                    - $contacts
+                    additionalProperties: false
+                  - type: object
+                    properties:
+                      $opportunities:
+                        type: object
+                        properties:
+                          add:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to add to the list.
+                          remove:
+                            anyOf:
+                            - type: string
+                            - type: array
+                              items:
+                                type: string
+                            description: Entity ID(s) to remove from the list.
+                        additionalProperties: false
+                        description: Add/remove opportunities. List `$objectType` must be `opportunity`.
+                    required:
+                    - $opportunities
+                    additionalProperties: false
+                  description: Relationship operations. Use the key matching the list's `$objectType` (e.g. `$accounts` for an account list).
+              additionalProperties: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUpdateResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+    get:
+      operationId: list.retrieve
+      summary: Retrieve a list
+      description: 'Retrieves a single list by its ID.
+
+
+        **[Required scope](/using-the-api/scopes/):** `lists:read`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the list to retrieve.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRetrieveResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+  /v1/lists/{listId}/accounts:
+    get:
+      operationId: list.listAccounts
+      summary: List accounts in a list
+      description: 'Returns a paginated list of accounts that belong to the specified list.
+
+
+        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `accounts:read`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: listId
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the list.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Number of records to skip for pagination. Defaults to 0.
+        allowEmptyValue: true
+        allowReserved: true
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+          description: Maximum number of records to return. Defaults to 25, maximum 25.
+        allowEmptyValue: true
+        allowReserved: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListListAccountsResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+  /v1/lists/{listId}/contacts:
+    get:
+      operationId: list.listContacts
+      summary: List contacts in a list
+      description: 'Returns a paginated list of contacts that belong to the specified list.
+
+
+        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `contacts:read`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: listId
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the list.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Number of records to skip for pagination. Defaults to 0.
+        allowEmptyValue: true
+        allowReserved: true
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+          description: Maximum number of records to return. Defaults to 25, maximum 25.
+        allowEmptyValue: true
+        allowReserved: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListListContactsResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+  /v1/lists/{listId}/opportunities:
+    get:
+      operationId: list.listOpportunities
+      summary: List opportunities in a list
+      description: 'Returns a paginated list of opportunities that belong to the specified list.
+
+
+        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `opportunities:read`
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      - name: listId
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the list.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Number of records to skip for pagination. Defaults to 0.
+        allowEmptyValue: true
+        allowReserved: true
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+          description: Maximum number of records to return. Defaults to 25, maximum 25.
+        allowEmptyValue: true
+        allowReserved: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListListOpportunitiesResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Lists
+components:
+  schemas:
+    ListListResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the list.
+              createdAt:
+                type: string
+                description: ISO 8601 timestamp of when the list was created.
+              httpLink:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: URL to view the list in the Lightfield web app, or null.
+              fields:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    valueType:
+                      enum:
+                      - ADDRESS
+                      - CHECKBOX
+                      - CURRENCY
+                      - DATETIME
+                      - EMAIL
+                      - FULL_NAME
+                      - MARKDOWN
+                      - MULTI_SELECT
+                      - NUMBER
+                      - SINGLE_SELECT
+                      - SOCIAL_HANDLE
+                      - TELEPHONE
+                      - TEXT
+                      - URL
+                      - HTML
+                      description: The data type of the field.
+                    value:
+                      anyOf:
+                      - type: string
+                      - type: integer
+                        minimum: -9007199254740991
+                        maximum: 9007199254740991
+                      - type: number
+                      - type: boolean
+                      - type: 'null'
+                      - type: array
+                        items:
+                          type: string
+                      - $ref: '#/components/schemas/Address'
+                      - $ref: '#/components/schemas/FullName'
+                      description: The field value, or null if unset.
+                  required:
+                  - valueType
+                  - value
+                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+            required:
+            - id
+            - createdAt
+            - httpLink
+            - fields
+            additionalProperties: false
+          description: Array of list objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of lists matching the query.
+      required:
+      - object
+      - data
+      - totalCount
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    ListUpdateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the list.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the list was created.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the list in the Lightfield web app, or null.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+      required:
+      - id
+      - createdAt
+      - httpLink
+      - fields
+      additionalProperties: false
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    ListListAccountsResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the entity.
+              createdAt:
+                type: string
+                description: ISO 8601 timestamp of when the entity was created.
+              updatedAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: ISO 8601 timestamp of when the entity was last updated, or null.
+              httpLink:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: URL to view the entity in the Lightfield web app, or null.
+              externalId:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: External identifier for the entity, or null if unset.
+              fields:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    valueType:
+                      enum:
+                      - ADDRESS
+                      - CHECKBOX
+                      - CURRENCY
+                      - DATETIME
+                      - EMAIL
+                      - FULL_NAME
+                      - MARKDOWN
+                      - MULTI_SELECT
+                      - NUMBER
+                      - SINGLE_SELECT
+                      - SOCIAL_HANDLE
+                      - TELEPHONE
+                      - TEXT
+                      - URL
+                      - HTML
+                      description: The data type of the field.
+                    value:
+                      anyOf:
+                      - type: string
+                      - type: integer
+                        minimum: -9007199254740991
+                        maximum: 9007199254740991
+                      - type: number
+                      - type: boolean
+                      - type: 'null'
+                      - type: array
+                        items:
+                          type: string
+                      - $ref: '#/components/schemas/Address'
+                      - $ref: '#/components/schemas/FullName'
+                      description: The field value, or null if unset.
+                  required:
+                  - valueType
+                  - value
+                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+              relationships:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    cardinality:
+                      type: string
+                      description: Whether the relationship is `has_one` or `has_many`.
+                    objectType:
+                      type: string
+                      description: The type of the related object (e.g. `account`, `contact`).
+                    values:
+                      type: array
+                      items:
+                        type: string
+                      description: IDs of the related entities.
+                  required:
+                  - cardinality
+                  - objectType
+                  - values
+                description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+            required:
+            - id
+            - createdAt
+            - updatedAt
+            - httpLink
+            - fields
+            - relationships
+            additionalProperties: false
+          description: Array of entity objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of entities matching the query.
+      required:
+      - object
+      - data
+      - totalCount
+    Address:
+      type: object
+      properties:
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 1.
+        street2:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 2.
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: City name.
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: State or province.
+        postalCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Postal or ZIP code.
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: 2-letter ISO 3166-1 alpha-2 country code.
+        latitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Latitude coordinate.
+        longitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Longitude coordinate.
+      additionalProperties: false
+      title: Address
+    FullName:
+      type: object
+      properties:
+        firstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's first name.
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's last name.
+      additionalProperties: false
+      title: FullName
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    ListRetrieveResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the list.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the list was created.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the list in the Lightfield web app, or null.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+      required:
+      - id
+      - createdAt
+      - httpLink
+      - fields
+      additionalProperties: false
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    ListCreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the list.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the list was created.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the list in the Lightfield web app, or null.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+      required:
+      - id
+      - createdAt
+      - httpLink
+      - fields
+      additionalProperties: false
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    ListListContactsResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the entity.
+              createdAt:
+                type: string
+                description: ISO 8601 timestamp of when the entity was created.
+              updatedAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: ISO 8601 timestamp of when the entity was last updated, or null.
+              httpLink:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: URL to view the entity in the Lightfield web app, or null.
+              externalId:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: External identifier for the entity, or null if unset.
+              fields:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    valueType:
+                      enum:
+                      - ADDRESS
+                      - CHECKBOX
+                      - CURRENCY
+                      - DATETIME
+                      - EMAIL
+                      - FULL_NAME
+                      - MARKDOWN
+                      - MULTI_SELECT
+                      - NUMBER
+                      - SINGLE_SELECT
+                      - SOCIAL_HANDLE
+                      - TELEPHONE
+                      - TEXT
+                      - URL
+                      - HTML
+                      description: The data type of the field.
+                    value:
+                      anyOf:
+                      - type: string
+                      - type: integer
+                        minimum: -9007199254740991
+                        maximum: 9007199254740991
+                      - type: number
+                      - type: boolean
+                      - type: 'null'
+                      - type: array
+                        items:
+                          type: string
+                      - $ref: '#/components/schemas/Address'
+                      - $ref: '#/components/schemas/FullName'
+                      description: The field value, or null if unset.
+                  required:
+                  - valueType
+                  - value
+                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+              relationships:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    cardinality:
+                      type: string
+                      description: Whether the relationship is `has_one` or `has_many`.
+                    objectType:
+                      type: string
+                      description: The type of the related object (e.g. `account`, `contact`).
+                    values:
+                      type: array
+                      items:
+                        type: string
+                      description: IDs of the related entities.
+                  required:
+                  - cardinality
+                  - objectType
+                  - values
+                description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+            required:
+            - id
+            - createdAt
+            - updatedAt
+            - httpLink
+            - fields
+            - relationships
+            additionalProperties: false
+          description: Array of entity objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of entities matching the query.
+      required:
+      - object
+      - data
+      - totalCount
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    ListListOpportunitiesResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the entity.
+              createdAt:
+                type: string
+                description: ISO 8601 timestamp of when the entity was created.
+              updatedAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: ISO 8601 timestamp of when the entity was last updated, or null.
+              httpLink:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: URL to view the entity in the Lightfield web app, or null.
+              externalId:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: External identifier for the entity, or null if unset.
+              fields:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    valueType:
+                      enum:
+                      - ADDRESS
+                      - CHECKBOX
+                      - CURRENCY
+                      - DATETIME
+                      - EMAIL
+                      - FULL_NAME
+                      - MARKDOWN
+                      - MULTI_SELECT
+                      - NUMBER
+                      - SINGLE_SELECT
+                      - SOCIAL_HANDLE
+                      - TELEPHONE
+                      - TEXT
+                      - URL
+                      - HTML
+                      description: The data type of the field.
+                    value:
+                      anyOf:
+                      - type: string
+                      - type: integer
+                        minimum: -9007199254740991
+                        maximum: 9007199254740991
+                      - type: number
+                      - type: boolean
+                      - type: 'null'
+                      - type: array
+                        items:
+                          type: string
+                      - $ref: '#/components/schemas/Address'
+                      - $ref: '#/components/schemas/FullName'
+                      description: The field value, or null if unset.
+                  required:
+                  - valueType
+                  - value
+                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+              relationships:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    cardinality:
+                      type: string
+                      description: Whether the relationship is `has_one` or `has_many`.
+                    objectType:
+                      type: string
+                      description: The type of the related object (e.g. `account`, `contact`).
+                    values:
+                      type: array
+                      items:
+                        type: string
+                      description: IDs of the related entities.
+                  required:
+                  - cardinality
+                  - objectType
+                  - values
+                description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+            required:
+            - id
+            - createdAt
+            - updatedAt
+            - httpLink
+            - fields
+            - relationships
+            additionalProperties: false
+          description: Array of entity objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of entities matching the query.
+      required:
+      - object
+      - data
+      - totalCount
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

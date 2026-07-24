@@ -1,0 +1,133 @@
+openapi: 3.1.1
+info:
+  title: API Reference Accounts WorkflowRun API
+  version: 0.0.0
+tags:
+- name: WorkflowRun
+paths:
+  /v1/workflowRun/{runId}/status:
+    get:
+      operationId: workflowRun.status
+      summary: Get workflow run status
+      description: Returns the current status of a workflow run.
+      parameters:
+      - name: runId
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Unique identifier of the workflow run.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRunStatusResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+      security: []
+      tags:
+      - WorkflowRun
+components:
+  schemas:
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    WorkflowRunStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Current status of the workflow run (e.g. `running`, `completed`, `failed`).
+      required:
+      - status
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

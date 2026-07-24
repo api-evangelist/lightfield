@@ -1,0 +1,263 @@
+openapi: 3.1.1
+info:
+  title: API Reference Accounts Auth API
+  version: 0.0.0
+tags:
+- name: Auth
+paths:
+  /v1/auth/validate:
+    get:
+      operationId: auth.validate
+      summary: Validate current API key
+      description: 'Returns metadata for the current API key, including the subject type and granted public scopes. Use this endpoint to confirm a key is active before making scoped API requests.
+
+
+        **[Required scope](/using-the-api/scopes/):** None
+
+
+        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: Lightfield-Version
+        in: header
+        required: true
+        description: Required API version header. Requests may error without it.
+        schema:
+          type: string
+          enum:
+          - '2026-03-01'
+          default: '2026-03-01'
+        example: '2026-03-01'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthValidateResponse'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestError'
+        '401':
+          description: '401'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedError'
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenError'
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '409':
+          description: '409'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictError'
+        '415':
+          description: '415'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaTypeError'
+        '422':
+          description: '422'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContentError'
+        '429':
+          description: '429'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TooManyRequestsError'
+        '500':
+          description: '500'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+        '503':
+          description: '503'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableError'
+        '504':
+          description: '504'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTimeoutError'
+      tags:
+      - Auth
+components:
+  schemas:
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    AuthValidateResponse:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: Whether the current API key is valid. Always `true` on successful responses.
+        tokenType:
+          enum:
+          - api_key
+          description: Credential family, always `api_key`.
+        subjectType:
+          enum:
+          - user
+          - workspace
+          description: Whether the API key belongs to a `user` or `workspace`.
+        scopes:
+          type: array
+          items:
+            type: string
+          description: Granted public scopes for the current API key. Empty when the key has full access.
+      required:
+      - active
+      - tokenType
+      - subjectType
+      - scopes
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
