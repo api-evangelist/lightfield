@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/lightfield-openapi-original.yml
+api: Lightfield API
+base_url: https://api.lightfield.app/v1
+notes: >-
+  Packaged Agent Skills for the marquee Lightfield CRM flows. Every operationId referenced below
+  exists verbatim in openapi/lightfield-openapi-original.yml. Lightfield publishes no AGENTS.md or
+  first-party skill files; these are generated from the OpenAPI plus the documented conventions in
+  conventions/lightfield-conventions.yml and errors/lightfield-error-codes.yml. Note that Lightfield
+  also ships an official hosted MCP server (mcp/lightfield-mcp.yml) whose coarse read/write tools
+  are an alternative to calling the REST API directly.
+shared_rules:
+  required_headers:
+  - 'Authorization: Bearer sk_lf_...'
+  - 'Lightfield-Version: 2026-03-01'
+  - 'Content-Type: application/json (on requests with a body)'
+  idempotency: Idempotency-Key on every POST; reuse on retry, never across different payloads.
+  pagination: limit (max 25) + offset; a short page means the end.
+  freshness: List methods are index-backed; use Retrieve when the latest state matters.
+  discovery: Call the object's Definitions method before writing unfamiliar fields.
+skills:
+- file: lightfield-create-account-and-contact.md
+  name: Create a Lightfield account and linked contact
+  operations: [account.definitions, account.list, account.create, contact.definitions, contact.create]
+  scopes: [accounts:read, accounts:create, contacts:read, contacts:create]
+- file: lightfield-advance-opportunity.md
+  name: Advance a Lightfield opportunity through its pipeline
+  operations: [opportunity.definitions, opportunity.list, opportunity.retrieve, opportunity.update,
+    task.definitions, task.create, member.list]
+  scopes: [opportunities:read, opportunities:update, tasks:create, members:read]
+- file: lightfield-meeting-followup.md
+  name: Summarize a Lightfield meeting and log the follow-up
+  operations: [meeting.list, meeting.retrieve, note.create, task.create, account.retrieve]
+  scopes: [meetings:read, notes:create, tasks:create, accounts:read]
+- file: lightfield-send-outbound-email.md
+  name: Draft and send a Lightfield email through a connected mailbox
+  operations: [contact.retrieve, email.list, email.retrieve, email.draft, email.send]
+  scopes: [contacts:read, emails:read, emails:create]

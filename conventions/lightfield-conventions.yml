@@ -1,0 +1,169 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/using-the-api/
+api: openapi/lightfield-openapi-original.yml
+summary: >-
+  The Lightfield API is a JSON REST API over a single versioned base path. Every request carries a
+  scoped bearer API key and a required date-based version header. Writes are POST-only (there is no
+  PUT/PATCH/DELETE in the public surface — updates are POSTs to the resource id) and support an
+  Idempotency-Key header. Lists use limit/offset pagination with a hard ceiling of 25 and are served
+  from a search index that may lag recent writes.
+
+authentication:
+  style: bearer-api-key
+  header: Authorization
+  format: 'Bearer sk_lf_...'
+  scoped: true
+  docs: https://docs.lightfield.app/using-the-api/api-keys/
+  artifact: authentication/lightfield-authentication.yml
+  notes: >-
+    Keys are created by admins only, displayed once, and inherit the roles of the creating admin in
+    addition to the scopes selected at creation. Revocation is immediate and permanent.
+
+versioning:
+  style: date-header
+  header: Lightfield-Version
+  required: true
+  current: '2026-03-01'
+  example: 'Lightfield-Version: 2026-03-01'
+  path_prefix: /v1
+  error_code_when_missing: version_header
+  artifact: lifecycle/lightfield-lifecycle.yml
+
+idempotency:
+  supported: true
+  header: Idempotency-Key
+  max_length_chars: 255
+  retention: 24h
+  scope: organization + operation type (entity type and create-vs-update namespaced separately)
+  applies_to:
+  - method: POST
+    endpoint: /v1/{entityType}
+    operation: Create an object
+  - method: POST
+    endpoint: /v1/{entityType}/{id}
+    operation: Update an object
+  - method: POST
+    endpoint: /v1/emails/send
+    operation: Send an email in remote provider
+    caveat: >-
+      Remote email providers do not natively support Lightfield idempotency keys, so retry
+      protection for this operation is best effort on Lightfield's side.
+  replay_behavior: >-
+    A repeat request with the same key returns the cached response from the original request instead
+    of re-executing the operation.
+  concurrent_conflict:
+    status: 409
+    type: idempotency_conflict
+    message: An operation with this idempotency key is already in progress. Please wait and retry.
+  failed_request_behavior: >-
+    If the original request failed, retrying with the same key re-attempts the operation rather than
+    returning the cached error — the same key is safe to reuse after a failure.
+  invalid_key:
+    status: 400
+    code: idempotency_key_too_long
+    param: Idempotency-Key
+  get_requests: not required (GET is inherently idempotent)
+  docs: https://docs.lightfield.app/using-the-api/idempotency/
+
+pagination:
+  style: limit-offset
+  params:
+  - name: limit
+    min: 1
+    max: 25
+    description: Upper bound on the number of objects returned.
+  - name: offset
+    description: Offsets the start of each page by the number specified.
+  response_fields:
+  - data
+  - object
+  - totalCount
+  exhaustion_signal: >-
+    A client can assume there are no more records to fetch when the number of returned records is
+    fewer than the requested limit.
+  caveats:
+  - Do not store specific limit/offset values — query results become stale as records are created
+    and deleted.
+  - List methods are served out of a search index that may not reflect recent changes; use the
+    per-resource Retrieve method when the latest version of a record is required.
+  docs: https://docs.lightfield.app/using-the-api/list-endpoints/
+
+filtering:
+  supported: true
+  style: 'query parameter per field, e.g. $name[equal]=Acme Corp'
+  operators: [equal, greaterThan, lessThan, startsWith, contains]
+  operator_availability_depends_on_field_type: true
+  cli_support: false
+  docs: https://docs.lightfield.app/using-the-api/list-endpoints/
+
+field_model:
+  request_envelope: 'fields{} and relationships{} objects on create/update'
+  response_shape: 'id, createdAt, fields{value,valueType}, relationships{cardinality,objectType,values}, httpLink'
+  system_field_prefix: '$'
+  custom_fields: true
+  definitions_endpoints: >-
+    Every core object type exposes a Definitions method returning its field and relationship
+    definitions (account.definitions, contact.definitions, opportunity.definitions, task.definitions,
+    object.definitions).
+  docs: https://docs.lightfield.app/using-the-api/fields-and-relationships/
+
+error_envelope:
+  wrapper: error
+  fields:
+  - name: type
+    description: Machine-readable error type; branch on this.
+  - name: message
+    description: Human-readable description.
+  - name: code
+    description: Finer-grained code for programmatic handling; present on 400 responses.
+  - name: param
+    description: Request location related to the error; present on 400 and 422 responses.
+  format: custom-json
+  rfc9457: false
+  artifact: errors/lightfield-problem-types.yml
+  codes_artifact: errors/lightfield-error-codes.yml
+  docs: https://docs.lightfield.app/using-the-api/errors/
+
+rate_limiting:
+  scope: per organization
+  limits:
+  - category: Write
+    methods: [Create, Update]
+    limit: 25 requests per second
+  - category: Read
+    methods: [Retrieve, Definitions]
+    limit: 25 requests per second
+  - category: Search
+    methods: [List]
+    limit: 25 requests per second
+  headers:
+  - name: X-RateLimit-Limit
+    description: Maximum requests allowed per second (bucket capacity)
+  - name: X-RateLimit-Remaining
+    description: Number of requests remaining in the current window
+  - name: X-RateLimit-Reset
+    description: Unix timestamp (seconds) when the bucket will be fully replenished
+  exceeded:
+    status: 429
+    type: too_many_requests
+    retry_after_header: Retry-After
+  stability_note: These limits apply during the early launch period and are subject to change.
+  docs: https://docs.lightfield.app/using-the-api/rate-limits/
+
+content_type:
+  request: application/json
+  required_on_bodies: true
+  error_when_missing:
+    status: 415
+    type: unsupported_media_type
+
+request_tracing:
+  request_id_header: null
+  note: No request-id / correlation header is documented. Use --debug in the CLI to see full HTTP details.
+
+file_uploads:
+  style: session-based
+  flow: file.create (session) → upload → file.complete, with file.cancel to abort and file.url for
+    signed download URLs
+  docs: https://docs.lightfield.app/using-the-api/file-uploads/

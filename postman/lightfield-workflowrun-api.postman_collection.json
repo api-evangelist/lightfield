@@ -1,0 +1,367 @@
+{
+  "info": {
+    "_postman_id": "d4413044-cca6-4ef4-af20-abf20d7ab1bc",
+    "name": "API Reference Accounts WorkflowRun API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:34.000Z",
+    "updatedAt": "2026-07-28T02:07:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d4413044-cca6-4ef4-af20-abf20d7ab1bc"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "workflowRun",
+          "item": [
+            {
+              "name": "{runId}",
+              "item": [
+                {
+                  "name": "status",
+                  "item": [
+                    {
+                      "name": "Get workflow run status",
+                      "id": "e540c8e4-486d-4fdf-b1c4-bf24dd8adbc4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "workflowRun",
+                            ":runId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b6bb03ce-0af9-4f7e-9189-2fddd4880141",
+                              "key": "runId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns the current status of a workflow run."
+                      },
+                      "response": [
+                        {
+                          "id": "4db17acf-54af-4973-aae3-e4a4eff21b42",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-4db17acf-54af-4973-aae3-e4a4eff21b42"
+                        },
+                        {
+                          "id": "0cf6d1c7-d04d-4783-9f90-d2ce8be999c0",
+                          "name": "400",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-0cf6d1c7-d04d-4783-9f90-d2ce8be999c0"
+                        },
+                        {
+                          "id": "4bbbc97f-2b41-45bb-959f-0762f40b83fb",
+                          "name": "401",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-4bbbc97f-2b41-45bb-959f-0762f40b83fb"
+                        },
+                        {
+                          "id": "483548c4-6890-41a3-aabb-544ed24a6e31",
+                          "name": "403",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-483548c4-6890-41a3-aabb-544ed24a6e31"
+                        },
+                        {
+                          "id": "4669657d-3562-4580-af1e-17a9232ed75e",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-4669657d-3562-4580-af1e-17a9232ed75e"
+                        },
+                        {
+                          "id": "c95da6b0-a8e9-46a3-b2ba-f98879e4f307",
+                          "name": "500",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/workflowRun/:runId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "workflowRun",
+                                ":runId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "runId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                          "createdAt": "2026-07-28T02:07:35.000Z",
+                          "updatedAt": "2026-07-28T02:07:35.000Z",
+                          "uid": "35240-c95da6b0-a8e9-46a3-b2ba-f98879e4f307"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:07:35.000Z",
+                      "updatedAt": "2026-07-28T02:07:35.000Z",
+                      "uid": "35240-e540c8e4-486d-4fdf-b1c4-bf24dd8adbc4"
+                    }
+                  ],
+                  "id": "db4242c4-428d-444b-b918-26e95dece1e2",
+                  "createdAt": "2026-07-28T02:07:35.000Z",
+                  "updatedAt": "2026-07-28T02:07:35.000Z",
+                  "uid": "35240-db4242c4-428d-444b-b918-26e95dece1e2"
+                }
+              ],
+              "id": "220ea6d6-d1de-464c-82e6-5f3739d25683",
+              "createdAt": "2026-07-28T02:07:35.000Z",
+              "updatedAt": "2026-07-28T02:07:35.000Z",
+              "uid": "35240-220ea6d6-d1de-464c-82e6-5f3739d25683"
+            }
+          ],
+          "id": "f2beb7ff-f932-4814-a6bd-ebad6b6da2f3",
+          "createdAt": "2026-07-28T02:07:35.000Z",
+          "updatedAt": "2026-07-28T02:07:35.000Z",
+          "uid": "35240-f2beb7ff-f932-4814-a6bd-ebad6b6da2f3"
+        }
+      ],
+      "id": "5ee5dcb3-2d37-4e18-b905-0c1206358576",
+      "createdAt": "2026-07-28T02:07:35.000Z",
+      "updatedAt": "2026-07-28T02:07:35.000Z",
+      "uid": "35240-5ee5dcb3-2d37-4e18-b905-0c1206358576"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

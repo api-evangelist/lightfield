@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/using-the-api/errors/
+description: >-
+  Stable machine-readable `code` values returned on 400 Bad Request responses, inside the `error`
+  envelope alongside `type`, `message` and `param`. These are the fine-grained sibling of the
+  status-level catalog in errors/lightfield-problem-types.yml. Lightfield is not a payments
+  provider, so there is no decline-code surface.
+envelope_field: error.code
+applies_to_status: 400
+error_codes:
+- code: referenced_resource_missing
+  meaning: A field references another resource by ID that does not exist.
+  action: Use `param` to see which field (e.g. fields.$company) and correct the referenced ID.
+- code: relationship_entity_missing
+  meaning: One or more IDs in a relationship (e.g. relationships.$owner) do not exist.
+  action: Verify each relationship ID resolves to a live record.
+- code: relationship_entity_inactive
+  meaning: One or more IDs in a relationship refer to an inactive (e.g. deleted) entity.
+  action: Replace the inactive reference or restore the record.
+- code: unknown_field
+  meaning: The request included a field that is not defined for this object type.
+  action: >-
+    Use `param` to see the field, and call the object's Definitions method to list valid fields.
+- code: unknown_relationship
+  meaning: The request included a relationship that is not defined for this object type.
+  action: Use `param` to see the relationship; check the object's Definitions method.
+- code: invalid_configuration
+  meaning: Invalid field or relationship configuration.
+  action: Review the field/relationship definition against the object type reference.
+- code: idempotency_key_too_long
+  meaning: The Idempotency-Key header exceeds the maximum length (255 characters).
+  action: Shorten the key; a UUID v4 is recommended.
+- code: invalid_type
+  meaning: A field value has the wrong type (e.g. a string where an object is expected).
+  action: Use `param` to see the field and correct the value type.
+- code: parameter_missing
+  meaning: A required request parameter is missing.
+  action: Use `param` to see which one.
+- code: version_header
+  meaning: The Lightfield-Version header is missing or invalid.
+  action: 'Send Lightfield-Version: 2026-03-01 (or the version your integration is pinned to).'

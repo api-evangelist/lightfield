@@ -1,0 +1,84 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/getting-started/cli-quickstart/
+name: lightfield
+description: >-
+  First-party Go CLI for the Lightfield API. Follows a `lightfield [resource] [command] [flags]`
+  structure mirroring the REST resource/method surface, with multiple output formats and a debug
+  mode that prints the full HTTP request and response.
+repository: https://github.com/Lightfld/lightfield-cli
+reference: https://docs.lightfield.app/api/cli/
+install:
+- method: homebrew
+  platform: macos
+  command: brew install Lightfld/lightfield/lightfield
+  note: >-
+    The CLI is not yet notarized with Apple. If macOS blocks it, allow it in System Settings →
+    Privacy & Security, or run `xattr -d com.apple.quarantine /opt/homebrew/bin/lightfield`.
+- method: go-install
+  command: go install github.com/Lightfld/lightfield-cli/cmd/lightfield@latest
+  requires: Go 1.22+
+authentication:
+  env_var: LIGHTFIELD_API_KEY
+  flag: --api-key
+  scheme: bearer API key (sk_lf_...)
+  docs: https://docs.lightfield.app/using-the-api/api-keys/
+command_structure: lightfield [resource] [command] [flags]
+resources_source: >-
+  Resource/command surface transcribed from the CLI API reference indexed in
+  https://docs.lightfield.app/llms.txt. It is a superset of the captured OpenAPI description, which
+  omits the Delete methods and the merge resource.
+resources:
+- name: account
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: auth
+  commands: [validate]
+- name: contact
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: email
+  commands: [draft, list, retrieve, send]
+- name: file
+  commands: [cancel, complete, create, list, retrieve, url]
+- name: list
+  commands: [create, delete, list, listAccounts, listContacts, listOpportunities, retrieve, update]
+- name: meeting
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: member
+  commands: [list, retrieve]
+- name: merge
+  commands: [getMerge, mergeAccounts, mergeContacts, mergeObjectValues, mergeOpportunities]
+- name: note
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: object
+  commands: [create, definitions, delete, list, listDefinitions, retrieve, update]
+- name: opportunity
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: task
+  commands: [create, definitions, delete, list, retrieve, update]
+- name: workflowRun
+  commands: [status]
+global_flags:
+- flag: --api-key
+  description: API key (overrides LIGHTFIELD_API_KEY)
+- flag: --base-url
+  description: Custom API base URL
+- flag: --format
+  description: 'Output format: auto, json, jsonl, pretty, raw, yaml'
+- flag: --debug
+  description: Enable debug logging with full HTTP details
+- flag: --help
+  description: Show help for any command
+key_flows:
+- name: Verify key and scope
+  command: lightfield account list --api-key "$LIGHTFIELD_API_KEY" --limit 1
+- name: Create a record
+  command: >-
+    lightfield account create --api-key "$LIGHTFIELD_API_KEY" --fields '{"$name": "Acme Corp",
+    "$website": ["https://acme.com"]}'
+- name: Debug an HTTP exchange
+  command: lightfield account list --api-key "$LIGHTFIELD_API_KEY" --limit 1 --debug --format json
+limitations:
+- List filtering (e.g. `$name[equal]=Acme Corp`) is not supported in the CLI; use the HTTP API or an
+  SDK directly.
+pagination:
+  flags: [--limit, --offset]

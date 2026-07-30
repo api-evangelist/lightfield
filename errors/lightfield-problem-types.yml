@@ -1,0 +1,115 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/using-the-api/errors/
+derived_from: openapi/lightfield-openapi-original.yml
+format: custom-json
+rfc9457: false
+envelope:
+  wrapper: error
+  example: |
+    {
+      "error": {
+        "type": "not_found",
+        "message": "No resource found in 'accounts' with the given ID."
+      }
+    }
+  fields:
+  - name: type
+    required: true
+    description: Machine-readable error type.
+  - name: message
+    required: true
+    description: Human-readable description of what went wrong.
+  - name: code
+    required: false
+    description: Finer-grained code, present on 400 responses. See errors/lightfield-error-codes.yml.
+  - name: param
+    required: false
+    description: >-
+      Request location related to the error (e.g. fields.$name, relationships.$owner,
+      Idempotency-Key). Present on 400 and 422 responses.
+coverage:
+  operations_in_spec: 55
+  operations_declaring_4xx_5xx: 55
+  note: >-
+    Every operation in the OpenAPI description declares the full error set below; 400/401/403/404/500
+    on all 55 operations, and 409/415/422/429/503/504 on all but workflowRun.status.
+problems:
+- status: 400
+  type: bad_request
+  title: Bad request
+  schema: BadRequestError
+  description: Invalid request (wrong field, relationship, or parameter).
+  remediation: Check the `code` and `param` fields to identify what to fix.
+  carries_code: true
+- status: 401
+  type: unauthorized
+  title: Unauthorized
+  schema: UnauthorizedError
+  description: Missing or invalid API key.
+  remediation: 'Ensure the request includes Authorization: Bearer YOUR_API_KEY.'
+- status: 403
+  type: forbidden
+  title: Forbidden
+  schema: ForbiddenError
+  description: API key is valid but does not have permission for this operation.
+  remediation: Check the scopes granted to the key. See scopes/lightfield-scopes.yml.
+- status: 404
+  type: not_found
+  title: Not found
+  schema: NotFoundError
+  description: The requested resource or entity type does not exist.
+  remediation: >-
+    Verify the resource ID; it may be wrong or deleted. For create/update, ensure referenced
+    relationship IDs exist and are active.
+- status: 409
+  type: conflict
+  title: Conflict
+  schema: ConflictError
+  description: Conflict with current state (duplicate definition, resource locked, concurrent update).
+  remediation: Retry with fresh data, or use an Idempotency-Key for safe create/update retries.
+  related: conventions/lightfield-conventions.yml#idempotency
+- status: 415
+  type: unsupported_media_type
+  title: Unsupported media type
+  schema: UnsupportedMediaTypeError
+  description: Request body is not JSON.
+  remediation: 'Include Content-Type: application/json on requests with a body.'
+- status: 422
+  type: unprocessable_content
+  title: Unprocessable content
+  schema: UnprocessableContentError
+  description: Request body is valid JSON but business validation failed.
+  remediation: Use `param` to identify the failing field.
+  carries_param: true
+- status: 429
+  type: too_many_requests
+  title: Too many requests
+  schema: TooManyRequestsError
+  description: Rate limit exceeded.
+  remediation: Honor the Retry-After header and implement exponential backoff.
+  related: conventions/lightfield-conventions.yml#rate_limiting
+- status: 500
+  type: internal_server_error
+  title: Internal server error
+  schema: InternalServerError
+  description: Server error.
+  remediation: Retry with backoff; contact support if it persists.
+- status: 503
+  type: service_unavailable
+  title: Service unavailable
+  schema: ServiceUnavailableError
+  description: The service is temporarily unavailable.
+  remediation: Retry with exponential backoff.
+- status: 504
+  type: gateway_timeout
+  title: Gateway timeout
+  schema: GatewayTimeoutError
+  description: >-
+    Declared in the OpenAPI description on 54 of 55 operations. Not documented on the docs errors
+    page; treat as a transient upstream timeout and retry with backoff.
+  remediation: Retry with exponential backoff.
+  source: openapi/lightfield-openapi-original.yml
+sdk_mapping: >-
+  The official SDKs expose these as typed exceptions (e.g. BadRequestError, NotFoundError) carrying
+  `type` and, where applicable, `code` and optional `param`.

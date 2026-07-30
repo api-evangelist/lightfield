@@ -1,0 +1,3839 @@
+{
+  "info": {
+    "_postman_id": "6dcbb45c-a1c1-4458-81d5-3181cf75ef3c",
+    "name": "API Reference Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:06:41.000Z",
+    "updatedAt": "2026-07-28T02:06:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6dcbb45c-a1c1-4458-81d5-3181cf75ef3c"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "accounts",
+          "item": [
+            {
+              "name": "definitions",
+              "item": [
+                {
+                  "name": "Get account field definitions",
+                  "id": "de95a5c2-5e80-443a-9007-b19b59c0d505",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts/definitions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts",
+                        "definitions"
+                      ]
+                    },
+                    "description": "Returns the schema for all field and relationship definitions available on accounts, including both system-defined and custom fields. Useful for understanding the shape of account data before creating or updating records. See <u>[Fields and relationships](/using-the-api/fields-and-relationships/)</u> for more details.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "026ca8f0-63ab-4a76-b49a-73792b33a4ef",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"objectType\": \"<string>\",\n  \"fieldDefinitions\": {\n    \"irureb\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"valueType\": \"TELEPHONE\",\n      \"typeConfiguration\": {\n        \"options\": [\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"unique\": \"<boolean>\",\n        \"multipleValues\": \"<boolean>\",\n        \"handleService\": \"TWITTER\"\n      },\n      \"id\": \"<string>\",\n      \"readOnly\": \"<boolean>\"\n    }\n  },\n  \"relationshipDefinitions\": {\n    \"proident913\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cardinality\": \"HAS_MANY\",\n      \"objectType\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"sintb5\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cardinality\": \"HAS_MANY\",\n      \"objectType\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"elit184\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cardinality\": \"HAS_ONE\",\n      \"objectType\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-026ca8f0-63ab-4a76-b49a-73792b33a4ef"
+                    },
+                    {
+                      "id": "cfa3db87-1275-4418-b521-dea8620bfb43",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-cfa3db87-1275-4418-b521-dea8620bfb43"
+                    },
+                    {
+                      "id": "513d90c0-60aa-4825-8ed4-b30bd19159b2",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-513d90c0-60aa-4825-8ed4-b30bd19159b2"
+                    },
+                    {
+                      "id": "d5a7925c-c320-46b3-a37b-d1fc7ecc6543",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-d5a7925c-c320-46b3-a37b-d1fc7ecc6543"
+                    },
+                    {
+                      "id": "6ac1873d-c851-4bce-8d01-267d57be8c1e",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-6ac1873d-c851-4bce-8d01-267d57be8c1e"
+                    },
+                    {
+                      "id": "810ff287-32c2-42d7-ac1f-9fe998db4cbb",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-810ff287-32c2-42d7-ac1f-9fe998db4cbb"
+                    },
+                    {
+                      "id": "30f6bc95-b421-4732-8130-1930812e2567",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-30f6bc95-b421-4732-8130-1930812e2567"
+                    },
+                    {
+                      "id": "99778c30-8500-47e0-956f-e01d5b356262",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-99778c30-8500-47e0-956f-e01d5b356262"
+                    },
+                    {
+                      "id": "eaaf5487-b377-477c-b241-b7c09c61b933",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-eaaf5487-b377-477c-b241-b7c09c61b933"
+                    },
+                    {
+                      "id": "2be16bea-a85b-4013-8c03-b74a9c7dc4bb",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-2be16bea-a85b-4013-8c03-b74a9c7dc4bb"
+                    },
+                    {
+                      "id": "29619a7a-cf0e-4aba-ae08-ef4fffed4170",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-29619a7a-cf0e-4aba-ae08-ef4fffed4170"
+                    },
+                    {
+                      "id": "550514b8-1fde-44bc-a5e0-219ca9b8b488",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-550514b8-1fde-44bc-a5e0-219ca9b8b488"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-de95a5c2-5e80-443a-9007-b19b59c0d505"
+                }
+              ],
+              "id": "3e6f3bf2-07f3-4fac-8931-b79584a751df",
+              "createdAt": "2026-07-28T02:06:42.000Z",
+              "updatedAt": "2026-07-28T02:06:42.000Z",
+              "uid": "35240-3e6f3bf2-07f3-4fac-8931-b79584a751df"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Update an account",
+                  "id": "9e629037-450f-4226-947a-436bb3dad3de",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8f63b04c-53c2-4c72-a31b-1b32ad906604",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates an existing account by ID. Only included fields and relationships are modified.\n\nThe `$howTheyMakeMoney` and `$accountStatus` fields are read-only and cannot be updated. The `$opportunity`, `$task`, `$note`, and `$meeting` relationships are also read-only \u2014 manage them via the `$account` relationship on the opportunity or task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` attendees that belong to this account.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:update`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+                  },
+                  "response": [
+                    {
+                      "id": "72dec6a3-73be-4bdf-93c2-c9bf7b3afe4c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_30\": {\n      \"valueType\": \"MARKDOWN\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"in792\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-72dec6a3-73be-4bdf-93c2-c9bf7b3afe4c"
+                    },
+                    {
+                      "id": "39170a24-c499-4e43-80cf-0e3c6c05271f",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-39170a24-c499-4e43-80cf-0e3c6c05271f"
+                    },
+                    {
+                      "id": "9ced10c5-483f-41a5-ac23-d270fe22c9bb",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-9ced10c5-483f-41a5-ac23-d270fe22c9bb"
+                    },
+                    {
+                      "id": "0629ffc1-3e72-4b63-a9cd-8714a6da5dcc",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-0629ffc1-3e72-4b63-a9cd-8714a6da5dcc"
+                    },
+                    {
+                      "id": "7d04c074-e389-4939-8696-db2e2110eac5",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-7d04c074-e389-4939-8696-db2e2110eac5"
+                    },
+                    {
+                      "id": "8cac328a-ba45-454e-b079-cc0208ba7a15",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-8cac328a-ba45-454e-b079-cc0208ba7a15"
+                    },
+                    {
+                      "id": "d669eacd-9a78-4ab8-b0c8-40db9a00296d",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-d669eacd-9a78-4ab8-b0c8-40db9a00296d"
+                    },
+                    {
+                      "id": "dd1e805c-9fb0-4631-947d-b52e4d87bf9a",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-dd1e805c-9fb0-4631-947d-b52e4d87bf9a"
+                    },
+                    {
+                      "id": "eb562fd9-633d-4a0e-91d8-a8ae61976170",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-eb562fd9-633d-4a0e-91d8-a8ae61976170"
+                    },
+                    {
+                      "id": "651a3e32-862f-4b6b-a319-09ae58547f9e",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-651a3e32-862f-4b6b-a319-09ae58547f9e"
+                    },
+                    {
+                      "id": "fc5ed6ed-39b4-4cb0-9711-f190ec94de3c",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-fc5ed6ed-39b4-4cb0-9711-f190ec94de3c"
+                    },
+                    {
+                      "id": "6dfc284b-119f-4c49-82ec-11d9a049bbd7",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"labore_22\": \"<string>\",\n    \"eiusmod_ef\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$contact\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-6dfc284b-119f-4c49-82ec-11d9a049bbd7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-9e629037-450f-4226-947a-436bb3dad3de"
+                },
+                {
+                  "name": "Retrieve an account",
+                  "id": "a5452b8b-ed3e-4ff7-b299-9ad23fa36385",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6c74b24b-7475-4a5e-9a45-639280ace1e8",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a single account by its ID.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "14554838-7cb5-4cae-841d-3eff4038bbd6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_30\": {\n      \"valueType\": \"MARKDOWN\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"in792\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-14554838-7cb5-4cae-841d-3eff4038bbd6"
+                    },
+                    {
+                      "id": "47bb2746-d0c7-43fb-9036-ab8f1bb531f2",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-47bb2746-d0c7-43fb-9036-ab8f1bb531f2"
+                    },
+                    {
+                      "id": "eba1670b-d453-4350-a335-8f878083e2d5",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-eba1670b-d453-4350-a335-8f878083e2d5"
+                    },
+                    {
+                      "id": "a2fb64ca-c4b7-4422-bced-ca53b5a507fb",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-a2fb64ca-c4b7-4422-bced-ca53b5a507fb"
+                    },
+                    {
+                      "id": "f581c1ab-c892-465d-9bee-10c6262dbd5e",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-f581c1ab-c892-465d-9bee-10c6262dbd5e"
+                    },
+                    {
+                      "id": "49c0ff6d-aac2-48b9-a9e9-bd357926585c",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-49c0ff6d-aac2-48b9-a9e9-bd357926585c"
+                    },
+                    {
+                      "id": "ca654c4f-99cd-4e4b-b6b8-7fff95f5da79",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-ca654c4f-99cd-4e4b-b6b8-7fff95f5da79"
+                    },
+                    {
+                      "id": "b8b45529-2304-42d1-b51e-43a0b2cec6f8",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-b8b45529-2304-42d1-b51e-43a0b2cec6f8"
+                    },
+                    {
+                      "id": "3022e9de-7c8f-4855-90c9-6db7d10958a7",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-3022e9de-7c8f-4855-90c9-6db7d10958a7"
+                    },
+                    {
+                      "id": "0172d887-5e51-4151-8e2d-bee3cdb18de9",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-0172d887-5e51-4151-8e2d-bee3cdb18de9"
+                    },
+                    {
+                      "id": "f0468710-949c-4308-9395-951f5fdbe2d3",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-f0468710-949c-4308-9395-951f5fdbe2d3"
+                    },
+                    {
+                      "id": "f1e5db0c-912c-4988-a967-f753b56178ac",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:42.000Z",
+                      "updatedAt": "2026-07-28T02:06:42.000Z",
+                      "uid": "35240-f1e5db0c-912c-4988-a967-f753b56178ac"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-a5452b8b-ed3e-4ff7-b299-9ad23fa36385"
+                }
+              ],
+              "id": "50a6ca6c-286d-463c-b582-41716ccc0c97",
+              "createdAt": "2026-07-28T02:06:42.000Z",
+              "updatedAt": "2026-07-28T02:06:42.000Z",
+              "uid": "35240-50a6ca6c-286d-463c-b582-41716ccc0c97"
+            },
+            {
+              "name": "Create an account",
+              "id": "12103ace-efd7-48c8-9670-1a23020f7da9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "accounts"
+                  ]
+                },
+                "description": "Creates a new account record. The `$name` field is required.\n\nIf a `$website` is provided, Lightfield automatically enriches the account in the background. The `$howTheyMakeMoney` and `$accountStatus` fields are read-only and cannot be set via the API. The `$opportunity`, `$task`, `$note`, and `$meeting` relationships are also read-only \u2014 manage them via the `$account` relationship on the opportunity or task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` attendees that belong to this account.\n\nSupports idempotency via the `Idempotency-Key` header.\n\nTo avoid duplicates, we recommend a find-or-create pattern \u2014 use <u>[list filtering](/using-the-api/list-endpoints/#filtering)</u> to check if a record exists before creating.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+              },
+              "response": [
+                {
+                  "id": "817fdce2-475e-4c10-b30c-8e87445e9ef2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_30\": {\n      \"valueType\": \"MARKDOWN\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"in792\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-817fdce2-475e-4c10-b30c-8e87445e9ef2"
+                },
+                {
+                  "id": "a8655b6a-5eae-4c2f-bb4a-1989a1f382f3",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-a8655b6a-5eae-4c2f-bb4a-1989a1f382f3"
+                },
+                {
+                  "id": "8a48503b-288a-49cf-999e-4131e39b952b",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-8a48503b-288a-49cf-999e-4131e39b952b"
+                },
+                {
+                  "id": "e807ffca-c834-4a76-bd61-a8150d737662",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-e807ffca-c834-4a76-bd61-a8150d737662"
+                },
+                {
+                  "id": "4e4b42b5-9b7f-49da-8ee2-1938dfa26f1d",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-4e4b42b5-9b7f-49da-8ee2-1938dfa26f1d"
+                },
+                {
+                  "id": "0fb5ad5d-8d4b-4116-9722-06beb97609e1",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-0fb5ad5d-8d4b-4116-9722-06beb97609e1"
+                },
+                {
+                  "id": "24ce7842-b706-4603-a1b4-d192044fe2e7",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-24ce7842-b706-4603-a1b4-d192044fe2e7"
+                },
+                {
+                  "id": "7ed88be5-5fd3-474a-bee5-8e025801baf9",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-7ed88be5-5fd3-474a-bee5-8e025801baf9"
+                },
+                {
+                  "id": "9a42f6b8-4165-450a-854e-241d1ea7f930",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-9a42f6b8-4165-450a-854e-241d1ea7f930"
+                },
+                {
+                  "id": "afc074fd-fefa-4808-bd0b-86cce68a7955",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-afc074fd-fefa-4808-bd0b-86cce68a7955"
+                },
+                {
+                  "id": "5b08d116-76fc-473f-87e4-a3d80caec123",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-5b08d116-76fc-473f-87e4-a3d80caec123"
+                },
+                {
+                  "id": "41bbf0e3-6518-4f47-8cd1-84350cb7c362",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$facebook\": \"<string>\",\n    \"$headcount\": \"<string>\",\n    \"$industry\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$instagram\": \"<string>\",\n    \"$lastFundingType\": \"<string>\",\n    \"$linkedIn\": \"<string>\",\n    \"$primaryAddress\": {\n      \"street\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"latitude\": \"<number>\",\n      \"longitude\": \"<number>\"\n    },\n    \"$twitter\": \"<string>\",\n    \"$website\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"relationships\": {\n    \"$owner\": \"<string>\",\n    \"$contact\": \"<string>\",\n    \"veniam_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-41bbf0e3-6518-4f47-8cd1-84350cb7c362"
+                }
+              ],
+              "createdAt": "2026-07-28T02:06:42.000Z",
+              "updatedAt": "2026-07-28T02:06:42.000Z",
+              "uid": "35240-12103ace-efd7-48c8-9670-1a23020f7da9"
+            },
+            {
+              "name": "List accounts",
+              "id": "71822913-580e-47e8-8796-9a95ab11daf7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of accounts. Use `offset` and `limit` to paginate through results, and `$field` query parameters to filter. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about <u>[pagination](/using-the-api/list-endpoints/#pagination)</u> and <u>[filtering](/using-the-api/list-endpoints/#filtering)</u>.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+              },
+              "response": [
+                {
+                  "id": "76b1f2e8-1d87-4764-87fa-ba5c74d0465d",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"tempor_c7\": {\n          \"valueType\": \"CHECKBOX\",\n          \"value\": \"<string>\"\n        },\n        \"Excepteur56\": {\n          \"valueType\": \"NUMBER\",\n          \"value\": \"<string>\"\n        },\n        \"dolorb\": {\n          \"valueType\": \"DATETIME\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"esse_3\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"nisi_b\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"in3\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"mollit_ae\": {\n          \"valueType\": \"SINGLE_SELECT\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"anim_8ff\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"quis_7\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"non28\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"externalId\": \"<string>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-76b1f2e8-1d87-4764-87fa-ba5c74d0465d"
+                },
+                {
+                  "id": "e3e964b1-84dc-4b1c-8083-39b74c76f124",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-e3e964b1-84dc-4b1c-8083-39b74c76f124"
+                },
+                {
+                  "id": "f5bf1850-7d97-4e38-a10b-8241e83d8bb5",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-f5bf1850-7d97-4e38-a10b-8241e83d8bb5"
+                },
+                {
+                  "id": "b24bc2e4-d55c-4b4e-8069-ce68040e1e91",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-b24bc2e4-d55c-4b4e-8069-ce68040e1e91"
+                },
+                {
+                  "id": "aad30133-b346-468b-8d87-c2d1c6a93625",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-aad30133-b346-468b-8d87-c2d1c6a93625"
+                },
+                {
+                  "id": "f4701f87-a9ff-48bd-a0c1-583814f4e7d3",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-f4701f87-a9ff-48bd-a0c1-583814f4e7d3"
+                },
+                {
+                  "id": "9aecea65-6f38-4d4a-a708-6cde79e35d38",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-9aecea65-6f38-4d4a-a708-6cde79e35d38"
+                },
+                {
+                  "id": "24444065-b76d-4125-9854-afa8feb11014",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-24444065-b76d-4125-9854-afa8feb11014"
+                },
+                {
+                  "id": "2b11fd41-8182-4402-ac20-f89161eb5ab2",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-2b11fd41-8182-4402-ac20-f89161eb5ab2"
+                },
+                {
+                  "id": "6556ff12-0324-49e2-ad5a-515af73b8062",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-6556ff12-0324-49e2-ad5a-515af73b8062"
+                },
+                {
+                  "id": "b97f18b8-0b9f-4cfa-9d4b-ee4eaa8ba4c3",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-b97f18b8-0b9f-4cfa-9d4b-ee4eaa8ba4c3"
+                },
+                {
+                  "id": "19453440-1f43-47d4-8a3f-c3248ce6a7e3",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/accounts?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:06:42.000Z",
+                  "updatedAt": "2026-07-28T02:06:42.000Z",
+                  "uid": "35240-19453440-1f43-47d4-8a3f-c3248ce6a7e3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:06:42.000Z",
+              "updatedAt": "2026-07-28T02:06:42.000Z",
+              "uid": "35240-71822913-580e-47e8-8796-9a95ab11daf7"
+            }
+          ],
+          "id": "3adc9c0f-2aa3-484d-acf0-9d4d9b1f41e8",
+          "createdAt": "2026-07-28T02:06:42.000Z",
+          "updatedAt": "2026-07-28T02:06:42.000Z",
+          "uid": "35240-3adc9c0f-2aa3-484d-acf0-9d4d9b1f41e8"
+        }
+      ],
+      "id": "831e55ce-3753-4033-a9d5-1b330f79302a",
+      "createdAt": "2026-07-28T02:06:42.000Z",
+      "updatedAt": "2026-07-28T02:06:42.000Z",
+      "uid": "35240-831e55ce-3753-4033-a9d5-1b330f79302a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

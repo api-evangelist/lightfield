@@ -1,0 +1,73 @@
+generated: '2026-07-19'
+method: searched
+source: https://lightfield.app/blog?category=changelog
+url: https://lightfield.app/blog?category=changelog
+scheme: dated-product-changelog
+cadence: weekly (Fridays)
+api_versioning:
+  scheme: date-header
+  header: Lightfield-Version
+  current: '2026-03-01'
+  note: >-
+    The changelog is a product changelog covering the whole platform, including API additions. API
+    versioning itself is pinned per request via the Lightfield-Version date header. No separate
+    API-only changelog or dated version-migration guide was found.
+window: 2026-03-20 through 2026-07-01 (captured 2026-07-19)
+entries:
+- date: '2026-07-01'
+  title: Improvements to Sequences and Automations
+- date: '2026-06-26'
+  title: Slack agent, target list improvements
+- date: '2026-06-19'
+  title: Sequences, record merge and improvements to custom objects
+  api_relevant: true
+  highlights:
+  - Record merge (merge.mergeAccounts / mergeContacts / mergeOpportunities / mergeObjectValues)
+  - Custom object improvements
+- date: '2026-06-12'
+  title: Automations in open beta, favorites, find in view
+- date: '2026-06-05'
+  title: Label your tasks and notes, draft and delete via API
+  api_relevant: true
+  highlights:
+  - Draft emails via API (email.draft)
+  - Delete operations exposed via API
+- date: '2026-05-29'
+  title: Relationship filtering, single sign-on and meeting recording controls
+  api_relevant: true
+  highlights:
+  - Relationship filtering on list methods
+  - Single sign-on
+- date: '2026-05-22'
+  title: Email API and Record Creation Controls
+  api_relevant: true
+  highlights:
+  - Email API (email.list / retrieve / send)
+- date: '2026-05-15'
+  title: Enhancements to Custom Objects and Automations
+- date: '2026-05-01'
+  title: Email conversations rollout and agent tooling improvements
+- date: '2026-04-24'
+  title: Email replies and attachments, custom objects, and more
+- date: '2026-04-17'
+  title: Improvements to Skills and Knowledge, support for Claude Opus 4.7
+- date: '2026-04-10'
+  title: Skills and Knowledge, MCP, performance improvements
+  api_relevant: true
+  highlights:
+  - Model Context Protocol (MCP) server launched
+- date: '2026-04-03'
+  title: API additions, Improved data visualizations
+  api_relevant: true
+- date: '2026-03-27'
+  title: Table column math, Agent data model tools
+- date: '2026-03-20'
+  title: REST API, Agentic CSV import, Command-K
+  api_relevant: true
+  highlights:
+  - Public REST API launched ("Introducing the Lightfield API")
+breaking_changes_observed: []
+notes: >-
+  Entries are titles as published on the changelog category of the Lightfield blog; each links to a
+  full post. No breaking changes were announced in the captured window — the API has been additive
+  since its 2026-03-20 launch.

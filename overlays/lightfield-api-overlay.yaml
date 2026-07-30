@@ -1,0 +1,137 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Lightfield API
+  version: 1.0.0
+extends: openapi/lightfield-openapi-original.yml
+x-generated: '2026-07-19'
+x-method: generated
+x-source: >-
+  Enhancements derived from https://docs.lightfield.app/using-the-api/ and applied over the
+  Stainless-published OpenAPI description. The original spec is never mutated.
+actions:
+# --- Identity the published spec omits (info.title is "API Reference", version "0.0.0") ---
+- target: $.info
+  update:
+    title: Lightfield API
+    version: '2026-03-01'
+    summary: Read/write access to every entity in the Lightfield agent-native CRM.
+    description: >-
+      The Lightfield API provides read and write access to accounts, contacts, opportunities,
+      meetings, notes, tasks, lists, emails, files, members, custom objects and workflow runs. JSON
+      REST over a bearer API key, with a required date-based version header, Idempotency-Key support
+      on writes, and limit/offset pagination. Currently in public beta.
+    termsOfService: https://lightfield.app/terms
+    contact:
+      name: Lightfield Support
+      url: https://support.lightfield.app
+      email: support@lightfield.app
+    x-apievangelist-rating-source: https://apis.io/provider/lightfield
+    x-logo:
+      url: https://cdn.sanity.io/images/3ccg9tet/production/06c39c0d99c42e90b57fccf4975907af19118ea5-320x320.png
+
+# --- The published spec declares no servers[] ---
+- target: $
+  update:
+    servers:
+    - url: https://api.lightfield.app/v1
+      description: Production
+    externalDocs:
+      description: Lightfield API documentation
+      url: https://docs.lightfield.app/
+    tags:
+    - name: account
+      description: Organizations you do business with.
+    - name: contact
+      description: People, typically linked to accounts and opportunities.
+    - name: opportunity
+      description: Engagements tracked by stage toward a deal.
+    - name: task
+      description: Actionable work items.
+    - name: meeting
+      description: Calendar-synced or manually logged meetings, including transcripts.
+    - name: email
+      description: Emails synced from or sent through connected mailboxes.
+    - name: note
+      description: Rich markdown documents that can mention CRM entities.
+    - name: list
+      description: Curated lists of records of a given object type.
+    - name: member
+      description: Internal members of your team.
+    - name: file
+      description: Session-based file uploads and signed download URLs.
+    - name: object
+      description: Workspace-defined custom object types and their records.
+    - name: workflowRun
+      description: Workflow execution status.
+    - name: auth
+      description: API key validation.
+
+# --- Security: the spec defines bearerAuth but never applies it globally ---
+- target: $
+  update:
+    security:
+    - bearerAuth: []
+
+- target: $.components.securitySchemes.bearerAuth
+  update:
+    description: >-
+      Scoped Lightfield API key, sent as `Authorization: Bearer sk_lf_...`. Keys are created by
+      admins at https://crm.lightfield.app/crm/settings/api-keys and carry the scopes selected at
+      creation time. See https://docs.lightfield.app/using-the-api/api-keys/.
+    x-key-prefix: sk_lf_
+    x-scopes-documented: https://docs.lightfield.app/using-the-api/scopes/
+    x-scope-count: 26
+    x-scope-convention: '<object>:<create|update|read>'
+
+# --- Cross-cutting request semantics the spec does not model as parameters ---
+- target: $.info
+  update:
+    x-required-headers:
+    - name: Lightfield-Version
+      required: true
+      example: '2026-03-01'
+      description: >-
+        Date-based API version pin. Requests missing or sending an invalid value receive 400 with
+        error code `version_header`.
+    x-idempotency:
+      header: Idempotency-Key
+      applies_to: POST create, POST update, POST /v1/emails/send
+      max_length: 255
+      retention: 24h
+      scope: organization + operation type
+      conflict_status: 409
+      conflict_type: idempotency_conflict
+      docs: https://docs.lightfield.app/using-the-api/idempotency/
+    x-pagination:
+      style: limit-offset
+      params: [limit, offset]
+      limit_min: 1
+      limit_max: 25
+      response_fields: [data, object, totalCount]
+      consistency: >-
+        List methods read from a search index that may lag recent writes; use the per-resource
+        Retrieve method when freshness matters.
+      docs: https://docs.lightfield.app/using-the-api/list-endpoints/
+    x-rate-limits:
+      scope: per organization
+      write: 25 rps
+      read: 25 rps
+      search: 25 rps
+      headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After]
+      exceeded_status: 429
+      docs: https://docs.lightfield.app/using-the-api/rate-limits/
+    x-error-envelope:
+      wrapper: error
+      fields: [type, message, code, param]
+      rfc9457: false
+      docs: https://docs.lightfield.app/using-the-api/errors/
+    x-lifecycle:
+      stage: beta
+      status_page: https://status.lightfield.app/
+      changelog: https://lightfield.app/blog?category=changelog
+    x-agent-surfaces:
+      mcp_server: https://mcp.lightfield.app/mcp
+      mcp_transport: streamable-http
+      mcp_auth: oauth2.1
+      llms_txt: https://docs.lightfield.app/llms.txt
+      markdown_docs: append `.md` to any documentation URL

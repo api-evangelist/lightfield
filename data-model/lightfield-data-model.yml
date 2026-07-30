@@ -1,0 +1,207 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightfield-openapi-original.yml
+docs: https://docs.lightfield.app/objects-in-lightfield/object-types/
+model: >-
+  Lightfield uses a uniform, definition-driven object model rather than fixed per-entity schemas.
+  Every record — built-in or custom — is returned with the same envelope: an `id`, `createdAt`, a
+  `fields` map of {value, valueType}, a `relationships` map of {cardinality, objectType, values},
+  and an `httpLink` back into the CRM UI. System field and relationship keys are prefixed with `$`
+  (e.g. `$name`, `$website`, `$transcript`, `$owner`). Because relationships are data rather than
+  schema, the concrete relationship graph for a workspace is discovered at runtime via each object's
+  Definitions method — this artifact records the built-in entities and the relationship edges
+  Lightfield documents, not an exhaustive fixed schema.
+envelope:
+  record_fields: [id, createdAt, fields, relationships, httpLink]
+  field_shape: {value: any, valueType: string}
+  relationship_shape: {cardinality: string, objectType: string, values: [id]}
+  system_key_prefix: '$'
+  list_envelope: {data: [record], object: string, totalCount: integer}
+discovery:
+  definitions_operations:
+  - account.definitions
+  - contact.definitions
+  - opportunity.definitions
+  - task.definitions
+  - meeting.definitions
+  - note.definitions
+  - object.definitions
+  - object.listDefinitions
+  note: >-
+    Definitions return the field and relationship definitions for an object type, including
+    valueType and relationship cardinality. This is the authoritative source for a given workspace.
+field_value_types:
+- NUMBER
+- CURRENCY
+- DATETIME
+- TEXT
+- FULL_NAME
+- SOCIAL_HANDLE
+- ADDRESS
+- CHECKBOX
+- SINGLE_SELECT
+- MULTI_SELECT
+- EMAIL
+- TELEPHONE
+- URL
+- MARKDOWN
+entities:
+- name: Account
+  slug: accounts
+  description: An organization you do business with, typically a customer.
+  example_fields: [website, revenue, industry]
+  operations: [account.create, account.list, account.retrieve, account.update, account.definitions]
+  path: /v1/accounts
+- name: Opportunity
+  slug: opportunities
+  description: An engagement tracked by stages over a period of time, representing progress toward a
+    deal.
+  example_fields: [deal amount, stage, next steps]
+  operations: [opportunity.create, opportunity.list, opportunity.retrieve, opportunity.update,
+    opportunity.definitions]
+  path: /v1/opportunities
+- name: Contact
+  slug: contacts
+  description: A person, typically linked to accounts and opportunities.
+  example_fields: [email address, phone number, job title]
+  operations: [contact.create, contact.list, contact.retrieve, contact.update, contact.definitions]
+  path: /v1/contacts
+- name: Task
+  slug: tasks
+  description: An actionable work item.
+  example_fields: [status, due date, owner]
+  operations: [task.create, task.list, task.retrieve, task.update, task.definitions]
+  path: /v1/tasks
+- name: Meeting
+  slug: meetings
+  description: A scheduled meeting event synced from a calendar or logged manually.
+  example_fields: [participants, meeting url, $transcript]
+  operations: [meeting.create, meeting.list, meeting.retrieve, meeting.update, meeting.definitions]
+  path: /v1/meetings
+- name: Email
+  slug: emails
+  description: An email message synced from a mailbox, or created through a connected mailbox.
+  example_fields: [subject, $sentAt, from, to, cc, bcc, body, $attachment]
+  operations: [email.list, email.retrieve, email.send, email.draft]
+  path: /v1/emails
+- name: Note
+  slug: notes
+  description: A rich markdown document with the ability to mention CRM entities.
+  example_fields: [title, body, account, opportunity]
+  operations: [note.create, note.list, note.retrieve, note.update]
+  path: /v1/notes
+  note: >-
+    The docs API reference also lists Definitions and Delete for notes; neither appears in the
+    OpenAPI description captured on 2026-07-19.
+- name: List
+  slug: lists
+  description: A curated list of records of a given object type.
+  example_fields: [name, object type]
+  operations: [list.create, list.list, list.retrieve, list.update, list.listAccounts,
+    list.listContacts, list.listOpportunities]
+  path: /v1/lists
+- name: Member
+  slug: members
+  description: An internal member of your team.
+  example_fields: [name, email address, role]
+  operations: [member.list, member.retrieve]
+  path: /v1/members
+  mutable: false
+- name: File
+  slug: files
+  description: An uploaded file, created through a session-based upload flow.
+  operations: [file.create, file.list, file.retrieve, file.url, file.complete, file.cancel]
+  path: /v1/files
+- name: CustomObject
+  slug: objects
+  description: A workspace-defined object type. Records are addressed by entity slug.
+  operations: [object.create, object.list, object.retrieve, object.update, object.definitions,
+    object.listDefinitions]
+  path: /v1/objects/{entitySlug}
+  status: >-
+    The API surface exists; the docs note custom objects are "coming soon" for general definition,
+    while changelog entries from 2026-05 and 2026-06 describe custom-object improvements.
+- name: WorkflowRun
+  slug: workflowRun
+  description: An execution of a workflow.
+  operations: [workflowRun.status]
+  path: /v1/workflowRun/{runId}/status
+  mutable: false
+relationships:
+- from: Contact
+  to: Account
+  type: belongs_to
+  via: relationship field
+  evidence: 'Contact is "a person, typically linked to accounts and opportunities"'
+- from: Contact
+  to: Opportunity
+  type: has_many
+  via: relationship field
+  evidence: 'Contact is "a person, typically linked to accounts and opportunities"'
+- from: Account
+  to: Contact
+  type: has_many
+  via: relationship field
+- from: Account
+  to: Opportunity
+  type: has_many
+  via: relationship field
+- from: Opportunity
+  to: Account
+  type: belongs_to
+  via: relationship field
+- from: Note
+  to: Account
+  type: belongs_to
+  via: account
+  evidence: Note example fields include account and opportunity
+- from: Note
+  to: Opportunity
+  type: belongs_to
+  via: opportunity
+- from: Task
+  to: Member
+  type: belongs_to
+  via: $owner
+  evidence: Task example fields include owner; relationships.$owner appears in documented error params
+- from: List
+  to: Account
+  type: has_many
+  via: list.listAccounts
+- from: List
+  to: Contact
+  type: has_many
+  via: list.listContacts
+- from: List
+  to: Opportunity
+  type: has_many
+  via: list.listOpportunities
+- from: Meeting
+  to: Contact
+  type: has_many
+  via: participants
+- from: Email
+  to: Contact
+  type: has_many
+  via: from/to/cc/bcc
+- from: Email
+  to: File
+  type: has_many
+  via: $attachment
+merge_semantics:
+  note: >-
+    Duplicate records can be merged. The docs API reference exposes merge.mergeAccounts,
+    merge.mergeContacts, merge.mergeOpportunities, merge.mergeObjectValues and merge.getMerge (added
+    in the 2026-06-19 changelog); these are surfaced in the SDKs and CLI but are not present in the
+    OpenAPI description captured on 2026-07-19.
+spec_vs_docs_divergence:
+  note: >-
+    The Stainless-published OpenAPI description captured on 2026-07-19 is a subset of the docs API
+    reference. The docs list Delete methods for account, contact, opportunity, task, meeting, note,
+    list and object, and a full merge resource; none of these appear in the captured spec, which
+    contains no DELETE operations at all. Entity operation lists in this file follow the spec; the
+    docs-only methods are called out per entity.
+identifiers:
+  style: opaque string ids
+  prefixed: false
+  note: No documented id prefix convention (unlike prefix-per-object designs).

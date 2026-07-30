@@ -1,0 +1,3194 @@
+{
+  "info": {
+    "_postman_id": "378d565a-3d0c-4296-8ed7-c4cb67662008",
+    "name": "API Reference Accounts Meetings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:00.000Z",
+    "updatedAt": "2026-07-28T02:07:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-378d565a-3d0c-4296-8ed7-c4cb67662008"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "meetings",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Update a meeting",
+                  "id": "50af71c8-323d-4862-9a8e-5759c7f14cdf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6a12a9a5-fe96-451d-8cf6-b9468a14bcdf",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates an existing meeting by ID. Only included fields and relationships are modified.\n\nOnly `fields.$privacySetting` and `relationships.$transcript.replace` are writable. Use `$transcript.replace` to set the meeting transcript. Clearing or removing `$transcript` is not supported. The `$account` and `$opportunity` relationships are read-only and are derived from the meeting's `$contact` attendees and the accounts/opportunities those contacts belong to. The response is privacy-aware and includes a read-only `accessLevel`. See <u>[Uploading meeting transcripts](/using-the-api/uploading-meeting-transcripts/)</u> for the full file upload and transcript attachment flow.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `meetings:update`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+                  },
+                  "response": [
+                    {
+                      "id": "d17ce55e-f926-4b99-a3c5-32fd74feb48c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"dolore_\": {\n      \"valueType\": \"SOCIAL_HANDLE\",\n      \"value\": \"<string>\"\n    },\n    \"elit_c_2\": {\n      \"valueType\": \"MULTI_SELECT\",\n      \"value\": \"<string>\"\n    },\n    \"enim_2d\": {\n      \"valueType\": \"CURRENCY\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"laborisb6\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"objectType\": \"meeting\",\n  \"accessLevel\": \"METADATA\",\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-d17ce55e-f926-4b99-a3c5-32fd74feb48c"
+                    },
+                    {
+                      "id": "94384c88-73d7-4a28-9758-32f014f4c140",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-94384c88-73d7-4a28-9758-32f014f4c140"
+                    },
+                    {
+                      "id": "751113bf-73fa-44b2-b591-c0b849188fb7",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-751113bf-73fa-44b2-b591-c0b849188fb7"
+                    },
+                    {
+                      "id": "ee34a955-05fb-4983-ac3f-f2b520ed59bf",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-ee34a955-05fb-4983-ac3f-f2b520ed59bf"
+                    },
+                    {
+                      "id": "fd5dff61-cd11-4b10-81fd-3a88f6000e77",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-fd5dff61-cd11-4b10-81fd-3a88f6000e77"
+                    },
+                    {
+                      "id": "862ce467-4f10-44e5-a3e2-249ff5f3516f",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-862ce467-4f10-44e5-a3e2-249ff5f3516f"
+                    },
+                    {
+                      "id": "1a494e03-4a04-4c38-943e-5ffbe335aee7",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-1a494e03-4a04-4c38-943e-5ffbe335aee7"
+                    },
+                    {
+                      "id": "df9af33f-92c8-4672-a6de-d33912667153",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-df9af33f-92c8-4672-a6de-d33912667153"
+                    },
+                    {
+                      "id": "102768e5-b6bb-4781-b5c8-de60b0c52f1b",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-102768e5-b6bb-4781-b5c8-de60b0c52f1b"
+                    },
+                    {
+                      "id": "237d68d6-540d-4412-aa70-cde7c2988c67",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-237d68d6-540d-4412-aa70-cde7c2988c67"
+                    },
+                    {
+                      "id": "ffb446c2-f876-43da-8144-b57f2621bc04",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-ffb446c2-f876-43da-8144-b57f2621bc04"
+                    },
+                    {
+                      "id": "a6279b02-dc31-4e84-941f-1b80f1c88123",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$privacySetting\": \"FULL\"\n  },\n  \"relationships\": {\n    \"$transcript\": {\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-a6279b02-dc31-4e84-941f-1b80f1c88123"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-50af71c8-323d-4862-9a8e-5759c7f14cdf"
+                },
+                {
+                  "name": "Retrieve a meeting",
+                  "id": "9212091e-0ba9-4228-b073-694160126e5c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ee91e89a-99cf-44ae-ab1f-4349e5c03d04",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a single meeting by its ID. Meeting fields and transcript visibility are redacted based on the caller-specific privacy resolution, and the response includes a read-only `accessLevel`.\n\n**[Required scope](/using-the-api/scopes/):** `meetings:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "278b823e-f036-4313-9a55-816c4caf3718",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"dolore_\": {\n      \"valueType\": \"SOCIAL_HANDLE\",\n      \"value\": \"<string>\"\n    },\n    \"elit_c_2\": {\n      \"valueType\": \"MULTI_SELECT\",\n      \"value\": \"<string>\"\n    },\n    \"enim_2d\": {\n      \"valueType\": \"CURRENCY\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"laborisb6\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"objectType\": \"meeting\",\n  \"accessLevel\": \"METADATA\",\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-278b823e-f036-4313-9a55-816c4caf3718"
+                    },
+                    {
+                      "id": "d5affeec-f41a-45c1-beb5-506a253e4354",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-d5affeec-f41a-45c1-beb5-506a253e4354"
+                    },
+                    {
+                      "id": "07504619-2be6-4912-945d-0385bc54bd13",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-07504619-2be6-4912-945d-0385bc54bd13"
+                    },
+                    {
+                      "id": "43312e85-0dbb-44bd-803d-f509cb227f44",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-43312e85-0dbb-44bd-803d-f509cb227f44"
+                    },
+                    {
+                      "id": "e8cd9a66-1289-4f94-b0bb-b2a61c51ae36",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-e8cd9a66-1289-4f94-b0bb-b2a61c51ae36"
+                    },
+                    {
+                      "id": "deb9cc2a-991e-4526-a9dd-17e4209b3cca",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-deb9cc2a-991e-4526-a9dd-17e4209b3cca"
+                    },
+                    {
+                      "id": "dd638a6b-73ae-4413-ae78-10c2eb32136a",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-dd638a6b-73ae-4413-ae78-10c2eb32136a"
+                    },
+                    {
+                      "id": "0b643b8d-853c-4656-bde9-a3a36bccd759",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-0b643b8d-853c-4656-bde9-a3a36bccd759"
+                    },
+                    {
+                      "id": "3e074a3a-32ac-45ef-bc67-ca8c783fa527",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-3e074a3a-32ac-45ef-bc67-ca8c783fa527"
+                    },
+                    {
+                      "id": "3a212726-0af5-481b-b8af-1a39186382a0",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-3a212726-0af5-481b-b8af-1a39186382a0"
+                    },
+                    {
+                      "id": "18d1c5a7-c6d7-4662-93fd-909e6d1ddd3c",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-18d1c5a7-c6d7-4662-93fd-909e6d1ddd3c"
+                    },
+                    {
+                      "id": "cf09aeed-e313-496b-bc42-ac07d26e0d47",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/meetings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "meetings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:07:01.000Z",
+                      "updatedAt": "2026-07-28T02:07:01.000Z",
+                      "uid": "35240-cf09aeed-e313-496b-bc42-ac07d26e0d47"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-9212091e-0ba9-4228-b073-694160126e5c"
+                }
+              ],
+              "id": "4ea4aad9-46b9-47eb-bae6-6eb35149e49c",
+              "createdAt": "2026-07-28T02:07:01.000Z",
+              "updatedAt": "2026-07-28T02:07:01.000Z",
+              "uid": "35240-4ea4aad9-46b9-47eb-bae6-6eb35149e49c"
+            },
+            {
+              "name": "Create a meeting",
+              "id": "4bc21665-cc59-4806-86f3-1a5578b74918",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/meetings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "meetings"
+                  ]
+                },
+                "description": "Creates a new meeting record. This endpoint only supports creation of meetings in the past. The `$title`, `$startDate`, and `$endDate` fields are required. Only the `$transcript` relationship is writable on create; all other meeting relationships are system-managed. The `$account` and `$opportunity` relationships are read-only and are derived from the meeting's `$contact` attendees and the accounts/opportunities those contacts belong to. The response is privacy-aware and includes a read-only `accessLevel`. See <u>[Uploading meeting transcripts](/using-the-api/uploading-meeting-transcripts/)</u> for the full file upload and transcript attachment flow.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `meetings:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+              },
+              "response": [
+                {
+                  "id": "cecfe62b-fdb5-43f5-bdd7-6a41f168538e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"dolore_\": {\n      \"valueType\": \"SOCIAL_HANDLE\",\n      \"value\": \"<string>\"\n    },\n    \"elit_c_2\": {\n      \"valueType\": \"MULTI_SELECT\",\n      \"value\": \"<string>\"\n    },\n    \"enim_2d\": {\n      \"valueType\": \"CURRENCY\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"laborisb6\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"objectType\": \"meeting\",\n  \"accessLevel\": \"METADATA\",\n  \"externalId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-cecfe62b-fdb5-43f5-bdd7-6a41f168538e"
+                },
+                {
+                  "id": "57bc3e3b-7613-4308-be54-d7fa602e77c1",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-57bc3e3b-7613-4308-be54-d7fa602e77c1"
+                },
+                {
+                  "id": "d98c05d7-1335-4230-935d-5f68e25992a3",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-d98c05d7-1335-4230-935d-5f68e25992a3"
+                },
+                {
+                  "id": "16bf6786-c36b-4f61-9f4f-98652757878c",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-16bf6786-c36b-4f61-9f4f-98652757878c"
+                },
+                {
+                  "id": "a66a4ab2-b314-4f9c-a84f-414cecd1bbbc",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-a66a4ab2-b314-4f9c-a84f-414cecd1bbbc"
+                },
+                {
+                  "id": "3460a40c-72f7-47fb-8524-574564ee9309",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-3460a40c-72f7-47fb-8524-574564ee9309"
+                },
+                {
+                  "id": "d9c5e6c9-7fd0-470d-a82e-73ee8fe66119",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-d9c5e6c9-7fd0-470d-a82e-73ee8fe66119"
+                },
+                {
+                  "id": "62069bbd-327d-4fa8-8657-1eee2b878072",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-62069bbd-327d-4fa8-8657-1eee2b878072"
+                },
+                {
+                  "id": "53cad9f4-dea2-4f23-8311-d1b9e37ca1aa",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-53cad9f4-dea2-4f23-8311-d1b9e37ca1aa"
+                },
+                {
+                  "id": "9628e4ef-6f43-4c9f-b2c4-a0ba60e9a317",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-9628e4ef-6f43-4c9f-b2c4-a0ba60e9a317"
+                },
+                {
+                  "id": "c6d1ddb9-a55f-4653-880d-4520403686dc",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-c6d1ddb9-a55f-4653-880d-4520403686dc"
+                },
+                {
+                  "id": "4bcfa5d5-c16f-4c80-b66a-075133ee1a51",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$title\": \"<string>\",\n    \"$startDate\": \"<string>\",\n    \"$endDate\": \"<string>\",\n    \"$description\": \"<string>\",\n    \"$meetingUrl\": \"<string>\",\n    \"$organizerEmail\": \"<string>\",\n    \"$attendeeEmails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"$privacySetting\": \"METADATA\"\n  },\n  \"relationships\": {\n    \"$transcript\": \"<string>\"\n  },\n  \"autoCreateRecords\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-4bcfa5d5-c16f-4c80-b66a-075133ee1a51"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:01.000Z",
+              "updatedAt": "2026-07-28T02:07:01.000Z",
+              "uid": "35240-4bc21665-cc59-4806-86f3-1a5578b74918"
+            },
+            {
+              "name": "List meetings",
+              "id": "0e806c25-6e0a-4671-a128-c57c11e5426a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "meetings"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of meetings. Use `offset` and `limit` to paginate through results. Each meeting is privacy-filtered per caller, includes a read-only `accessLevel`, and may redact transcript or content fields based on the caller-specific privacy resolution. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `meetings:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+              },
+              "response": [
+                {
+                  "id": "106041a4-4a85-4c42-bf23-07b1f3188842",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"nulla21\": {\n          \"valueType\": \"NUMBER\",\n          \"value\": \"<string>\"\n        },\n        \"ea_9\": {\n          \"valueType\": \"MULTI_SELECT\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"sunt6_\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"objectType\": \"meeting\",\n      \"accessLevel\": \"FULL\",\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"ullamco_be\": {\n          \"valueType\": \"NUMBER\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"pariatur_d8\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"objectType\": \"meeting\",\n      \"accessLevel\": \"METADATA\",\n      \"externalId\": \"<string>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-106041a4-4a85-4c42-bf23-07b1f3188842"
+                },
+                {
+                  "id": "3e2db2d1-e419-4a75-9f49-66c297376a40",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-3e2db2d1-e419-4a75-9f49-66c297376a40"
+                },
+                {
+                  "id": "7e2c1072-8793-48e4-9814-0118a358bc76",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-7e2c1072-8793-48e4-9814-0118a358bc76"
+                },
+                {
+                  "id": "17e7d838-56ab-4f2f-ab3e-5c2179645b28",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-17e7d838-56ab-4f2f-ab3e-5c2179645b28"
+                },
+                {
+                  "id": "a7a13ecf-eb1e-4da3-91f3-6fb207e936de",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-a7a13ecf-eb1e-4da3-91f3-6fb207e936de"
+                },
+                {
+                  "id": "c65fcb87-2ff6-4d5c-9006-5aeece4ae994",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-c65fcb87-2ff6-4d5c-9006-5aeece4ae994"
+                },
+                {
+                  "id": "c7a59bcc-e323-4dda-a1e5-508d837b1052",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-c7a59bcc-e323-4dda-a1e5-508d837b1052"
+                },
+                {
+                  "id": "940587b6-68e6-4c31-9dcd-d932d7c26357",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-940587b6-68e6-4c31-9dcd-d932d7c26357"
+                },
+                {
+                  "id": "96b9ee21-2297-41cc-82a2-9c63d6a31789",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-96b9ee21-2297-41cc-82a2-9c63d6a31789"
+                },
+                {
+                  "id": "35b69679-6982-44f9-8e9f-4ad98a0939ae",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-35b69679-6982-44f9-8e9f-4ad98a0939ae"
+                },
+                {
+                  "id": "93bdd3c8-7780-43da-adb9-a6dfac508fba",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-93bdd3c8-7780-43da-adb9-a6dfac508fba"
+                },
+                {
+                  "id": "fbe3a060-c3ce-41cf-b80d-e1f4261fb9cf",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/meetings?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "meetings"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:07:01.000Z",
+                  "updatedAt": "2026-07-28T02:07:01.000Z",
+                  "uid": "35240-fbe3a060-c3ce-41cf-b80d-e1f4261fb9cf"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:01.000Z",
+              "updatedAt": "2026-07-28T02:07:01.000Z",
+              "uid": "35240-0e806c25-6e0a-4671-a128-c57c11e5426a"
+            }
+          ],
+          "id": "ecbae9cf-7506-41e9-9387-3eec3885a5f9",
+          "createdAt": "2026-07-28T02:07:01.000Z",
+          "updatedAt": "2026-07-28T02:07:01.000Z",
+          "uid": "35240-ecbae9cf-7506-41e9-9387-3eec3885a5f9"
+        }
+      ],
+      "id": "7c2bae7f-922b-4470-a016-ce813577f81b",
+      "createdAt": "2026-07-28T02:07:01.000Z",
+      "updatedAt": "2026-07-28T02:07:01.000Z",
+      "uid": "35240-7c2bae7f-922b-4470-a016-ce813577f81b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

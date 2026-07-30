@@ -1,0 +1,3839 @@
+{
+  "info": {
+    "_postman_id": "73ff8556-278b-45f5-aa87-6340c4353805",
+    "name": "API Reference Accounts Opportunities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:32.000Z",
+    "updatedAt": "2026-07-28T02:07:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-73ff8556-278b-45f5-aa87-6340c4353805"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "opportunities",
+          "item": [
+            {
+              "name": "definitions",
+              "item": [
+                {
+                  "name": "Get opportunity field definitions",
+                  "id": "ae952fdc-d43d-4709-96e2-489f1ec10bf3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities",
+                        "definitions"
+                      ]
+                    },
+                    "description": "Returns the schema for all field and relationship definitions available on opportunities, including both system-defined and custom fields. Useful for understanding the shape of opportunity data before creating or updating records. See <u>[Fields and relationships](/using-the-api/fields-and-relationships/)</u> for more details.\n\n**[Required scope](/using-the-api/scopes/):** `opportunities:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "82d824c0-3ac1-412e-bf84-eb9a6eb26a73",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"objectType\": \"<string>\",\n  \"fieldDefinitions\": {\n    \"aute_4_\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"valueType\": \"CURRENCY\",\n      \"typeConfiguration\": {\n        \"options\": [\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"unique\": \"<boolean>\",\n        \"multipleValues\": \"<boolean>\",\n        \"handleService\": \"TWITTER\"\n      },\n      \"id\": \"<string>\",\n      \"readOnly\": \"<boolean>\"\n    },\n    \"esse3\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"valueType\": \"HTML\",\n      \"typeConfiguration\": {\n        \"options\": [\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\",\n            \"description\": \"<string>\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"unique\": \"<boolean>\",\n        \"multipleValues\": \"<boolean>\",\n        \"handleService\": \"FACEBOOK\"\n      },\n      \"id\": \"<string>\",\n      \"readOnly\": \"<boolean>\"\n    }\n  },\n  \"relationshipDefinitions\": {\n    \"laborec05\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cardinality\": \"HAS_MANY\",\n      \"objectType\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"et0\": {\n      \"label\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cardinality\": \"HAS_MANY\",\n      \"objectType\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-82d824c0-3ac1-412e-bf84-eb9a6eb26a73"
+                    },
+                    {
+                      "id": "e3969fa6-86b1-41d2-aecb-ed42f9e77f43",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e3969fa6-86b1-41d2-aecb-ed42f9e77f43"
+                    },
+                    {
+                      "id": "001958a7-4924-4d49-8c38-4be844b6293f",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-001958a7-4924-4d49-8c38-4be844b6293f"
+                    },
+                    {
+                      "id": "0cc24945-c9a2-422c-bc0f-2847f317683e",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-0cc24945-c9a2-422c-bc0f-2847f317683e"
+                    },
+                    {
+                      "id": "e140e329-39a5-4f1c-9f7d-db7396f535b8",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e140e329-39a5-4f1c-9f7d-db7396f535b8"
+                    },
+                    {
+                      "id": "ec0648db-6f50-412f-824c-eb62ed27eeb5",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-ec0648db-6f50-412f-824c-eb62ed27eeb5"
+                    },
+                    {
+                      "id": "1e0e3a5f-1866-4f13-8460-aa123041fa49",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-1e0e3a5f-1866-4f13-8460-aa123041fa49"
+                    },
+                    {
+                      "id": "3247bd2e-fba2-4c8a-a4ee-8c6ff63daa77",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-3247bd2e-fba2-4c8a-a4ee-8c6ff63daa77"
+                    },
+                    {
+                      "id": "effe608a-cb59-4107-8268-c44330641e15",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-effe608a-cb59-4107-8268-c44330641e15"
+                    },
+                    {
+                      "id": "5474a921-7577-4276-9d8e-2491da3d4cdc",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-5474a921-7577-4276-9d8e-2491da3d4cdc"
+                    },
+                    {
+                      "id": "d7547c43-109c-44e2-905d-630e67c1e77e",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-d7547c43-109c-44e2-905d-630e67c1e77e"
+                    },
+                    {
+                      "id": "0586602d-1628-4be5-9c5d-5cdab2ee3fed",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/definitions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            "definitions"
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-0586602d-1628-4be5-9c5d-5cdab2ee3fed"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-ae952fdc-d43d-4709-96e2-489f1ec10bf3"
+                }
+              ],
+              "id": "941a1319-8b7b-4b78-9d1c-4799d5d7ab2d",
+              "createdAt": "2026-07-28T02:07:32.000Z",
+              "updatedAt": "2026-07-28T02:07:32.000Z",
+              "uid": "35240-941a1319-8b7b-4b78-9d1c-4799d5d7ab2d"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Update an opportunity",
+                  "id": "5b562c2c-02a3-41f8-a302-644c9e2684e3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "05d29c76-0d15-41d7-bf1a-9e4b478a032c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates an existing opportunity by ID. Only included fields and relationships are modified.\n\nThe `$opportunityStatus` field is read-only and cannot be updated. The `$task`, `$note`, and `$meeting` relationships are also read-only \u2014 manage them via the `$opportunity` relationship on the task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` attendees that belong to this opportunity's account.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `opportunities:update`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+                  },
+                  "response": [
+                    {
+                      "id": "c76e3846-aa13-4862-8fde-74eee4489a4c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_8\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"do6_\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"in_3\": {\n      \"valueType\": \"ADDRESS\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"magnafab\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-c76e3846-aa13-4862-8fde-74eee4489a4c"
+                    },
+                    {
+                      "id": "e9fb55f3-30de-4572-aee3-837240292a14",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e9fb55f3-30de-4572-aee3-837240292a14"
+                    },
+                    {
+                      "id": "2a2ea7a5-e891-47ae-804e-c69fc5c04ba5",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-2a2ea7a5-e891-47ae-804e-c69fc5c04ba5"
+                    },
+                    {
+                      "id": "89376424-717f-4871-b828-541023c3f987",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-89376424-717f-4871-b828-541023c3f987"
+                    },
+                    {
+                      "id": "ea9dbf0c-c041-4c2d-b077-a7d92be5cff7",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-ea9dbf0c-c041-4c2d-b077-a7d92be5cff7"
+                    },
+                    {
+                      "id": "459c0a04-6424-4267-a094-82fb6b8eca85",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-459c0a04-6424-4267-a094-82fb6b8eca85"
+                    },
+                    {
+                      "id": "e2fa8921-0048-4f34-8e6c-ee7158b6c2c9",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e2fa8921-0048-4f34-8e6c-ee7158b6c2c9"
+                    },
+                    {
+                      "id": "0584c79f-3b6f-4496-858b-dd71b0bb52eb",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-0584c79f-3b6f-4496-858b-dd71b0bb52eb"
+                    },
+                    {
+                      "id": "4d69cd91-f51a-4610-b3ac-ca6bf1d197c6",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-4d69cd91-f51a-4610-b3ac-ca6bf1d197c6"
+                    },
+                    {
+                      "id": "7fd77428-0283-44f4-a28c-98433418baa0",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-7fd77428-0283-44f4-a28c-98433418baa0"
+                    },
+                    {
+                      "id": "4865179d-2494-449e-8c2b-eadad0ef9962",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-4865179d-2494-449e-8c2b-eadad0ef9962"
+                    },
+                    {
+                      "id": "8951e5ed-2709-4288-b61c-64c5459c2fca",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\",\n    \"qui_6b\": \"<string>\",\n    \"Excepteur_8\": \"<string>\",\n    \"pariatur_57\": \"<string>\",\n    \"ullamco51\": \"<string>\",\n    \"occaecata9_\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$owner\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$champion\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    },\n    \"$evaluator\": {\n      \"add\": \"<string>\",\n      \"remove\": \"<string>\",\n      \"replace\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-8951e5ed-2709-4288-b61c-64c5459c2fca"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-5b562c2c-02a3-41f8-a302-644c9e2684e3"
+                },
+                {
+                  "name": "Retrieve an opportunity",
+                  "id": "57395343-198a-4b84-83bd-8ff599219b57",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "35d1eba0-f8ce-4adf-a8aa-df90cf0956de",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a single opportunity by its ID.\n\n**[Required scope](/using-the-api/scopes/):** `opportunities:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "41c55661-9330-4340-b618-400028d4a221",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_8\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"do6_\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"in_3\": {\n      \"valueType\": \"ADDRESS\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"magnafab\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-41c55661-9330-4340-b618-400028d4a221"
+                    },
+                    {
+                      "id": "73b81804-da4e-4ccb-b89d-4d0faf44bc7e",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-73b81804-da4e-4ccb-b89d-4d0faf44bc7e"
+                    },
+                    {
+                      "id": "e715e78f-4c2e-4c45-b911-c59f4c85da49",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e715e78f-4c2e-4c45-b911-c59f4c85da49"
+                    },
+                    {
+                      "id": "6160205d-7a50-44e6-bd5e-ce5de77ae77c",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-6160205d-7a50-44e6-bd5e-ce5de77ae77c"
+                    },
+                    {
+                      "id": "de6cbcac-ced5-471d-bf5e-8e8a1e26e493",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-de6cbcac-ced5-471d-bf5e-8e8a1e26e493"
+                    },
+                    {
+                      "id": "1e9977cb-df1d-4ef4-8e55-6e89a3b453db",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-1e9977cb-df1d-4ef4-8e55-6e89a3b453db"
+                    },
+                    {
+                      "id": "abbced2f-8a99-413f-86a7-82be66f559b3",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-abbced2f-8a99-413f-86a7-82be66f559b3"
+                    },
+                    {
+                      "id": "4a3adef1-1e39-4cfc-bb62-4e182672cf91",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-4a3adef1-1e39-4cfc-bb62-4e182672cf91"
+                    },
+                    {
+                      "id": "e33b4f84-577c-4992-939d-19ead079ba52",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-e33b4f84-577c-4992-939d-19ead079ba52"
+                    },
+                    {
+                      "id": "619fb312-b60c-40da-9f9d-0afd78b11ad0",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-619fb312-b60c-40da-9f9d-0afd78b11ad0"
+                    },
+                    {
+                      "id": "af9e65ac-6dec-4d4f-8a66-b97ae7c2e32e",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-af9e65ac-6dec-4d4f-8a66-b97ae7c2e32e"
+                    },
+                    {
+                      "id": "b0c7c6fd-a661-44a0-9d01-c0ed125fb289",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/opportunities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "opportunities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:07:32.000Z",
+                      "updatedAt": "2026-07-28T02:07:32.000Z",
+                      "uid": "35240-b0c7c6fd-a661-44a0-9d01-c0ed125fb289"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-57395343-198a-4b84-83bd-8ff599219b57"
+                }
+              ],
+              "id": "7148f4e5-b104-4f74-bc35-d9629b6291d3",
+              "createdAt": "2026-07-28T02:07:32.000Z",
+              "updatedAt": "2026-07-28T02:07:32.000Z",
+              "uid": "35240-7148f4e5-b104-4f74-bc35-d9629b6291d3"
+            },
+            {
+              "name": "Create an opportunity",
+              "id": "7faa0b4b-ff0b-47d9-8fb8-ec20c50e851f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/opportunities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "opportunities"
+                  ]
+                },
+                "description": "Creates a new opportunity record. The `$name` and `$stage` fields and the `$account` relationship are required.\n\nAfter creation, Lightfield automatically generates an opportunity summary in the background. The `$opportunityStatus` field is read-only and cannot be set via the API. The `$task`, `$note`, and `$meeting` relationships are also read-only \u2014 manage them via the `$opportunity` relationship on the task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` attendees that belong to this opportunity's account.\n\nSupports idempotency via the `Idempotency-Key` header.\n\nTo avoid duplicates, we recommend a find-or-create pattern \u2014 use <u>[list filtering](/using-the-api/list-endpoints/#filtering)</u> to check if a record exists before creating.\n\n**[Required scope](/using-the-api/scopes/):** `opportunities:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+              },
+              "response": [
+                {
+                  "id": "e22fe26b-9b80-41d9-b051-ba6822420414",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"non_8\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"do6_\": {\n      \"valueType\": \"FULL_NAME\",\n      \"value\": \"<string>\"\n    },\n    \"in_3\": {\n      \"valueType\": \"ADDRESS\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"magnafab\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"externalId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-e22fe26b-9b80-41d9-b051-ba6822420414"
+                },
+                {
+                  "id": "a1f9964e-89ad-410c-a2cf-7ecd68729acc",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-a1f9964e-89ad-410c-a2cf-7ecd68729acc"
+                },
+                {
+                  "id": "47ea25e7-d0e8-40c0-8e31-cfee43d92da0",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-47ea25e7-d0e8-40c0-8e31-cfee43d92da0"
+                },
+                {
+                  "id": "2e1f853a-9651-4613-a615-c552440c8840",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-2e1f853a-9651-4613-a615-c552440c8840"
+                },
+                {
+                  "id": "e728fadb-6144-45cb-a022-d745dab9c5fc",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-e728fadb-6144-45cb-a022-d745dab9c5fc"
+                },
+                {
+                  "id": "9f29cac1-781b-4c53-8a42-272c61e09f57",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-9f29cac1-781b-4c53-8a42-272c61e09f57"
+                },
+                {
+                  "id": "e3f540aa-9ed4-4ad6-bb24-e81b57085e7f",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-e3f540aa-9ed4-4ad6-bb24-e81b57085e7f"
+                },
+                {
+                  "id": "49673049-49d4-454f-a0f7-2373d84943b7",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-49673049-49d4-454f-a0f7-2373d84943b7"
+                },
+                {
+                  "id": "484f5864-06f1-4d20-8cdb-30445bf61872",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-484f5864-06f1-4d20-8cdb-30445bf61872"
+                },
+                {
+                  "id": "dd14ac23-2bd9-4351-a654-7f8adc7e1e5a",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-dd14ac23-2bd9-4351-a654-7f8adc7e1e5a"
+                },
+                {
+                  "id": "db3722a1-afc7-4ebe-ba4d-b863d940914f",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-db3722a1-afc7-4ebe-ba4d-b863d940914f"
+                },
+                {
+                  "id": "975a634a-c728-4f7b-b69b-90a02ec52b93",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fields\": {\n    \"$name\": \"<string>\",\n    \"$stage\": \"<string>\"\n  },\n  \"relationships\": {\n    \"$account\": \"<string>\",\n    \"$owner\": \"<string>\",\n    \"$createdBy\": \"<string>\",\n    \"$champion\": \"<string>\",\n    \"$evaluator\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-975a634a-c728-4f7b-b69b-90a02ec52b93"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:32.000Z",
+              "updatedAt": "2026-07-28T02:07:32.000Z",
+              "uid": "35240-7faa0b4b-ff0b-47d9-8fb8-ec20c50e851f"
+            },
+            {
+              "name": "List opportunities",
+              "id": "96048eac-7e20-4ddc-af8d-be0168586589",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "opportunities"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of opportunities. Use `offset` and `limit` to paginate through results, and `$field` query parameters to filter. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about <u>[pagination](/using-the-api/list-endpoints/#pagination)</u> and <u>[filtering](/using-the-api/list-endpoints/#filtering)</u>.\n\n**[Required scope](/using-the-api/scopes/):** `opportunities:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+              },
+              "response": [
+                {
+                  "id": "91f88635-01e6-4dff-a958-3483a6a23f65",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"nostrud_f7a\": {\n          \"valueType\": \"DATETIME\",\n          \"value\": \"<string>\"\n        },\n        \"sed_1\": {\n          \"valueType\": \"MARKDOWN\",\n          \"value\": \"<string>\"\n        },\n        \"anim8d\": {\n          \"valueType\": \"HTML\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"in_e86\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"eiusmod756\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"mollit_b\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"fields\": {\n        \"esse3\": {\n          \"valueType\": \"TEXT\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"relationships\": {\n        \"deserunt_1\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"externalId\": \"<string>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-91f88635-01e6-4dff-a958-3483a6a23f65"
+                },
+                {
+                  "id": "6b82271b-7c19-4a94-9435-09fd289d7899",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-6b82271b-7c19-4a94-9435-09fd289d7899"
+                },
+                {
+                  "id": "5b9a1ffd-d528-4a56-93a5-f36496736e4c",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-5b9a1ffd-d528-4a56-93a5-f36496736e4c"
+                },
+                {
+                  "id": "e0d12d0a-22c3-46fa-b0b7-34b8212b768c",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-e0d12d0a-22c3-46fa-b0b7-34b8212b768c"
+                },
+                {
+                  "id": "d23867c1-9c28-4655-91fd-d0781c7e491f",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-d23867c1-9c28-4655-91fd-d0781c7e491f"
+                },
+                {
+                  "id": "ad1d3e97-4b53-484a-8430-50c9e7c7ba6c",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-ad1d3e97-4b53-484a-8430-50c9e7c7ba6c"
+                },
+                {
+                  "id": "e1ade950-cc2c-462b-9a76-fb598762e48e",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-e1ade950-cc2c-462b-9a76-fb598762e48e"
+                },
+                {
+                  "id": "ba8d3b85-17c0-41f2-807f-5c61275bc2de",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-ba8d3b85-17c0-41f2-807f-5c61275bc2de"
+                },
+                {
+                  "id": "7ee843b6-c3d3-4482-89e4-2c3c8abbaf0c",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-7ee843b6-c3d3-4482-89e4-2c3c8abbaf0c"
+                },
+                {
+                  "id": "7939855b-e79a-42e8-bbea-92723860611b",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-7939855b-e79a-42e8-bbea-92723860611b"
+                },
+                {
+                  "id": "7e52e86e-b6a8-4b9f-a7e5-ac914a9974bf",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-7e52e86e-b6a8-4b9f-a7e5-ac914a9974bf"
+                },
+                {
+                  "id": "1c303731-9d86-4378-a0df-82d5ce473cb3",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/opportunities?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "opportunities"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:07:32.000Z",
+                  "updatedAt": "2026-07-28T02:07:32.000Z",
+                  "uid": "35240-1c303731-9d86-4378-a0df-82d5ce473cb3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:32.000Z",
+              "updatedAt": "2026-07-28T02:07:32.000Z",
+              "uid": "35240-96048eac-7e20-4ddc-af8d-be0168586589"
+            }
+          ],
+          "id": "2fc58501-fa04-4f2e-aa9b-c1d3b55fa09a",
+          "createdAt": "2026-07-28T02:07:32.000Z",
+          "updatedAt": "2026-07-28T02:07:32.000Z",
+          "uid": "35240-2fc58501-fa04-4f2e-aa9b-c1d3b55fa09a"
+        }
+      ],
+      "id": "304f78b1-0654-406a-91b9-c16d29eb0ea0",
+      "createdAt": "2026-07-28T02:07:32.000Z",
+      "updatedAt": "2026-07-28T02:07:32.000Z",
+      "uid": "35240-304f78b1-0654-406a-91b9-c16d29eb0ea0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/lightfield-openapi-original.yml
+docs: https://docs.lightfield.app/using-the-api/scopes/
+model: api-key-scopes
+notes: >-
+  Lightfield's REST API does not use OAuth 2 — the mechanical OAuth derivation over the OpenAPI
+  found no oauth2 security scheme. Scopes are nonetheless a real, published permission surface:
+  they are selected at API-key creation time and bound to the key, following an
+  `<object>:<permission>` naming convention. A key's effective access is the intersection of its
+  granted scopes and the roles of the admin who created it. Separately, the hosted MCP server at
+  mcp.lightfield.app uses OAuth 2.1 with its own (much smaller) scope set — recorded below under
+  oauth_scopes.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  key_prefix: sk_lf_
+  source: openapi/lightfield-openapi-original.yml
+  scope_binding: at key creation (admin only)
+  management_url: https://crm.lightfield.app/crm/settings/api-keys
+scope_convention: '<object>:<create|update|read>'
+scopes:
+- scope: accounts:create
+  description: Create accounts
+- scope: accounts:update
+  description: Update accounts
+- scope: accounts:read
+  description: Read accounts
+- scope: contacts:create
+  description: Create contacts
+- scope: contacts:update
+  description: Update contacts
+- scope: contacts:read
+  description: Read contacts
+- scope: opportunities:create
+  description: Create opportunities
+- scope: opportunities:update
+  description: Update opportunities
+- scope: opportunities:read
+  description: Read opportunities
+- scope: meetings:create
+  description: Create meetings
+- scope: meetings:update
+  description: Update meetings
+- scope: meetings:read
+  description: Read meetings
+- scope: tasks:create
+  description: Create tasks
+- scope: tasks:update
+  description: Update tasks
+- scope: tasks:read
+  description: Read tasks
+- scope: notes:create
+  description: Create notes
+- scope: notes:update
+  description: Update notes
+- scope: notes:read
+  description: Read notes
+- scope: lists:create
+  description: Create lists
+- scope: lists:update
+  description: Update lists
+- scope: lists:read
+  description: Read lists
+- scope: files:create
+  description: Create, complete, and cancel file uploads
+- scope: files:read
+  description: Read files and signed download URLs
+- scope: emails:create
+  description: Send emails through connected mailboxes
+- scope: emails:read
+  description: Read synced emails
+- scope: members:read
+  description: Read members
+scope_count: 26
+oauth_scopes:
+  context: hosted MCP server (https://mcp.lightfield.app/mcp)
+  issuer: https://api.stytch.lightfield.app
+  metadata: well-known/lightfield-oauth-authorization-server.json
+  scopes:
+  - scope: openid
+    description: OpenID Connect authentication
+  - scope: offline_access
+    description: Refresh-token issuance for long-lived agent sessions
+enforcement:
+  insufficient_scope_status: 403
+  insufficient_scope_type: forbidden
+guidance:
+- Grant only the scopes an integration requires; restrict to read-only scopes where no mutation is
+  needed.
+- Create dedicated keys per integration so access can be revoked independently.
+- Rotate keys periodically; revocation is immediate and permanent.

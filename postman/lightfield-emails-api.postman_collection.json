@@ -1,0 +1,3157 @@
+{
+  "info": {
+    "_postman_id": "a283f4da-3619-48f1-a9f6-eedb8fa16fc4",
+    "name": "API Reference Accounts Emails API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:06:46.000Z",
+    "updatedAt": "2026-07-28T02:06:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a283f4da-3619-48f1-a9f6-eedb8fa16fc4"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "emails",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve an email",
+                  "id": "c7f47472-f05b-49d6-b92d-b2c38503755a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f3123c33-88a0-4091-a089-1d8fee79f97b",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a single email by its ID. Email fields are redacted based on the caller-specific privacy resolution, and the response includes a read-only `accessLevel`.\n\n**[Required scope](/using-the-api/scopes/):** `emails:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+                  },
+                  "response": [
+                    {
+                      "id": "2019efc9-b1fa-4a7a-a3d8-388c2e0e328d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"httpLink\": \"<string>\",\n  \"fields\": {\n    \"ea_4db\": {\n      \"valueType\": \"MARKDOWN\",\n      \"value\": \"<string>\"\n    },\n    \"in_ab\": {\n      \"valueType\": \"EMAIL\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"relationships\": {\n    \"cupidatat_8\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"dolore__0\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"Lorem9\": {\n      \"cardinality\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"values\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"objectType\": \"email\",\n  \"accessLevel\": \"FULL\",\n  \"externalId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-2019efc9-b1fa-4a7a-a3d8-388c2e0e328d"
+                    },
+                    {
+                      "id": "683477be-df47-46b4-a8a6-604176b135a1",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-683477be-df47-46b4-a8a6-604176b135a1"
+                    },
+                    {
+                      "id": "2e681a94-fa56-4557-b38c-7f6c2ee46711",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-2e681a94-fa56-4557-b38c-7f6c2ee46711"
+                    },
+                    {
+                      "id": "146fc38b-4dd1-4346-87ae-45f97e1aa2e8",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-146fc38b-4dd1-4346-87ae-45f97e1aa2e8"
+                    },
+                    {
+                      "id": "7edad676-a6a1-4862-b9e3-08a793ee053a",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-7edad676-a6a1-4862-b9e3-08a793ee053a"
+                    },
+                    {
+                      "id": "04cdbc01-b889-4d3f-9970-e4876e6c14c5",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-04cdbc01-b889-4d3f-9970-e4876e6c14c5"
+                    },
+                    {
+                      "id": "58ad3219-4b19-42fb-a03a-39a54f36484a",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-58ad3219-4b19-42fb-a03a-39a54f36484a"
+                    },
+                    {
+                      "id": "b4a27d35-f274-4d4f-a15c-45e32a218bfa",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-b4a27d35-f274-4d4f-a15c-45e32a218bfa"
+                    },
+                    {
+                      "id": "39120be3-d3c2-4cf0-b00f-65601c6be454",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-39120be3-d3c2-4cf0-b00f-65601c6be454"
+                    },
+                    {
+                      "id": "b3cab628-123f-4c30-89ad-df8ade322efb",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-b3cab628-123f-4c30-89ad-df8ade322efb"
+                    },
+                    {
+                      "id": "8ace0190-0e20-4baf-9c6b-0d04bb4ff175",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-8ace0190-0e20-4baf-9c6b-0d04bb4ff175"
+                    },
+                    {
+                      "id": "a87a2ba1-e983-4345-ac08-3bd5e8277924",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-a87a2ba1-e983-4345-ac08-3bd5e8277924"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-c7f47472-f05b-49d6-b92d-b2c38503755a"
+                }
+              ],
+              "id": "1832952b-8b3e-4131-b469-3e2161825a99",
+              "createdAt": "2026-07-28T02:06:47.000Z",
+              "updatedAt": "2026-07-28T02:06:47.000Z",
+              "uid": "35240-1832952b-8b3e-4131-b469-3e2161825a99"
+            },
+            {
+              "name": "send",
+              "item": [
+                {
+                  "name": "Send an email",
+                  "id": "c1ac9b19-880d-4a5e-87e3-b2fc86d67fe6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails/send",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails",
+                        "send"
+                      ]
+                    },
+                    "description": "Sends an email via the connected email account that owns the `from` address. Currently supports new sends only; replies and forwards are not yet supported.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `emails:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+                  },
+                  "response": [
+                    {
+                      "id": "476d44e9-f4f6-435d-9961-78f72712968f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"sentAt\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-476d44e9-f4f6-435d-9961-78f72712968f"
+                    },
+                    {
+                      "id": "8e9714a5-73f9-40be-92ab-9c4dd3e2155f",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-8e9714a5-73f9-40be-92ab-9c4dd3e2155f"
+                    },
+                    {
+                      "id": "2d02ab05-f855-441c-b371-80b58795c234",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-2d02ab05-f855-441c-b371-80b58795c234"
+                    },
+                    {
+                      "id": "0f90e255-4eee-4053-b351-d7cc29a6fd1e",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-0f90e255-4eee-4053-b351-d7cc29a6fd1e"
+                    },
+                    {
+                      "id": "8a648857-725f-4548-a4f8-d6c6bd0ebed5",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-8a648857-725f-4548-a4f8-d6c6bd0ebed5"
+                    },
+                    {
+                      "id": "02c1caed-c57f-42e4-b6f1-0bdbf0dcc9ec",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-02c1caed-c57f-42e4-b6f1-0bdbf0dcc9ec"
+                    },
+                    {
+                      "id": "df87bc58-265e-410d-b494-9a724aec40b0",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-df87bc58-265e-410d-b494-9a724aec40b0"
+                    },
+                    {
+                      "id": "c610a0f2-d9be-411f-ba7f-abc58f41d359",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-c610a0f2-d9be-411f-ba7f-abc58f41d359"
+                    },
+                    {
+                      "id": "8947d605-38c1-415f-8fa8-6da79feb10e4",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-8947d605-38c1-415f-8fa8-6da79feb10e4"
+                    },
+                    {
+                      "id": "870e841d-47df-4315-b8e6-127f4ce591d6",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-870e841d-47df-4315-b8e6-127f4ce591d6"
+                    },
+                    {
+                      "id": "a0412168-5c4a-49f3-8a3f-c3701a809744",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-a0412168-5c4a-49f3-8a3f-c3701a809744"
+                    },
+                    {
+                      "id": "dcc90c03-fc68-49ea-b8d4-f227360f986a",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"LE=q'?Ho.0EmU.I4#uV.c.U/KFyM.*`gb}'=O.cQ3F@43yX.6h7VttYKUk.jr9ncJedM26.noBBqVu4w6i.bTWegtsQa.Z.Mv9rat.a.miABJJx.zeUIoFXWH\",\n  \"to\": [\n    \"jn3.+.4M^.NtLIoC7*LP.Xt@kLtx-aEbMQp.3.rTPmvFwZ\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"cc\": [\n    \"~uf.q99_uqd{qbo.9C&1bLZjJ.wcNK_.^n9@[55.1.584.84]\",\n    \"o%{w4.oZ.{7iu.!+g.?#~$7%#_A.9GdTcxOuB.|2wO/K.Fx.2w+d9Kk.M^@WL.fsX3wNUSP.b8KKu6si2sU.GKovsWMP.4BRPylx.z16YhqSOY.ivRxE\"\n  ],\n  \"bcc\": [\n    \"\\\"M\\\"@G7NmQ.IBzpf37L.z.GDUad0ptkY.sL6voy6Ko0Y.zV1ct.i-WS3H7cJ.my\",\n    \"lv$/.r@lx46P.5bJog-Jvo.cEl37WSCg.-zCFEXOGL.b.xxcSTU.zgoNbfON\"\n  ],\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/send",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "send"
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-dcc90c03-fc68-49ea-b8d4-f227360f986a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-c1ac9b19-880d-4a5e-87e3-b2fc86d67fe6"
+                }
+              ],
+              "id": "065a55ad-525e-49aa-a69e-324a21d5b9d7",
+              "createdAt": "2026-07-28T02:06:47.000Z",
+              "updatedAt": "2026-07-28T02:06:47.000Z",
+              "uid": "35240-065a55ad-525e-49aa-a69e-324a21d5b9d7"
+            },
+            {
+              "name": "draft",
+              "item": [
+                {
+                  "name": "Create a draft email",
+                  "id": "cf1253c9-82cb-49be-8d7e-bb3a6f4a45a6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails/draft",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails",
+                        "draft"
+                      ]
+                    },
+                    "description": "Creates a draft in the connected email account that owns the `from` address. Mirrors native email-client behavior: only `from` is required \u2014 `to`, `cc`, `bcc`, `subject`, `messageBody`, and `attachments` are all optional. At least one of those optional fields must be populated; sending only `from` returns a 400.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `emails:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+                  },
+                  "response": [
+                    {
+                      "id": "b4ce1fda-ebc7-40e7-b4f5-d24580d91779",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"draftedAt\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-b4ce1fda-ebc7-40e7-b4f5-d24580d91779"
+                    },
+                    {
+                      "id": "0e987098-6328-4d8b-b580-cc2103cea47e",
+                      "name": "400",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-0e987098-6328-4d8b-b580-cc2103cea47e"
+                    },
+                    {
+                      "id": "bc2bdac2-60e2-4554-a096-7705788dcf8c",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-bc2bdac2-60e2-4554-a096-7705788dcf8c"
+                    },
+                    {
+                      "id": "a2394094-a281-4ff9-91c6-fc6a27efcb8c",
+                      "name": "403",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-a2394094-a281-4ff9-91c6-fc6a27efcb8c"
+                    },
+                    {
+                      "id": "d9ba6850-2d80-488c-b5c8-7fcf0882af60",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-d9ba6850-2d80-488c-b5c8-7fcf0882af60"
+                    },
+                    {
+                      "id": "6fa30f2c-8a71-49bf-826a-f958ad5be5d2",
+                      "name": "409",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-6fa30f2c-8a71-49bf-826a-f958ad5be5d2"
+                    },
+                    {
+                      "id": "ef2e7f0d-84f3-4176-88f8-ddece8072de2",
+                      "name": "415",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Unsupported Media Type",
+                      "code": 415,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-ef2e7f0d-84f3-4176-88f8-ddece8072de2"
+                    },
+                    {
+                      "id": "6d2daf98-c867-4cd5-9596-b5ed050d14fa",
+                      "name": "422",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-6d2daf98-c867-4cd5-9596-b5ed050d14fa"
+                    },
+                    {
+                      "id": "977d3cb8-d77a-42c6-a224-159fa3ceb48a",
+                      "name": "429",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-977d3cb8-d77a-42c6-a224-159fa3ceb48a"
+                    },
+                    {
+                      "id": "fd424b56-6c94-44f5-a7ef-55150e29cfb3",
+                      "name": "500",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-fd424b56-6c94-44f5-a7ef-55150e29cfb3"
+                    },
+                    {
+                      "id": "35b2c01d-7d3e-4439-a7c6-1851f2b70ebc",
+                      "name": "503",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-35b2c01d-7d3e-4439-a7c6-1851f2b70ebc"
+                    },
+                    {
+                      "id": "aa40153d-7bf4-4ba7-90ba-2a0d79a6dcf6",
+                      "name": "504",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) Required API version header. Requests may error without it.",
+                            "key": "Lightfield-Version",
+                            "value": "2026-03-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"from\": \"5|ihXH.=9.!rFk.#2}NHW5.nh&Ro.F|.LmCO0ZxG}@[288.756.18.632]\",\n  \"to\": [\n    \"XS5p.j2.1}u.4#A.dr||'hhh*FP@[5.0.36.0]\",\n    \"N$no%#sk3F'.X_N-2rjRzme.#C5t8OJ.N7Il5.o|37.H|sv4.1Gc.!q1{z^a@[250.5.245.858]\"\n  ],\n  \"cc\": [\n    \"\\\"2iY(Y;Z0Zz+\\\"@Ep.2PRTpuHS.k.lXYIBO.hY7BD.cK7LBGZUCxx.uAU.EGFb\",\n    \"\\\"S7D3FkHJ=\\\"@xXMA7v7OC.xl96IdJd9CW.nzIF-J1.anS3Wm36F.w4cVO.e6KV8Khi8.M.Fzzt\"\n  ],\n  \"bcc\": [\n    \"*G%Sc.*In-f.ofar6.eBeW.bP{j?REj.^NI/SM4.*Ol=K}C@Y29qyeGoZ.R8BVQ.IdN.DXHM6.HbGD.cJ3Y-ejg.yKhD\",\n    \"{ZdR.|YZPyrql3Qf.`46d8lc.!MU'8&AF6d}.5J9Y/?S0j!@[93.4.23.890]\"\n  ],\n  \"subject\": \"<string>\",\n  \"messageBody\": {\n    \"content\": \"<string>\",\n    \"contentType\": \"TEXT\"\n  },\n  \"attachments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/emails/draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "emails",
+                            "draft"
+                          ]
+                        }
+                      },
+                      "status": "Gateway Timeout",
+                      "code": 504,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                      "createdAt": "2026-07-28T02:06:47.000Z",
+                      "updatedAt": "2026-07-28T02:06:47.000Z",
+                      "uid": "35240-aa40153d-7bf4-4ba7-90ba-2a0d79a6dcf6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-cf1253c9-82cb-49be-8d7e-bb3a6f4a45a6"
+                }
+              ],
+              "id": "a31fd84e-4e2b-42c8-9f9f-d8d326fc1d44",
+              "createdAt": "2026-07-28T02:06:47.000Z",
+              "updatedAt": "2026-07-28T02:06:47.000Z",
+              "uid": "35240-a31fd84e-4e2b-42c8-9f9f-d8d326fc1d44"
+            },
+            {
+              "name": "List emails",
+              "id": "c372700a-9c3b-4ae1-b6a5-c87ea835e44f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) Required API version header. Requests may error without it.",
+                    "key": "Lightfield-Version",
+                    "value": "2026-03-01"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "emails"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of emails. Use `offset` and `limit` to paginate through results. Each email is privacy-filtered per caller, includes a read-only `accessLevel`, and may redact the subject at metadata-only access. `fields.$body` is not included on list items; use GET `/v1/emails/{id}` for message body HTML. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `emails:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+              },
+              "response": [
+                {
+                  "id": "e50c849f-9b96-4ca5-b554-cd0e56189a03",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"relationships\": {\n        \"tempore60\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"reprehenderit_7cc\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"fields\": {\n        \"incididunt5a1\": {\n          \"valueType\": \"DATETIME\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"objectType\": \"email\",\n      \"accessLevel\": \"FULL\",\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"httpLink\": \"<string>\",\n      \"relationships\": {\n        \"nostrud__d\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"pariatur6c\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"pariaturf8\": {\n          \"cardinality\": \"<string>\",\n          \"objectType\": \"<string>\",\n          \"values\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      },\n      \"fields\": {\n        \"occaecat_d1\": {\n          \"valueType\": \"FULL_NAME\",\n          \"value\": \"<string>\"\n        },\n        \"proident_2\": {\n          \"valueType\": \"CURRENCY\",\n          \"value\": \"<string>\"\n        }\n      },\n      \"objectType\": \"email\",\n      \"accessLevel\": \"METADATA\",\n      \"externalId\": \"<string>\"\n    }\n  ],\n  \"totalCount\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-e50c849f-9b96-4ca5-b554-cd0e56189a03"
+                },
+                {
+                  "id": "0738614d-91b6-4966-85b5-609fbd8be8d8",
+                  "name": "400",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"bad_request\"\n  },\n  \"message\": \"Bad Request\",\n  \"code\": \"<string>\",\n  \"param\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-0738614d-91b6-4966-85b5-609fbd8be8d8"
+                },
+                {
+                  "id": "86295d14-cbbc-46a8-87a7-284c04a7d0f4",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unauthorized\"\n  },\n  \"message\": \"Unauthorized\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-86295d14-cbbc-46a8-87a7-284c04a7d0f4"
+                },
+                {
+                  "id": "eb607bdb-199d-4736-9645-7eb0b494d856",
+                  "name": "403",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"forbidden\"\n  },\n  \"message\": \"Forbidden\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-eb607bdb-199d-4736-9645-7eb0b494d856"
+                },
+                {
+                  "id": "2cb19112-43a7-4a03-b6e5-ed4df7d3cca5",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"not_found\"\n  },\n  \"message\": \"Not Found\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-2cb19112-43a7-4a03-b6e5-ed4df7d3cca5"
+                },
+                {
+                  "id": "dcb0340b-f4f8-4e2b-b088-68ba0a6fa881",
+                  "name": "409",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"conflict\"\n  },\n  \"message\": \"Conflict\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-dcb0340b-f4f8-4e2b-b088-68ba0a6fa881"
+                },
+                {
+                  "id": "09bb3ece-4f70-4c83-829a-d326185a9805",
+                  "name": "415",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unsupported Media Type",
+                  "code": 415,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unsupported_media_type\"\n  },\n  \"message\": \"Unsupported Media Type\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-09bb3ece-4f70-4c83-829a-d326185a9805"
+                },
+                {
+                  "id": "18ebd332-cd91-47c5-bd1d-868aa7f47139",
+                  "name": "422",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"unprocessable_content\"\n  },\n  \"message\": \"Unprocessable Content\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-18ebd332-cd91-47c5-bd1d-868aa7f47139"
+                },
+                {
+                  "id": "81c15c0d-a882-4732-9a60-d98b42704b8c",
+                  "name": "429",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"too_many_requests\"\n  },\n  \"message\": \"Too Many Requests\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-81c15c0d-a882-4732-9a60-d98b42704b8c"
+                },
+                {
+                  "id": "9102a2e4-1a4b-4a23-881e-570bf28b7d51",
+                  "name": "500",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"internal_server_error\"\n  },\n  \"message\": \"Internal Server Error\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-9102a2e4-1a4b-4a23-881e-570bf28b7d51"
+                },
+                {
+                  "id": "9c90efd7-b8ff-4ed8-88fa-e50eac9e93c0",
+                  "name": "503",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Service Unavailable",
+                  "code": 503,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"service_unavailable\"\n  },\n  \"message\": \"Service Unavailable\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-9c90efd7-b8ff-4ed8-88fa-e50eac9e93c0"
+                },
+                {
+                  "id": "d0cc47ec-6514-4bab-8dab-7d1b7f162f7c",
+                  "name": "504",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) Required API version header. Requests may error without it.",
+                        "key": "Lightfield-Version",
+                        "value": "2026-03-01"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/emails?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "emails"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Gateway Timeout",
+                  "code": 504,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"type\": {\n    \"const\": \"gateway_timeout\"\n  },\n  \"message\": \"Gateway Timeout\"\n}",
+                  "createdAt": "2026-07-28T02:06:47.000Z",
+                  "updatedAt": "2026-07-28T02:06:47.000Z",
+                  "uid": "35240-d0cc47ec-6514-4bab-8dab-7d1b7f162f7c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:06:47.000Z",
+              "updatedAt": "2026-07-28T02:06:47.000Z",
+              "uid": "35240-c372700a-9c3b-4ae1-b6a5-c87ea835e44f"
+            }
+          ],
+          "id": "16c87b4e-e0dc-419e-b96c-64e2d359be41",
+          "createdAt": "2026-07-28T02:06:47.000Z",
+          "updatedAt": "2026-07-28T02:06:47.000Z",
+          "uid": "35240-16c87b4e-e0dc-419e-b96c-64e2d359be41"
+        }
+      ],
+      "id": "a883550d-8f24-4054-93ff-a6b4869dccf4",
+      "createdAt": "2026-07-28T02:06:47.000Z",
+      "updatedAt": "2026-07-28T02:06:47.000Z",
+      "uid": "35240-a883550d-8f24-4054-93ff-a6b4869dccf4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

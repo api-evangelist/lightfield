@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://docs.lightfield.app/getting-started/mcp-quickstart/
+server:
+  name: lightfield
+  transport: http
+  variant: streamable-http
+  url: https://mcp.lightfield.app/mcp
+  authentication: oauth2.1
+  docs: https://docs.lightfield.app/getting-started/mcp-quickstart/
+oauth:
+  protected_resource_metadata: https://mcp.lightfield.app/.well-known/oauth-protected-resource
+  authorization_server_metadata: https://mcp.lightfield.app/.well-known/oauth-authorization-server
+  issuer: https://api.stytch.lightfield.app
+  authorization_endpoint: https://crm.lightfield.app/mcp/authorize
+  token_endpoint: https://api.stytch.lightfield.app/v1/oauth2/token
+  registration_endpoint: https://api.stytch.lightfield.app/v1/oauth2/register
+  dynamic_client_registration: true
+  grant_types: [authorization_code, refresh_token]
+  code_challenge_methods: [S256]
+  scopes_supported: [openid, offline_access]
+install:
+- client: claude-code
+  command: claude mcp add --transport http lightfield https://mcp.lightfield.app/mcp
+- client: claude-web-desktop
+  method: custom connector
+  note: >-
+    Org admins add Lightfield org-wide under Settings → Connectors → Add custom connector; individual
+    users can add it on personal accounts. Members then complete the OAuth flow.
+- client: any
+  method: Streamable HTTP + OAuth 2.1
+  note: Any MCP client supporting Streamable HTTP transport with OAuth 2.1 can connect.
+tools:
+- name: get_current_user
+  description: Get your user identity, including name, email, and role.
+- name: search_lightfield_api_docs
+  description: Browse available API endpoints and resources.
+- name: get_lightfield_api_details
+  description: Get detailed documentation for a specific API endpoint.
+- name: read_from_lightfield
+  description: Read data from your Lightfield workspace.
+- name: write_to_lightfield
+  description: Create or update records in your Lightfield workspace.
+notes: >-
+  The MCP server exposes a small, coarse-grained tool set rather than one tool per REST operation:
+  two documentation-discovery tools plus generic read/write tools over the workspace. Access is
+  bounded by the authenticated user's Lightfield role, not by API-key scopes.

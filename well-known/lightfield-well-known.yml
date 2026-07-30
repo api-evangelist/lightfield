@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of Lightfield hosts, 2026-07-19
+notes: >-
+  The Lightfield discovery surface lives on the MCP host. The RFC 9728 protected-resource and RFC
+  8414 authorization-server documents are served from mcp.lightfield.app and point at a Stytch-backed
+  authorization server. Neither the marketing host nor the REST API host publishes a /.well-known/
+  surface; the REST API authenticates with scoped bearer API keys rather than OAuth, so the absence
+  of OAuth metadata on api.lightfield.app is expected. No security.txt is published — the
+  vulnerability disclosure policy is documented at https://docs.lightfield.app/security/ instead.
+hosts:
+- host: https://mcp.lightfield.app
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: lightfield-oauth-authorization-server.json
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: lightfield-oauth-protected-resource.json
+    standard: RFC 9728
+- host: https://api.lightfield.app
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://lightfield.app
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

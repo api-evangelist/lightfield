@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: lightfield.app
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 23 14:10:11 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: docs.lightfield.app
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 22:59:52 2026 GMT
+  hsts: false
+- host: api.lightfield.app
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  1 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: lightfield.app
+  dnssec: false
+  caa:
+  - 0 issue "amazon.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "sectigo.com"
+  - 0 issue "ssl.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: none

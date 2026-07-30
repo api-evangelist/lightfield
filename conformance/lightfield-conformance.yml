@@ -1,0 +1,91 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/lightfield-openapi-original.yml
+docs: https://docs.lightfield.app/using-the-api/
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: openapi/lightfield-openapi-original.yml declares openapi 3.1.1 (39 paths, 55 operations,
+    69 component schemas)
+- id: http-bearer-auth
+  conforms: true
+  evidence: components.securitySchemes.bearerAuth is type http, scheme bearer
+- id: oauth2
+  conforms: partial
+  evidence: >-
+    Not used by the REST API. The hosted MCP server at mcp.lightfield.app is an OAuth 2.1 protected
+    resource (authorization_code + refresh_token, PKCE S256).
+  scope: mcp-server-only
+- id: oauth2.1
+  conforms: true
+  evidence: MCP server advertises authorization_code + PKCE S256, no implicit/password grants
+  scope: mcp-server-only
+- id: oidc
+  conforms: partial
+  evidence: >-
+    The MCP authorization server advertises the `openid` scope, but no
+    /.well-known/openid-configuration document is published.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://mcp.lightfield.app/.well-known/oauth-authorization-server returns 200
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: https://mcp.lightfield.app/.well-known/oauth-protected-resource returns 200
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint advertised at https://api.stytch.lightfield.app/v1/oauth2/register
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: mcp
+  conforms: true
+  evidence: >-
+    Published Streamable HTTP MCP server at https://mcp.lightfield.app/mcp exposing 5 tools; see
+    mcp/lightfield-mcp.yml
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use a custom JSON envelope ({"error":{type,message,code,param}}) with
+    Content-Type application/json, not application/problem+json
+- id: idempotency-key
+  conforms: true
+  evidence: >-
+    Idempotency-Key request header on POST create/update and /v1/emails/send, 255-char limit, 24h
+    retention, 409 on concurrent reuse; see conventions/lightfield-conventions.yml
+  note: >-
+    Aligned in spirit with the IETF idempotency-key-header draft, though the draft's
+    Idempotency-Key response semantics are not documented.
+- id: rate-limit-headers
+  conforms: partial
+  evidence: >-
+    Uses the de-facto X-RateLimit-Limit / X-RateLimit-Remaining / X-RateLimit-Reset headers plus
+    Retry-After, not the RFC 9331 / draft-ietf-httpapi-ratelimit-headers `RateLimit` field.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header support and no published deprecation policy
+- id: pagination
+  conforms: true
+  evidence: limit/offset query parameters, max limit 25, totalCount in response envelope
+- id: json-api
+  conforms: false
+  evidence: Custom fields/relationships envelope, not the JSON:API media type
+- id: odata
+  conforms: false
+- id: scim2
+  conforms: false
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false
+- id: psd2
+  conforms: false
+compliance_programs:
+- id: soc2-type2
+  conforms: true
+  evidence: Documented at https://docs.lightfield.app/security/; report available via Trust Center
+- id: hipaa
+  conforms: partial
+  evidence: BAA available on request for customers storing PHI
+- id: iso27001
+  conforms: unknown
+  evidence: See security/lightfield-trust-center.yml — matched only by an unverified keyword probe

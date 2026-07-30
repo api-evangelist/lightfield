@@ -1,0 +1,71 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/getting-started/http-quickstart/
+notes: >-
+  All Lightfield client libraries are Stainless-generated from the same OpenAPI description
+  (openapi_spec_hash recorded in each repo's .stats.yml). Versions captured 2026-07-19; the
+  TypeScript and Python libraries are published as pre-release (alpha) while the API is in beta.
+packages:
+- language: typescript
+  registry: npm
+  name: lightfield
+  url: https://www.npmjs.com/package/lightfield
+  install: npm install lightfield
+  version: 0.6.0-alpha
+  repository: https://github.com/Lightfld/lightfield-typescript
+  description: The official TypeScript library for the Lightfield API
+  official: true
+- language: python
+  registry: pypi
+  name: lightfield
+  url: https://pypi.org/project/lightfield/
+  install: pip install lightfield
+  version: 0.15.0a0
+  repository: https://github.com/Lightfld/lightfield-python
+  description: The official Python library for the Lightfield API
+  official: true
+- language: go
+  registry: go-modules
+  name: github.com/Lightfld/lightfield-go
+  url: https://github.com/Lightfld/lightfield-go
+  install: go get github.com/Lightfld/lightfield-go
+  repository: https://github.com/Lightfld/lightfield-go
+  description: The official Go library for the Lightfield API
+  official: true
+- language: go
+  registry: homebrew
+  name: Lightfld/lightfield/lightfield
+  url: https://github.com/Lightfld/homebrew-lightfield
+  install: brew install Lightfld/lightfield/lightfield
+  repository: https://github.com/Lightfld/lightfield-cli
+  description: Official Homebrew tap for the Lightfield CLI
+  kind: cli
+  official: true
+- language: go
+  registry: go-modules
+  name: github.com/Lightfld/lightfield-cli/cmd/lightfield
+  url: https://github.com/Lightfld/lightfield-cli
+  install: go install github.com/Lightfld/lightfield-cli/cmd/lightfield@latest
+  repository: https://github.com/Lightfld/lightfield-cli
+  description: The official Lightfield CLI (requires Go 1.22+)
+  kind: cli
+  official: true
+registries_probed:
+- registry: npm
+  found: true
+- registry: pypi
+  found: true
+- registry: go-modules
+  found: true
+- registry: homebrew
+  found: true
+- registry: maven-central
+  found: false
+- registry: nuget
+  found: false
+- registry: rubygems
+  found: false
+- registry: packagist
+  found: false
+- registry: crates.io
+  found: false

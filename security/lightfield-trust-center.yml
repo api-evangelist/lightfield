@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+probe: true
+url: https://trust.lightfield.app/
+source: https://docs.lightfield.app/security/
+certifications:
+- name: SOC 2 Type 2
+  status: audited
+  evidence: >-
+    "Lightfield undergoes System and Organization Controls (SOC) 2 Type 2 audits of the design and
+    operational effectiveness of our security and availability controls."
+  source: https://docs.lightfield.app/security/
+  report_access: Request a copy of the latest SOC 2 report from the Trust Center.
+- name: HIPAA
+  status: baa-available
+  evidence: >-
+    "Customers who need to store protected health information (PHI) in Lightfield may request a
+    Business Associate Agreement (BAA). Under a BAA, Lightfield commits to compliance with HIPAA
+    requirements for business associates that store and process PHI."
+  source: https://docs.lightfield.app/security/
+  contact: support@lightfield.app
+contacts:
+  compliance: support@lightfield.app
+  security: security@lightfield.app
+evidence:
+- source: https://docs.lightfield.app/security/
+  kind: security-and-compliance-page
+  confirmed: [SOC 2 Type 2, HIPAA]
+- source: https://trust.lightfield.app/
+  kind: trust-center
+  status: 200
+  note: >-
+    The Trust Center is a client-rendered single-page app; its certification list could not be read
+    from the served HTML. An automated keyword probe of the page bundle also matched "iso 27001",
+    but that string was not corroborated by any human-readable Lightfield source and is therefore
+    NOT recorded as a certification here. Re-check the rendered Trust Center to confirm or add it.
+unverified_candidates:
+- ISO 27001

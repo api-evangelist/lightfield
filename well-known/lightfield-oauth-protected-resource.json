@@ -1,0 +1,10 @@
+{
+  "resource": "https://mcp.lightfield.app/mcp",
+  "authorization_servers": [
+    "https://api.stytch.lightfield.app"
+  ],
+  "scopes_supported": [
+    "openid",
+    "offline_access"
+  ]
+}

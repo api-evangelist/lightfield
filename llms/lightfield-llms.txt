@@ -1,0 +1,89 @@
+# Lightfield
+
+> Lightfield is an agent-native CRM platform. It captures customer interactions as unstructured data, organizes them in a context graph of CRM objects, and uses AI agents to automate updates, prep, and follow-ups. The Lightfield API provides read/write access to every CRM entity across 55 operations, with first-party TypeScript, Python and Go SDKs, a Go CLI, and a hosted MCP server.
+
+> Provider-published llms.txt: https://docs.lightfield.app/llms.txt — every Lightfield docs page also has a Markdown endpoint (append `.md` to any documentation URL). This file is the API Evangelist catalog view of the same provider, adding the artifacts harvested into the api-evangelist/lightfield repo.
+
+## APIs
+
+- [Lightfield API](https://docs.lightfield.app/): JSON REST API over `https://api.lightfield.app/v1`. Bearer API key (`sk_lf_...`) plus a required `Lightfield-Version: 2026-03-01` header. Public beta.
+
+## Specs
+
+- [OpenAPI 3.1.1 (original)](openapi/lightfield-openapi-original.yml): 39 paths, 55 operations, 69 component schemas. Published by Lightfield via Stainless.
+- [API Evangelist Overlay](overlays/lightfield-api-overlay.yaml): adds servers, tags, applied security, and the cross-cutting idempotency/pagination/rate-limit/error semantics the original omits.
+
+## Getting started
+
+- [HTTP quickstart](https://docs.lightfield.app/getting-started/http-quickstart/)
+- [TypeScript quickstart](https://docs.lightfield.app/getting-started/typescript-quickstart/)
+- [Python quickstart](https://docs.lightfield.app/getting-started/python-quickstart/)
+- [Go quickstart](https://docs.lightfield.app/getting-started/go-quickstart/)
+- [CLI quickstart](https://docs.lightfield.app/getting-started/cli-quickstart/)
+- [MCP quickstart](https://docs.lightfield.app/getting-started/mcp-quickstart/)
+
+## Using the API
+
+- [API keys](https://docs.lightfield.app/using-the-api/api-keys/): admin-created, shown once, scoped at creation.
+- [Scopes](https://docs.lightfield.app/using-the-api/scopes/): 26 scopes, `<object>:<create|update|read>`.
+- [Idempotency](https://docs.lightfield.app/using-the-api/idempotency/): `Idempotency-Key` on POST writes, 255 chars, 24h retention, 409 on concurrent reuse.
+- [Rate limits](https://docs.lightfield.app/using-the-api/rate-limits/): 25 rps per category per organization; `X-RateLimit-*` + `Retry-After`.
+- [List methods](https://docs.lightfield.app/using-the-api/list-endpoints/): limit/offset, max limit 25, index-backed reads.
+- [Fields and relationships](https://docs.lightfield.app/using-the-api/fields-and-relationships/)
+- [Errors](https://docs.lightfield.app/using-the-api/errors/): `{"error":{type,message,code,param}}`.
+- [Uploading files](https://docs.lightfield.app/using-the-api/file-uploads/)
+- [Retrieving meeting transcripts](https://docs.lightfield.app/using-the-api/retrieving-meeting-transcripts/)
+- [Leaked API key remediation](https://docs.lightfield.app/using-the-api/leaked-api-key-remediation/)
+
+## Objects
+
+- [Object types](https://docs.lightfield.app/objects-in-lightfield/object-types/): Account, Opportunity, Contact, Task, Meeting, Email, Note, List, Member.
+- [Custom objects](https://docs.lightfield.app/objects-in-lightfield/custom-object-types/)
+- [Data model (derived)](data-model/lightfield-data-model.yml)
+
+## Workflows
+
+- [Workflows overview](https://docs.lightfield.app/workflows/overview/): webhook, object-lifecycle, scheduled and manual triggers.
+- [How workflows work](https://docs.lightfield.app/workflows/how-workflows-work/): atomic event capture, sharded dispatch, scoped idempotency keys, immutable-versioned definitions.
+- [Workflow recipes](https://docs.lightfield.app/workflows/recipes/)
+- [Event surface (captured)](asyncapi/lightfield-events.yml)
+
+## Agents
+
+- [MCP server](mcp/lightfield-mcp.yml): `https://mcp.lightfield.app/mcp`, Streamable HTTP, OAuth 2.1, 5 tools.
+- [Agent Skills](skills/_index.yml)
+- [Agentic access contracts](agentic-access/lightfield-agentic-access.yml)
+
+## SDKs and tooling
+
+- [Packages](packages/lightfield-packages.yml): npm `lightfield`, PyPI `lightfield`, Go `github.com/Lightfld/lightfield-go`.
+- [CLI](cli/lightfield-cli.yml): `brew install Lightfld/lightfield/lightfield`.
+- [GitHub organization](https://github.com/Lightfld)
+
+## Operations
+
+- [Conventions](conventions/lightfield-conventions.yml)
+- [Authentication](authentication/lightfield-authentication.yml)
+- [Scopes](scopes/lightfield-scopes.yml)
+- [Error catalog](errors/lightfield-problem-types.yml)
+- [Error codes](errors/lightfield-error-codes.yml)
+- [Lifecycle](lifecycle/lightfield-lifecycle.yml)
+- [Changelog](changelog/lightfield-changelog.yml)
+- [Status page](https://status.lightfield.app/)
+
+## Security and compliance
+
+- [Security & Compliance](https://docs.lightfield.app/security/): SOC 2 Type 2, HIPAA BAA on request, vulnerability disclosure with safe harbor.
+- [Trust Center](https://trust.lightfield.app/)
+- [Vulnerability disclosure](security/lightfield-vulnerability-disclosure.yml): security@lightfield.app
+- [Domain security](security/lightfield-domain-security.yml)
+- [Well-known documents](well-known/lightfield-well-known.yml)
+
+## Company
+
+- [Website](https://lightfield.app/)
+- [Pricing](https://lightfield.app/pricing)
+- [Blog](https://lightfield.app/blog)
+- [Support](https://support.lightfield.app)
+- [Terms of Service](https://lightfield.app/terms)
+- [Privacy Policy](https://lightfield.app/privacy)

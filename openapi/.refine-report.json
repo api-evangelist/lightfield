@@ -1,0 +1,38 @@
+{
+  "provider": "lightfield",
+  "sources": [
+    "lightfield-accounts-api-openapi.yml",
+    "lightfield-auth-api-openapi.yml",
+    "lightfield-contacts-api-openapi.yml",
+    "lightfield-emails-api-openapi.yml",
+    "lightfield-files-api-openapi.yml",
+    "lightfield-lists-api-openapi.yml",
+    "lightfield-meetings-api-openapi.yml",
+    "lightfield-members-api-openapi.yml",
+    "lightfield-notes-api-openapi.yml",
+    "lightfield-objects-api-openapi.yml",
+    "lightfield-opportunities-api-openapi.yml",
+    "lightfield-tasks-api-openapi.yml",
+    "lightfield-workflowrun-api-openapi.yml"
+  ],
+  "outputs": [
+    "lightfield-accounts-api-openapi.yml",
+    "lightfield-auth-api-openapi.yml",
+    "lightfield-contacts-api-openapi.yml",
+    "lightfield-emails-api-openapi.yml",
+    "lightfield-files-api-openapi.yml",
+    "lightfield-lists-api-openapi.yml",
+    "lightfield-meetings-api-openapi.yml",
+    "lightfield-members-api-openapi.yml",
+    "lightfield-notes-api-openapi.yml",
+    "lightfield-objects-api-openapi.yml",
+    "lightfield-opportunities-api-openapi.yml",
+    "lightfield-tasks-api-openapi.yml",
+    "lightfield-workflowrun-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

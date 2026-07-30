@@ -1,0 +1,75 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/workflows/overview/
+type: Webhooks
+spec_type: none
+asyncapi_published: false
+summary: >-
+  Lightfield publishes no AsyncAPI document, and it does not operate a subscriber-style outbound
+  webhook catalog (there is no "create a webhook endpoint" API and no signed event-delivery
+  contract). Its event surface is the Workflows engine: workflows are started by triggers, one of
+  which is an INBOUND webhook endpoint that receives HTTP POSTs from external services, and steps
+  can perform HTTP egress back out to other systems. Object lifecycle changes inside Lightfield are
+  first-class events that fire triggers. This artifact records that surface honestly rather than
+  fabricating an event schema.
+direction: inbound-webhook-triggers + http-egress-steps
+triggers:
+- name: Webhook
+  kind: inbound-webhook
+  description: >-
+    Receives HTTP POST requests from external services (e.g. Stripe payment events, Kondo LinkedIn
+    DMs, internal tools pushing custom payloads). The trigger captures the raw JSON and makes it
+    available to every step that follows.
+  payload: arbitrary JSON, passed through unparsed
+  schema_published: false
+- name: Object lifecycle
+  kind: internal-event
+  description: >-
+    Fires when objects change inside Lightfield — a contact is created, an opportunity moves to
+    closed-won, an account field is updated. Specific fields can be watched so unrelated edits do
+    not fire the trigger. Trigger output includes the full object and, for updates, a before/after
+    diff.
+  watchable_objects: [account, contact, opportunity, meeting, note, task, custom objects]
+  field_level_filtering: true
+- name: Scheduled
+  kind: schedule
+  description: >-
+    Runs on a cadence — daily, weekly, monthly, or a custom cron expression. Each schedule is
+    timezone-aware and stable across daylight saving transitions.
+- name: Manual
+  kind: manual
+  description: Fires a workflow by hand; useful for testing or one-off operations.
+egress:
+  supported: true
+  description: >-
+    Workflow steps can make outbound HTTP requests, pushing data back to external systems when
+    something changes in Lightfield. This is the mechanism by which Lightfield notifies other
+    services, in place of a managed webhook subscription product.
+delivery_guarantees:
+  event_capture: >-
+    When a trigger fires the event is captured atomically; events are never lost, even if the system
+    crashes immediately after the trigger.
+  dispatch: >-
+    A sharded background processor dispatches events to workflow executions; sharding prevents a
+    single high-volume workflow from starving others.
+  idempotency: >-
+    Each event is processed with a scoped idempotency key, so replaying events after a failure never
+    creates duplicate workflow runs. Step side effects are idempotent — a retried step produces the
+    same result without duplicating records or sending duplicate requests.
+  workflow_versioning: >-
+    Workflow definitions are immutable-versioned; running workflows are pinned to the version active
+    when they started.
+observability:
+  run_status_operation: workflowRun.status
+  endpoint: GET /v1/workflowRun/{runId}/status
+  source: openapi/lightfield-openapi-original.yml
+docs:
+  overview: https://docs.lightfield.app/workflows/overview/
+  architecture: https://docs.lightfield.app/workflows/how-workflows-work/
+  building: https://docs.lightfield.app/workflows/building-workflows/
+  recipes: https://docs.lightfield.app/workflows/recipes/
+probes:
+- url: https://docs.lightfield.app/asyncapi.yaml
+  status: not-published
+- url: https://docs.lightfield.app/openapi.json
+  status: 404

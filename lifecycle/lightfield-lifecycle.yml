@@ -1,0 +1,55 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.lightfield.app/
+maturity:
+  stage: beta
+  statement: >-
+    "The Lightfield API is currently in beta. Methods, parameters, and response schemas may change as
+    we incorporate feedback during this period."
+  source: https://docs.lightfield.app/getting-started/http-quickstart/
+versioning:
+  scheme: date-header
+  header: Lightfield-Version
+  required: true
+  current: '2026-03-01'
+  path_prefix: /v1
+  docs: https://docs.lightfield.app/using-the-api/api-keys/
+  error_code_when_missing: version_header
+  notes: >-
+    Version is pinned per request via a required date header, independent of the /v1 path prefix.
+    The date-based scheme is the mechanism by which future breaking changes will be gated.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  deprecation_header: null
+  notes: >-
+    No published deprecation policy or RFC 8594 Sunset/Deprecation header support was found. The API
+    is in beta and the docs state that methods, parameters and response schemas may change. No
+    operation in the OpenAPI description is marked deprecated.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  notes: >-
+    No public SLA or uptime commitment was found. SOC 2 Type 2 audits cover availability controls
+    (see security/lightfield-trust-center.yml).
+status_page: https://status.lightfield.app/
+support:
+  url: https://support.lightfield.app
+  email: support@lightfield.app
+changelog:
+  url: https://lightfield.app/blog?category=changelog
+  artifact: changelog/lightfield-changelog.yml
+  cadence: weekly
+sdk_lifecycle:
+  note: >-
+    Client libraries track the API's beta status — the TypeScript (0.6.0-alpha) and Python
+    (0.15.0a0) packages are published as pre-releases. All SDKs are Stainless-generated from the
+    same OpenAPI description and use release-please for versioning.
+  artifact: packages/lightfield-packages.yml
+workflow_versioning:
+  note: >-
+    Workflow definitions are immutable-versioned: every edit creates a new version snapshot, and
+    running workflows are pinned to the version active when they started, so publishing a new
+    version never disrupts in-flight executions.
+  source: https://docs.lightfield.app/workflows/overview/
