@@ -1,28 +1,348 @@
 aid: lightfield
 name: Lightfield
-description: 'Lightfield is a company surfaced as a portfolio company of greylock, lightspeed-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. Sector: applications. This profile
-  is a lead awaiting the enrichment pipeline.'
+description: 'Lightfield is an agent-native customer relationship management (CRM) platform for
+  high-growth and AI-native go-to-market teams. Rather than depending on manual data entry, Lightfield
+  captures customer interactions — calls, emails, meetings and external signals — as unstructured
+  data, organizes them into a versioned context graph of CRM objects, and lets AI agents reason over
+  that graph to generate pipeline, prepare for meetings, enrich records and drive follow-up. The
+  public Lightfield API (beta) provides read/write access to every CRM entity — accounts, contacts,
+  opportunities, meetings, notes, tasks, lists, emails, files, members, custom objects and workflow
+  runs — across 55 operations, with first-party TypeScript, Python and Go SDKs, a Go CLI, and a
+  hosted Model Context Protocol server at mcp.lightfield.app secured with OAuth 2.1. Workflows and
+  Automations add trigger-driven agent pipelines fed by inbound webhooks, object lifecycle events and
+  schedules. Backed by Greylock and Lightspeed Venture Partners.'
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.sanity.io/images/3ccg9tet/production/ab2fd80ee036fa9627f507d73c4236b5e40a0715-2400x1260.png
 url: https://raw.githubusercontent.com/api-evangelist/lightfield/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - greylock
 - lightspeed-venture-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: public-api-with-openapi-sdks-cli-mcp
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Applications
-apis: []
+- CRM
+- Sales
+- Artificial Intelligence
+- Agents
+- Customer Relationship Management
+- Go To Market
+- Productivity
+- SaaS
+apis:
+- aid: lightfield:lightfield-accounts-api
+  name: Lightfield Accounts API
+  description: The Accounts API from Lightfield — 3 operation(s) for accounts.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-auth-api
+  name: Lightfield Auth API
+  description: The Auth API from Lightfield — 1 operation(s) for auth.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-contacts-api
+  name: Lightfield Contacts API
+  description: The Contacts API from Lightfield — 3 operation(s) for contacts.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-emails-api
+  name: Lightfield Emails API
+  description: The Emails API from Lightfield — 4 operation(s) for emails.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Emails
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-emails-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-files-api
+  name: Lightfield Files API
+  description: The Files API from Lightfield — 5 operation(s) for files.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-files-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-lists-api
+  name: Lightfield Lists API
+  description: The Lists API from Lightfield — 5 operation(s) for lists.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-lists-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-meetings-api
+  name: Lightfield Meetings API
+  description: The Meetings API from Lightfield — 2 operation(s) for meetings.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Meetings
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-meetings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-members-api
+  name: Lightfield Members API
+  description: The Members API from Lightfield — 2 operation(s) for members.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Members
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-members-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-notes-api
+  name: Lightfield Notes API
+  description: The Notes API from Lightfield — 2 operation(s) for notes.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-notes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-objects-api
+  name: Lightfield Objects API
+  description: The Objects API from Lightfield — 5 operation(s) for objects.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Objects
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-objects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-opportunities-api
+  name: Lightfield Opportunities API
+  description: The Opportunities API from Lightfield — 3 operation(s) for opportunities.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Opportunities
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-opportunities-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-tasks-api
+  name: Lightfield Tasks API
+  description: The Tasks API from Lightfield — 3 operation(s) for tasks.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
+- aid: lightfield:lightfield-workflowrun-api
+  name: Lightfield WorkflowRun API
+  description: The WorkflowRun API from Lightfield — 1 operation(s) for workflowrun.
+  humanURL: https://docs.lightfield.app/
+  baseURL: https://api.lightfield.app/v1
+  tags:
+  - WorkflowRun
+  properties:
+  - type: OpenAPI
+    url: openapi/lightfield-workflowrun-api-openapi.yml
+  - type: Documentation
+    url: https://docs.lightfield.app/
+  - type: APIReference
+    url: https://docs.lightfield.app/api/
+  - type: GettingStarted
+    url: https://docs.lightfield.app/getting-started/http-quickstart/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/lightfield/overview
 - type: Website
   url: https://lightfield.app/
+- type: DeveloperPortal
+  url: https://docs.lightfield.app/
+- type: Documentation
+  url: https://docs.lightfield.app/
+- type: APIReference
+  url: https://docs.lightfield.app/api/
+- type: GettingStarted
+  url: https://docs.lightfield.app/getting-started/http-quickstart/
+- type: Support
+  url: https://support.lightfield.app
+- type: Blog
+  url: https://lightfield.app/blog
+- type: GitHubOrganization
+  url: https://github.com/Lightfld
+- type: Pricing
+  url: https://lightfield.app/pricing
+- type: SignUp
+  url: https://crm.lightfield.app/signup
+- type: Login
+  url: https://crm.lightfield.app/login
+- type: TermsOfService
+  url: https://lightfield.app/terms
+- type: PrivacyPolicy
+  url: https://lightfield.app/privacy
+- type: Packages
+  url: packages/lightfield-packages.yml
+- type: SDKs
+  url: packages/lightfield-packages.yml
+- type: CLI
+  url: cli/lightfield-cli.yml
+- type: MCPServer
+  url: mcp/lightfield-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/lightfield-llms.txt
+- type: WellKnown
+  url: well-known/lightfield-well-known.yml
+- type: Authentication
+  url: authentication/lightfield-authentication.yml
+- type: OAuthScopes
+  url: scopes/lightfield-scopes.yml
+- type: Conventions
+  url: conventions/lightfield-conventions.yml
+- type: Idempotency
+  url: conventions/lightfield-conventions.yml
+- type: RateLimits
+  url: conventions/lightfield-conventions.yml
+- type: ErrorCatalog
+  url: errors/lightfield-problem-types.yml
+- type: ErrorCodes
+  url: errors/lightfield-error-codes.yml
+- type: DataModel
+  url: data-model/lightfield-data-model.yml
+- type: Lifecycle
+  url: lifecycle/lightfield-lifecycle.yml
+- type: StatusPage
+  url: https://status.lightfield.app/
+- type: ChangeLog
+  url: changelog/lightfield-changelog.yml
+- type: Webhooks
+  url: asyncapi/lightfield-events.yml
+- type: Conformance
+  url: conformance/lightfield-conformance.yml
+- type: Compliance
+  url: https://docs.lightfield.app/security/
+- type: TrustCenter
+  url: security/lightfield-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/lightfield-vulnerability-disclosure.yml
+- type: Security
+  url: https://docs.lightfield.app/security/
+- type: DomainSecurity
+  url: security/lightfield-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/lightfield-agentic-access.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
