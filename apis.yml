@@ -34,7 +34,7 @@ x-tier: enriched
 x-tier-reason: public-api-with-openapi-sdks-cli-mcp
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-13'
 tags:
 - Company
 - Applications
@@ -299,6 +299,8 @@ common:
   url: cli/lightfield-cli.yml
 - type: MCPServer
   url: mcp/lightfield-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/lightfield-tool-crosswalk.yml
 - type: AgentSkill
   url: skills/_index.yml
 - type: LLMsTxt
@@ -314,7 +316,9 @@ common:
 - type: Idempotency
   url: conventions/lightfield-conventions.yml
 - type: RateLimits
-  url: conventions/lightfield-conventions.yml
+  url: rate-limits/lightfield-rate-limits.yml
+- type: Plans
+  url: plans/lightfield-plans-pricing.yml
 - type: ErrorCatalog
   url: errors/lightfield-problem-types.yml
 - type: ErrorCodes
@@ -344,7 +348,12 @@ common:
 - type: AgenticAccess
   url: agentic-access/lightfield-agentic-access.yml
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 3
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Round 2. Added plans (4-tier credit pricing read from lightfield.app/pricing), a dedicated
+    rate-limits artifact, and the MCP-to-REST tool crosswalk. Refreshed package currency from the
+    registries, the changelog window through 2026-08-07, the trust center (GDPR confirmed, ISO
+    27001 recorded as planned) and the MCP deployment probe. No A2A agent card on any host.
