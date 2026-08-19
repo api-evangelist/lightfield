@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts Tasks API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get task field definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/tasks/definitions",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the schema for the field and relationship definitions available on tasks. Useful for understanding the shape of task data before creating or updating records. See <u>[Fields and relationships](/using-the-api/fields-and-relationships/)</u> for more details.\n\n**[Required scope](/using-the-api/scopes/):** `tasks:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/tasks",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of tasks. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `tasks:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+        },
+        {
+          "info": {
+            "name": "Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/tasks",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new task record. The `$title` and `$status` fields and the `$assignedTo` relationship are required.\n\nIf `$createdBy` is omitted it defaults to the authenticated user. The `$note` relationship is read-only — manage notes via their own relationships.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `tasks:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        },
+        {
+          "info": {
+            "name": "Retrieve a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/tasks/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a single task by its ID.\n\n**[Required scope](/using-the-api/scopes/):** `tasks:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "Update a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/tasks/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing task by ID. Only included fields and relationships are modified.\n\nThe `$note` relationship is read-only — manage notes via their own relationships.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `tasks:update`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

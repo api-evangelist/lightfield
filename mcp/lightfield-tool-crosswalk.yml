@@ -1,0 +1,176 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/lightfield-mcp.yml + openapi/_original/lightfield-openapi-original.yml
+docs: https://docs.lightfield.app/getting-started/mcp-quickstart/
+checked: '2026-08-13'
+summary: >-
+  Lightfield's hosted MCP server does NOT expose one tool per REST operation. It ships five
+  coarse-grained tools: an identity tool, two documentation-discovery tools that let the agent
+  browse the REST reference at runtime, and a generic read/write pair that fans out across the whole
+  workspace. That means the crosswalk is one-to-many in the read/write direction rather than
+  one-to-one, and no MCP tool inherits a single OpenAPI operation's parameter schema. Live
+  introspection is auth-gated (tools/list returns HTTP 401 with an OAuth challenge), so tool names
+  and descriptions come from the provider's MCP quickstart, not from a live schema dump, and every
+  binding confidence below reflects that.
+surfaces:
+  openapi:
+    path: openapi/_original/lightfield-openapi-original.yml
+    refined: openapi/lightfield-*-api-openapi.yml
+    operations: 55
+    base_url: https://api.lightfield.app/v1
+    gated: false
+  mcp:
+    url: https://mcp.lightfield.app/mcp
+    transport: streamable-http
+    auth: oauth2.1
+    gated: true
+    probe:
+      method: tools/list
+      http_status: 401
+      www_authenticate: Bearer resource_metadata="https://mcp.lightfield.app/.well-known/oauth-protected-resource/mcp"
+      checked: '2026-08-13'
+      note: >-
+        Real inputSchemas require an authenticated introspection pass. Nothing below was read off the
+        live server.
+  graphql:
+    endpoint: null
+    note: Lightfield publishes no GraphQL surface.
+binding_model: coarse-grained-dispatch
+binding_model_note: >-
+  read_from_lightfield and write_to_lightfield are dispatchers over the same resource surface the
+  REST API exposes; the agent selects the target resource inside the tool call rather than by
+  choosing a tool. Access is bounded by the authenticated user's Lightfield role, not by the
+  API-key scopes that bound the REST surface (scopes/lightfield-scopes.yml).
+crosswalk:
+- tool: get_current_user
+  category: identity
+  rest: [auth.validate, member.list, member.retrieve]
+  binding: overlapping
+  confidence: medium
+  note: >-
+    Returns name, email and role for the calling user. auth.validate is the REST identity check and
+    member.retrieve is the closest record-shaped equivalent, but the MCP tool is not documented as
+    calling either.
+- tool: search_lightfield_api_docs
+  category: discovery
+  rest: []
+  binding: none
+  confidence: high
+  note: >-
+    Documentation search over the Lightfield API reference. There is no public REST operation that
+    lists endpoints; the nearest REST analogue is the per-object Definitions family
+    (account.definitions, contact.definitions, opportunity.definitions, task.definitions,
+    object.definitions, object.listDefinitions), which returns field/relationship definitions for
+    DATA, not the endpoint catalogue this tool returns.
+- tool: get_lightfield_api_details
+  category: discovery
+  rest: []
+  binding: none
+  confidence: high
+  note: Detailed documentation for one endpoint. No REST equivalent — docs-plane only.
+- tool: read_from_lightfield
+  category: read
+  rest:
+  - account.list
+  - account.retrieve
+  - account.definitions
+  - contact.list
+  - contact.retrieve
+  - contact.definitions
+  - opportunity.list
+  - opportunity.retrieve
+  - opportunity.definitions
+  - task.list
+  - task.retrieve
+  - task.definitions
+  - meeting.list
+  - meeting.retrieve
+  - note.list
+  - note.retrieve
+  - list.list
+  - list.retrieve
+  - list.listAccounts
+  - list.listContacts
+  - list.listOpportunities
+  - email.list
+  - email.retrieve
+  - file.list
+  - file.retrieve
+  - file.url
+  - member.list
+  - member.retrieve
+  - object.list
+  - object.retrieve
+  - object.definitions
+  - object.listDefinitions
+  - workflowRun.status
+  binding: dispatch
+  confidence: medium
+  note: >-
+    Mapped by semantics: every GET in the public REST surface is a plausible target of the generic
+    read tool. The tool's own parameters are unknown while introspection is gated, so this is a
+    capability envelope, not a proven call graph.
+- tool: write_to_lightfield
+  category: write
+  rest:
+  - account.create
+  - account.update
+  - contact.create
+  - contact.update
+  - opportunity.create
+  - opportunity.update
+  - task.create
+  - task.update
+  - note.create
+  - note.update
+  - meeting.create
+  - meeting.update
+  - list.create
+  - list.update
+  - object.create
+  - object.update
+  - email.draft
+  - email.send
+  - file.create
+  - file.complete
+  - file.cancel
+  binding: dispatch
+  confidence: medium
+  note: >-
+    All 21 POST operations in the captured description. Lightfield's public REST surface has no
+    PUT/PATCH/DELETE; updates are POSTs to the resource id. Whether the MCP write tool honours the
+    REST Idempotency-Key contract (conventions/lightfield-conventions.yml) is not documented.
+mcp_only:
+- tool: search_lightfield_api_docs
+  reason: Documentation-plane tool. Lightfield publishes no REST endpoint-catalogue operation.
+- tool: get_lightfield_api_details
+  reason: Documentation-plane tool. No REST equivalent.
+rest_only:
+- operations: [auth.validate]
+  reason: API-key validation is meaningless over an OAuth-bound MCP session.
+- operations: [file.create, file.complete, file.cancel, file.url]
+  reason: >-
+    Session-based multipart upload flow. Nominally reachable through the generic write tool, but the
+    upload leg happens outside the API surface, so an MCP client cannot complete the flow on its own.
+  caveat: listed above under write_to_lightfield/read_from_lightfield as best-effort envelope only.
+- operations: [workflowRun.status]
+  reason: >-
+    Workflow-run polling. No documented MCP tool for triggering or watching workflow runs.
+coverage:
+  mcp_tools: 5
+  rest_operations: 55
+  tools_bound_to_rest: 3
+  tools_mcp_only: 2
+  rest_operations_in_envelope: 54
+  rest_operations_unbound: 1
+  one_to_one_bindings: 0
+  note: >-
+    Coverage is deliberately reported as an envelope. Because two tools dispatch across the whole
+    surface, a per-operation coverage percentage would overstate what the MCP server actually
+    guarantees.
+gaps:
+- The MCP tools carry no per-operation inputSchema an agent can validate against before calling.
+- Idempotency, pagination limits (max 25) and the Lightfield-Version header are REST-plane contracts
+  with no documented MCP-plane equivalent.
+- OAuth scopes advertised by the authorization server are only `openid` and `offline_access`; the 26
+  REST API-key scopes do not map onto the MCP session, which is role-bounded instead.

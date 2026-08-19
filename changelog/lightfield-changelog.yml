@@ -1,9 +1,15 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: searched
 source: https://lightfield.app/blog?category=changelog
 url: https://lightfield.app/blog?category=changelog
+checked: '2026-08-13'
 scheme: dated-product-changelog
 cadence: weekly (Fridays)
+feed: null
+feed_note: >-
+  No RSS/Atom feed is published for the changelog. /blog/rss.xml, /rss.xml, /feed and
+  /blog/feed.xml all return 404 (probed 2026-08-13), so the changelog is human-readable only and
+  must be scraped from the JS-rendered blog index.
 api_versioning:
   scheme: date-header
   header: Lightfield-Version
@@ -12,8 +18,21 @@ api_versioning:
     The changelog is a product changelog covering the whole platform, including API additions. API
     versioning itself is pinned per request via the Lightfield-Version date header. No separate
     API-only changelog or dated version-migration guide was found.
-window: 2026-03-20 through 2026-07-01 (captured 2026-07-19)
+window: 2026-03-20 through 2026-08-07 (captured 2026-08-13)
 entries:
+- date: '2026-08-07'
+  title: Dashboards, Slack/Teams now generally available
+- date: '2026-07-31'
+  title: PPTX, DOCX, XLSX, Teams sync, Automations, Sequences improvements
+- date: '2026-07-24'
+  title: Dashboards beta, date range filters, Opus 5
+- date: '2026-07-17'
+  title: Object display settings, LinkedIn DMs and sequence improvements
+- date: '2026-07-10'
+  title: Field value history, improvements to sequences
+  api_relevant: true
+  highlights:
+  - Field value history (the fieldHistory method exposed on core objects in the CLI reference)
 - date: '2026-07-01'
   title: Improvements to Sequences and Automations
 - date: '2026-06-26'

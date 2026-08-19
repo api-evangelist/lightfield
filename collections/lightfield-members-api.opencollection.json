@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts Members API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/members/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a single member by their ID.\n\n**[Required scope](/using-the-api/scopes/):** `members:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "List members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/members",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of members in your workspace. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `members:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

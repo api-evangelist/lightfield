@@ -17,16 +17,20 @@ oauth:
   token_endpoint: https://api.stytch.lightfield.app/v1/oauth2/token
   registration_endpoint: https://api.stytch.lightfield.app/v1/oauth2/register
   dynamic_client_registration: true
-  grant_types: [authorization_code, refresh_token]
-  code_challenge_methods: [S256]
-  scopes_supported: [openid, offline_access]
+  grant_types:
+  - authorization_code
+  - refresh_token
+  code_challenge_methods:
+  - S256
+  scopes_supported:
+  - openid
+  - offline_access
 install:
 - client: claude-code
   command: claude mcp add --transport http lightfield https://mcp.lightfield.app/mcp
 - client: claude-web-desktop
   method: custom connector
-  note: >-
-    Org admins add Lightfield org-wide under Settings → Connectors → Add custom connector; individual
+  note: Org admins add Lightfield org-wide under Settings → Connectors → Add custom connector; individual
     users can add it on personal accounts. Members then complete the OAuth flow.
 - client: any
   method: Streamable HTTP + OAuth 2.1
@@ -42,7 +46,26 @@ tools:
   description: Read data from your Lightfield workspace.
 - name: write_to_lightfield
   description: Create or update records in your Lightfield workspace.
-notes: >-
-  The MCP server exposes a small, coarse-grained tool set rather than one tool per REST operation:
-  two documentation-discovery tools plus generic read/write tools over the workspace. Access is
-  bounded by the authenticated user's Lightfield role, not by API-key scopes.
+notes: 'The MCP server exposes a small, coarse-grained tool set rather than one tool per REST operation:
+  two documentation-discovery tools plus generic read/write tools over the workspace. Access is bounded
+  by the authenticated user''s Lightfield role, not by API-key scopes.'
+deployment:
+  mode: remote
+  endpoint: https://mcp.lightfield.app/mcp
+  install: null
+  package: null
+  auth: oauth
+  verified: probed
+  probe: gated
+  probe_detail:
+    method: tools/list
+    http_status: 401
+    body: '{"error":"Unauthorized"}'
+    www_authenticate: Bearer resource_metadata="https://mcp.lightfield.app/.well-known/oauth-protected-resource/mcp"
+  checked: '2026-08-13'
+  source: live POST to https://mcp.lightfield.app/mcp, 2026-08-13
+  note: >-
+    Remote-only. Lightfield ships no stdio/npx package — an MCP client connects directly to the
+    hosted Streamable HTTP endpoint over OAuth 2.1. Live tool schemas require an authenticated
+    introspection pass; the tool list above comes from the provider's MCP quickstart. See
+    mcp/lightfield-tool-crosswalk.yml for the binding onto the REST surface.

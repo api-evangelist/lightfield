@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts Notes API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/notes",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of notes. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `notes:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+        },
+        {
+          "info": {
+            "name": "Create a note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/notes",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new note record.\n\nThe note author is automatically set to the API key owner.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `notes:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        },
+        {
+          "info": {
+            "name": "Retrieve a note",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/notes/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a single note by its ID.\n\n**[Required scope](/using-the-api/scopes/):** `notes:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "Update a note",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/notes/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing note by ID. Only included fields and relationships are modified.\n\nBoth `$account` and `$opportunity` relationships can be modified via `add` or `remove` operations.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `notes:update`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

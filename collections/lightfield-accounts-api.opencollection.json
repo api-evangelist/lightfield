@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account field definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts/definitions",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the schema for all field and relationship definitions available on accounts, including both system-defined and custom fields. Useful for understanding the shape of account data before creating or updating records. See <u>[Fields and relationships](/using-the-api/fields-and-relationships/)</u> for more details.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "List accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of accounts. Use `offset` and `limit` to paginate through results, and `$field` query parameters to filter. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about <u>[pagination](/using-the-api/list-endpoints/#pagination)</u> and <u>[filtering](/using-the-api/list-endpoints/#filtering)</u>.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Search"
+        },
+        {
+          "info": {
+            "name": "Create an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/accounts",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a new account record. The `$name` field is required.\n\nIf a `$website` is provided, Lightfield automatically enriches the account in the background. The `$howTheyMakeMoney` and `$accountStatus` fields are read-only and cannot be set via the API. The `$opportunity`, `$task`, `$note`, and `$meeting` relationships are also read-only — manage them via the `$account` relationship on the opportunity or task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` atten"
+        },
+        {
+          "info": {
+            "name": "Retrieve an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a single account by its ID.\n\n**[Required scope](/using-the-api/scopes/):** `accounts:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "Update an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/accounts/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates an existing account by ID. Only included fields and relationships are modified.\n\nThe `$howTheyMakeMoney` and `$accountStatus` fields are read-only and cannot be updated. The `$opportunity`, `$task`, `$note`, and `$meeting` relationships are also read-only — manage them via the `$account` relationship on the opportunity or task, the `$account`/`$opportunity` note relationships, or via the meeting's `$contact` attendees that belong to this account.\n\nSupports idempotency via the `Idempotenc"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

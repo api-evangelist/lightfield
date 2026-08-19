@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts Emails API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Emails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/emails/:id",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves a single email by its ID. Email fields are redacted based on the caller-specific privacy resolution, and the response includes a read-only `accessLevel`.\n\n**[Required scope](/using-the-api/scopes/):** `emails:read`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Read"
+        },
+        {
+          "info": {
+            "name": "List emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/emails",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of emails. Use `offset` and `limit` to paginate through results. Each email is privacy-filtered per caller, includes a read-only `accessLevel`, and may redact the subject at metadata-only access. `fields.$body` is not included on list items; use GET `/v1/emails/{id}` for message body HTML. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.\n\n**[Required scope](/using-the-api/scopes/):** `emails:read`\n\n**[Rate limit category]"
+        },
+        {
+          "info": {
+            "name": "Send an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/emails/send",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sends an email via the connected email account that owns the `from` address. Currently supports new sends only; replies and forwards are not yet supported.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `emails:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        },
+        {
+          "info": {
+            "name": "Create a draft email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/emails/draft",
+            "headers": [
+              {
+                "name": "Lightfield-Version",
+                "value": "2026-03-01"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a draft in the connected email account that owns the `from` address. Mirrors native email-client behavior: only `from` is required — `to`, `cc`, `bcc`, `subject`, `messageBody`, and `attachments` are all optional. At least one of those optional fields must be populated; sending only `from` returns a 400.\n\nSupports idempotency via the `Idempotency-Key` header.\n\n**[Required scope](/using-the-api/scopes/):** `emails:create`\n\n**[Rate limit category](/using-the-api/rate-limits/):** Write"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

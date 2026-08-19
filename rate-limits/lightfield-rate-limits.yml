@@ -1,0 +1,74 @@
+generated: '2026-08-13'
+method: searched
+source: https://docs.lightfield.app/using-the-api/rate-limits/
+docs: https://docs.lightfield.app/using-the-api/rate-limits/
+checked: '2026-08-13'
+api: https://api.lightfield.app/v1
+summary: >-
+  Lightfield publishes a flat 25 requests-per-second ceiling per organization, applied separately to
+  three method categories (write, read, search). Limits are described as early-launch values subject
+  to change. Every response carries X-RateLimit-* headers and exhaustion returns 429 with
+  Retry-After, so the runtime signal is available to an agent without reading the docs.
+scope: per organization
+limit_count: 3
+limits:
+- category: Write
+  methods: [Create, Update]
+  limit: 25
+  unit: requests
+  window: 1s
+  scope: organization
+- category: Read
+  methods: [Retrieve, Definitions]
+  limit: 25
+  unit: requests
+  window: 1s
+  scope: organization
+- category: Search
+  methods: [List]
+  limit: 25
+  unit: requests
+  window: 1s
+  scope: organization
+headers:
+- name: X-RateLimit-Limit
+  description: Maximum requests allowed per second (bucket capacity)
+- name: X-RateLimit-Remaining
+  description: Number of requests remaining in the current window
+- name: X-RateLimit-Reset
+  description: Unix timestamp (seconds) when the bucket will be fully replenished
+standard_headers: false
+standard_headers_note: >-
+  Lightfield uses the legacy X-RateLimit-* convention, not the IETF RateLimit / RateLimit-Policy
+  draft headers.
+exhaustion:
+  status: 429
+  reason: Too Many Requests
+  retry_after_header: Retry-After
+  retry_after_units: seconds
+  error_body:
+    type: too_many_requests
+    message: Rate limit exceeded. Please try again later.
+  note: >-
+    The 429 example published in the docs shows X-RateLimit-Limit: 5, which does not match the
+    documented 25 rps ceiling — treat the header as the authoritative runtime value and the table as
+    the launch-period default.
+best_practices:
+- Implement exponential backoff keyed off Retry-After.
+- Monitor X-RateLimit-Remaining and throttle before exhaustion.
+- Cache reads to avoid redundant GETs.
+higher_limits:
+  self_serve: false
+  process: Contact the Lightfield team for higher throughput.
+stability: >-
+  "These limits are subject to change as the platform scales." Published as early-launch values
+  while the API is in public beta.
+quota_vs_rate:
+  note: >-
+    Rate limits are separate from commercial metering. Lightfield's plans meter consumption in
+    annual credits (plans/lightfield-plans-pricing.yml); the docs do not state whether direct API
+    calls draw down credits.
+related:
+  conventions: conventions/lightfield-conventions.yml
+  errors: errors/lightfield-problem-types.yml
+  plans: plans/lightfield-plans-pricing.yml

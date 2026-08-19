@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference Accounts WorkflowRun API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WorkflowRun",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get workflow run status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/workflowRun/:runId/status",
+            "params": [
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the current status of a workflow run."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

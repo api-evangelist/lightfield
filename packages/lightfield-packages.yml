@@ -1,10 +1,17 @@
-generated: '2026-07-19'
+generated: '2026-08-13'
 method: searched
 source: https://docs.lightfield.app/getting-started/http-quickstart/
+checked: '2026-08-13'
 notes: >-
   All Lightfield client libraries are Stainless-generated from the same OpenAPI description
-  (openapi_spec_hash recorded in each repo's .stats.yml). Versions captured 2026-07-19; the
-  TypeScript and Python libraries are published as pre-release (alpha) while the API is in beta.
+  (openapi_spec_hash recorded in each repo's .stats.yml). Versions and publish dates below were read
+  from each registry's metadata endpoint on 2026-08-13 — registry.npmjs.org, pypi.org/pypi/.../json,
+  proxy.golang.org — not from the docs. The TypeScript and Python libraries remain pre-release
+  (alpha) while the API is in public beta. Two currency findings this round: (1) the npm TypeScript
+  library has not shipped since 2026-04-18 while the Python library reached 0.17.0a0 on 2026-08-06
+  and the Go library v0.10.0 on 2026-07-28, so the same generated surface is now three-and-a-half
+  months stale in TypeScript; (2) the Homebrew cask pins CLI 0.6.0 while the Go module has tagged
+  v0.7.0, so `brew install` lags `go install` by one minor version.
 packages:
 - language: typescript
   registry: npm
@@ -12,44 +19,83 @@ packages:
   url: https://www.npmjs.com/package/lightfield
   install: npm install lightfield
   version: 0.6.0-alpha
+  published: '2026-04-18'
+  dist_tags:
+    latest: 0.6.0-alpha
+    alpha: 0.2.0-alpha
   repository: https://github.com/Lightfld/lightfield-typescript
+  repository_status: 404
+  repository_note: >-
+    The repository URL declared in the package manifest returns HTTP 404 (unauthenticated) as of
+    2026-08-13 — the repo is private or has been renamed. The published package is genuine and
+    first-party; only the source link is unreachable.
   description: The official TypeScript library for the Lightfield API
+  prerelease: true
   official: true
+  source: https://registry.npmjs.org/lightfield
 - language: python
   registry: pypi
   name: lightfield
   url: https://pypi.org/project/lightfield/
   install: pip install lightfield
-  version: 0.15.0a0
+  version: 0.17.0a0
+  published: '2026-08-06'
   repository: https://github.com/Lightfld/lightfield-python
+  repository_status: 404
+  repository_note: >-
+    The Homepage/Repository project URLs declared on PyPI return HTTP 404 (unauthenticated) as of
+    2026-08-13 — private or renamed. The package itself is first-party and actively released.
   description: The official Python library for the Lightfield API
+  prerelease: true
   official: true
+  source: https://pypi.org/pypi/lightfield/json
+  note: >-
+    Lightfield's own docs describe this as "the same one used by our agent", making it the reference
+    SDK of the set and the most current.
 - language: go
   registry: go-modules
   name: github.com/Lightfld/lightfield-go
-  url: https://github.com/Lightfld/lightfield-go
+  url: https://pkg.go.dev/github.com/Lightfld/lightfield-go
   install: go get github.com/Lightfld/lightfield-go
+  version: v0.10.0
+  published: '2026-07-28'
   repository: https://github.com/Lightfld/lightfield-go
+  repository_status: 200
   description: The official Go library for the Lightfield API
   official: true
-- language: go
-  registry: homebrew
-  name: Lightfld/lightfield/lightfield
-  url: https://github.com/Lightfld/homebrew-lightfield
-  install: brew install Lightfld/lightfield/lightfield
-  repository: https://github.com/Lightfld/lightfield-cli
-  description: Official Homebrew tap for the Lightfield CLI
-  kind: cli
-  official: true
+  source: https://proxy.golang.org/github.com/!lightfld/lightfield-go/@latest
 - language: go
   registry: go-modules
   name: github.com/Lightfld/lightfield-cli/cmd/lightfield
   url: https://github.com/Lightfld/lightfield-cli
   install: go install github.com/Lightfld/lightfield-cli/cmd/lightfield@latest
+  version: v0.7.0
+  published: '2026-08-12'
   repository: https://github.com/Lightfld/lightfield-cli
+  repository_status: 200
   description: The official Lightfield CLI (requires Go 1.22+)
   kind: cli
   official: true
+  source: https://proxy.golang.org/github.com/!lightfld/lightfield-cli/@latest
+- language: go
+  registry: homebrew
+  name: Lightfld/lightfield/lightfield
+  url: https://github.com/Lightfld/homebrew-lightfield
+  install: brew install Lightfld/lightfield/lightfield
+  version: 0.6.0
+  published: null
+  published_note: >-
+    Homebrew taps expose no registry metadata endpoint. The version was read from the GoReleaser-
+    generated cask at
+    https://raw.githubusercontent.com/Lightfld/homebrew-lightfield/main/Casks/lightfield.rb; the tap
+    repo's last push was 2026-05-22, so no reliable per-release date is available.
+  repository: https://github.com/Lightfld/lightfield-cli
+  repository_status: 200
+  description: Official Homebrew tap (cask) for the Lightfield CLI
+  kind: cli
+  official: true
+  lags_behind: v0.7.0 (go-modules)
+  source: https://raw.githubusercontent.com/Lightfld/homebrew-lightfield/main/Casks/lightfield.rb
 registries_probed:
 - registry: npm
   found: true
@@ -69,3 +115,10 @@ registries_probed:
   found: false
 - registry: crates.io
   found: false
+github_org:
+  url: https://github.com/Lightfld
+  public_repos: [lightfield-cli, lightfield-go, homebrew-lightfield]
+  note: >-
+    Only three repositories are publicly visible in the org. The TypeScript and Python SDK repos
+    referenced by their own package manifests are not among them.
+  checked: '2026-08-13'

@@ -1,0 +1,116 @@
+generated: '2026-08-13'
+method: searched
+source: https://lightfield.app/pricing
+url: https://lightfield.app/pricing
+checked: '2026-08-13'
+currency: USD
+model: credit-based
+summary: >-
+  Lightfield prices on consumption credits, not seats. Every plan includes unlimited seats and all
+  core features; the tiers differ only in the per-credit rate, the credit allotment, and the level
+  of support. The one feature gate is role-based access control and single sign-on, which are
+  Enterprise-only, and BAA availability, also Enterprise-only. Credits are annual and do not roll
+  over; overage is billed at the plan rate rather than cutting off service. Lightfield publishes a
+  sizing rule of thumb on the same page: roughly 8,300 credits per month per active seller, which
+  it quotes as about $400/month per seller pay-as-you-go or about $240/month on an annual
+  commitment. Only the Starter tier is self-serve ("Create account"); Pro, Growth and Enterprise
+  all route to "Request demo".
+plan_count: 4
+plans:
+- name: Starter
+  price: 0
+  price_display: Pay as you go
+  billing_period: usage
+  self_serve: true
+  cta: Create account
+  audience: For founders just getting started.
+  included_credits: 5000
+  included_credits_display: 5,000 free
+  credit_rate_usd: 0.040
+  features:
+  - Unlimited seats
+  - Automated record updates
+  - Agent-driven automations
+  - Mail, calendar, Slack, LinkedIn sync
+  - Dashboards and reporting
+  - Sequences (Beta)
+  - Email support
+- name: Pro
+  price: 849
+  price_display: $849/mo
+  billing_period: month
+  self_serve: false
+  cta: Request demo
+  audience: For small customer-facing teams.
+  included_credits: 330000
+  included_credits_display: 330,000/yr
+  credit_period: year
+  credit_rate_usd: 0.030
+  inherits: Starter
+  features:
+  - 8 hour support SLA
+  - Dedicated CSM
+  - Dedicated Slack channel
+  - White glove migration
+  - Custom data model configuration
+  - Automation development support
+  note: >-
+    Automations are in open beta and available to customers on the Pro plan
+    (https://docs.lightfield.app/automations/overview/).
+- name: Growth
+  price: 1999
+  price_display: $1999/mo
+  billing_period: month
+  self_serve: false
+  cta: Request demo
+  audience: For companies scaling pipeline generation.
+  included_credits: 850000
+  included_credits_display: 850,000/yr
+  credit_period: year
+  credit_rate_usd: 0.028
+  inherits: Pro
+  features:
+  - Outbound campaign setup
+  - Forward-deployed GTM
+  - ICP + target account configuration
+  - Campaign design
+  - Inbox warming
+  - Campaign performance check-ins
+- name: Enterprise
+  price: null
+  price_display: Custom
+  billing_period: custom
+  self_serve: false
+  cta: Request demo
+  audience: For organizations with custom requirements.
+  included_credits: null
+  included_credits_display: Custom
+  credit_rate_usd: null
+  inherits: Growth
+  features:
+  - Custom integrations
+  - SSO support
+  - Role-based access control
+  - Forward-deployed engineer
+  - Multiple workspaces
+  - Early access to new features
+overage:
+  policy: >-
+    "Nothing stops. Additional credits are billed at your plan rate, and alerts let you see it
+    coming."
+  billed_at: plan credit rate
+  hard_stop: false
+rollover:
+  supported: false
+  policy: Credits are annual. Unused credits do not carry over at year end.
+api_metering:
+  metered: unknown
+  note: >-
+    The pricing page meters the product in credits and does not state whether direct REST API, CLI
+    or MCP calls consume credits, nor does it publish an API-specific price. No API-only plan or
+    per-call price is published.
+sizing_guidance:
+  credits_per_active_seller_per_month: 8300
+  cost_per_seller_pay_as_you_go_usd: 400
+  cost_per_seller_annual_commitment_usd: 240
+  note: Larger annual commitments unlock lower per-credit rates.
