@@ -37,6 +37,16 @@ created: '2026-07-17'
 modified: '2026-08-13'
 tags:
 - Company
+- Application
+- CRM
+- Sales
+- Artificial Intelligence
+- Agents
+- Go-To-Market
+- Productivity
+- Software-as-a-Service
+tags_raw:
+- Company
 - Applications
 - CRM
 - Sales
@@ -53,6 +63,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -69,6 +81,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -117,6 +131,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -133,6 +149,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -229,6 +247,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -245,6 +265,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - Workflow Run
+  tags_raw:
   - WorkflowRun
   properties:
   - type: OpenAPI
