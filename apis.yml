@@ -11,6 +11,18 @@ description: 'Lightfield is an agent-native customer relationship management (CR
   hosted Model Context Protocol server at mcp.lightfield.app secured with OAuth 2.1. Workflows and
   Automations add trigger-driven agent pipelines fed by inbound webhooks, object lifecycle events and
   schedules. Backed by Greylock and Lightspeed Venture Partners.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
