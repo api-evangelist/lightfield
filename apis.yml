@@ -54,7 +54,6 @@ tags:
 - Sales
 - Artificial Intelligence
 - Agents
-- Customer Relationship Management
 - Go-To-Market
 - Productivity
 - Software-as-a-Service
@@ -278,7 +277,7 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
-  - WorkflowRun
+  - Workflow Run
   tags_raw:
   - WorkflowRun
   properties:
