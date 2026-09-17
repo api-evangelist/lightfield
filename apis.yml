@@ -271,18 +271,16 @@ apis:
     url: https://docs.lightfield.app/api/
   - type: GettingStarted
     url: https://docs.lightfield.app/getting-started/http-quickstart/
-- aid: lightfield:lightfield-workflowrun-api
-  name: Lightfield WorkflowRun API
-  description: The WorkflowRun API from Lightfield — 1 operation(s) for workflowrun.
+- aid: lightfield:lightfield-workflow-run-api
+  name: Lightfield Workflow Run API
+  description: The Workflow Run API from Lightfield — 1 operation(s) for workflow run.
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
   - Workflow Run
-  tags_raw:
-  - WorkflowRun
   properties:
   - type: OpenAPI
-    url: openapi/lightfield-workflowrun-api-openapi.yml
+    url: openapi/lightfield-workflow-run-api-openapi.yml
   - type: Documentation
     url: https://docs.lightfield.app/
   - type: APIReference
