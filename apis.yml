@@ -127,6 +127,8 @@ apis:
   humanURL: https://docs.lightfield.app/
   baseURL: https://api.lightfield.app/v1
   tags:
+  - Email
+  tags_raw:
   - Emails
   properties:
   - type: OpenAPI
