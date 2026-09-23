@@ -52,20 +52,7 @@ notes: 'The MCP server exposes a small, coarse-grained tool set rather than one 
 deployment:
   mode: remote
   endpoint: https://mcp.lightfield.app/mcp
-  install: null
-  package: null
-  auth: oauth
   verified: probed
   probe: gated
-  probe_detail:
-    method: tools/list
-    http_status: 401
-    body: '{"error":"Unauthorized"}'
-    www_authenticate: Bearer resource_metadata="https://mcp.lightfield.app/.well-known/oauth-protected-resource/mcp"
-  checked: '2026-08-13'
-  source: live POST to https://mcp.lightfield.app/mcp, 2026-08-13
-  note: >-
-    Remote-only. Lightfield ships no stdio/npx package — an MCP client connects directly to the
-    hosted Streamable HTTP endpoint over OAuth 2.1. Live tool schemas require an authenticated
-    introspection pass; the tool list above comes from the provider's MCP quickstart. See
-    mcp/lightfield-tool-crosswalk.yml for the binding onto the REST surface.
+  checked: '2026-08-12'
+  source: catalog MCP census

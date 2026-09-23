@@ -1,0 +1,29 @@
+# Front Door AI Index — lightfield — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: lightfield
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: lightfield.app
+  final_host: lightfield.app
+  ownership: own
+  owner: lightfield
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 8
+  host_score: 8
+  density: 3.57
+  words: 2243
+  tiers:
+    agentic: 2
+    core: 6
+    model: 0
+  ambiguous: 15
+  top_terms:
+    agent: 12
+    AI: 6
+    automation: 3
+    MCP: 1
+    prompts: 1

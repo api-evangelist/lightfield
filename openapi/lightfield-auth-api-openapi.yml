@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: API Reference Accounts Auth API
+  title: Reference Auth API
   version: 0.0.0
 tags:
 - name: Auth
@@ -12,10 +12,10 @@ paths:
       description: 'Returns metadata for the current API key, including the subject type and granted public scopes. Use this endpoint to confirm a key is active before making scoped API requests.
 
 
-        **[Required scope](/using-the-api/scopes/):** None
+        **Required scope:** None
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+        **Rate limit category:** Read'
       security:
       - bearerAuth: []
       parameters:
@@ -106,14 +106,25 @@ paths:
       - Auth
 components:
   schemas:
-    InternalServerError:
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: forbidden
         message:
           type: string
-          default: Internal Server Error
+          default: Forbidden
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
       required:
       - type
       - message
@@ -128,39 +139,6 @@ components:
       required:
       - type
       - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
-    ForbiddenError:
-      type: object
-      properties:
-        type:
-          const: forbidden
-        message:
-          type: string
-          default: Forbidden
-      required:
-      - type
-      - message
     UnauthorizedError:
       type: object
       properties:
@@ -169,17 +147,6 @@ components:
         message:
           type: string
           default: Unauthorized
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
       required:
       - type
       - message
@@ -210,14 +177,14 @@ components:
       required:
       - type
       - message
-    NotFoundError:
+    UnprocessableContentError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unprocessable_content
         message:
           type: string
-          default: Not Found
+          default: Unprocessable Content
       required:
       - type
       - message
@@ -246,14 +213,47 @@ components:
       - tokenType
       - subjectType
       - scopes
-    UnprocessableContentError:
+    InternalServerError:
       type: object
       properties:
         type:
-          const: unprocessable_content
+          const: internal_server_error
         message:
           type: string
-          default: Unprocessable Content
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
       required:
       - type
       - message

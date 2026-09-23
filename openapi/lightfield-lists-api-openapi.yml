@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: API Reference Accounts Lists API
+  title: Reference Lists API
   version: 0.0.0
 tags:
 - name: Lists
@@ -15,10 +15,10 @@ paths:
         Supports idempotency via the `Idempotency-Key` header.
 
 
-        **[Required scope](/using-the-api/scopes/):** `lists:create`
+        **Required scope:** `lists:create`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+        **Rate limit category:** Write'
       security:
       - bearerAuth: []
       parameters:
@@ -173,13 +173,13 @@ paths:
     get:
       operationId: list.list
       summary: List lists
-      description: 'Returns a paginated list of lists. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.
+      description: 'Returns a paginated list of lists. Use `offset` and `limit` to paginate through results. See List endpoints for more information about pagination.
 
 
-        **[Required scope](/using-the-api/scopes/):** `lists:read`
+        **Required scope:** `lists:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -296,10 +296,10 @@ paths:
         Supports idempotency via the `Idempotency-Key` header.
 
 
-        **[Required scope](/using-the-api/scopes/):** `lists:update`
+        **Required scope:** `lists:update`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+        **Rate limit category:** Write'
       security:
       - bearerAuth: []
       parameters:
@@ -491,10 +491,10 @@ paths:
       description: 'Retrieves a single list by its ID.
 
 
-        **[Required scope](/using-the-api/scopes/):** `lists:read`
+        **Required scope:** `lists:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+        **Rate limit category:** Read'
       security:
       - bearerAuth: []
       parameters:
@@ -596,10 +596,10 @@ paths:
       description: 'Returns a paginated list of accounts that belong to the specified list.
 
 
-        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `accounts:read`
+        **Required scopes:** `lists:read` and `accounts:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -719,10 +719,10 @@ paths:
       description: 'Returns a paginated list of contacts that belong to the specified list.
 
 
-        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `contacts:read`
+        **Required scopes:** `lists:read` and `contacts:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -842,10 +842,10 @@ paths:
       description: 'Returns a paginated list of opportunities that belong to the specified list.
 
 
-        **[Required scopes](/using-the-api/scopes/):** `lists:read` and `opportunities:read`
+        **Required scopes:** `lists:read` and `opportunities:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -960,6 +960,302 @@ paths:
       - Lists
 components:
   schemas:
+    Address:
+      type: object
+      properties:
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 1.
+        street2:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 2.
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: City name.
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: State or province.
+        postalCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Postal or ZIP code.
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: 2-letter ISO 3166-1 alpha-2 country code.
+        latitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Latitude coordinate.
+        longitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Longitude coordinate.
+      additionalProperties: false
+      title: Address
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    FullName:
+      type: object
+      properties:
+        firstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's first name.
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's last name.
+      additionalProperties: false
+      title: FullName
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    ListCreateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the list.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the list was created.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the list in the Lightfield web app, or null.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+      required:
+      - id
+      - createdAt
+      - httpLink
+      - fields
+      additionalProperties: false
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    ListListContactsResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the entity.
+              createdAt:
+                type: string
+                description: ISO 8601 timestamp of when the entity was created.
+              updatedAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: ISO 8601 timestamp of when the entity was last updated, or null.
+              httpLink:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: URL to view the entity in the Lightfield web app, or null.
+              externalId:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: External identifier for the entity, or null if unset.
+              fields:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    valueType:
+                      enum:
+                      - ADDRESS
+                      - CHECKBOX
+                      - CURRENCY
+                      - DATETIME
+                      - EMAIL
+                      - FULL_NAME
+                      - MARKDOWN
+                      - MULTI_SELECT
+                      - NUMBER
+                      - SINGLE_SELECT
+                      - SOCIAL_HANDLE
+                      - TELEPHONE
+                      - TEXT
+                      - URL
+                      - HTML
+                      description: The data type of the field.
+                    value:
+                      anyOf:
+                      - type: string
+                      - type: integer
+                        minimum: -9007199254740991
+                        maximum: 9007199254740991
+                      - type: number
+                      - type: boolean
+                      - type: 'null'
+                      - type: array
+                        items:
+                          type: string
+                      - $ref: '#/components/schemas/Address'
+                      - $ref: '#/components/schemas/FullName'
+                      description: The field value, or null if unset.
+                  required:
+                  - valueType
+                  - value
+                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+              relationships:
+                type: object
+                propertyNames:
+                  type: string
+                additionalProperties:
+                  type: object
+                  properties:
+                    cardinality:
+                      type: string
+                      description: Whether the relationship is `has_one` or `has_many`.
+                    objectType:
+                      type: string
+                      description: The type of the related object (e.g. `account`, `contact`).
+                    values:
+                      type: array
+                      items:
+                        type: string
+                      description: IDs of the related entities.
+                  required:
+                  - cardinality
+                  - objectType
+                  - values
+                description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+            required:
+            - id
+            - createdAt
+            - updatedAt
+            - httpLink
+            - fields
+            - relationships
+            additionalProperties: false
+          description: Array of entity objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of entities matching the query.
+      required:
+      - object
+      - data
+      - totalCount
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
     ListListResponse:
       type: object
       properties:
@@ -1042,114 +1338,6 @@ components:
       - object
       - data
       - totalCount
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    ListUpdateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the list.
-        createdAt:
-          type: string
-          description: ISO 8601 timestamp of when the list was created.
-        httpLink:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: URL to view the list in the Lightfield web app, or null.
-        fields:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              valueType:
-                enum:
-                - ADDRESS
-                - CHECKBOX
-                - CURRENCY
-                - DATETIME
-                - EMAIL
-                - FULL_NAME
-                - MARKDOWN
-                - MULTI_SELECT
-                - NUMBER
-                - SINGLE_SELECT
-                - SOCIAL_HANDLE
-                - TELEPHONE
-                - TEXT
-                - URL
-                - HTML
-                description: The data type of the field.
-              value:
-                anyOf:
-                - type: string
-                - type: integer
-                  minimum: -9007199254740991
-                  maximum: 9007199254740991
-                - type: number
-                - type: boolean
-                - type: 'null'
-                - type: array
-                  items:
-                    type: string
-                - $ref: '#/components/schemas/Address'
-                - $ref: '#/components/schemas/FullName'
-                description: The field value, or null if unset.
-            required:
-            - valueType
-            - value
-          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
-      required:
-      - id
-      - createdAt
-      - httpLink
-      - fields
-      additionalProperties: false
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
-      required:
-      - type
-      - message
     InternalServerError:
       type: object
       properties:
@@ -1161,14 +1349,14 @@ components:
       required:
       - type
       - message
-    ForbiddenError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: conflict
         message:
           type: string
-          default: Forbidden
+          default: Conflict
       required:
       - type
       - message
@@ -1300,83 +1488,7 @@ components:
       - object
       - data
       - totalCount
-    Address:
-      type: object
-      properties:
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 1.
-        street2:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 2.
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: City name.
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: State or province.
-        postalCode:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Postal or ZIP code.
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: 2-letter ISO 3166-1 alpha-2 country code.
-        latitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Latitude coordinate.
-        longitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Longitude coordinate.
-      additionalProperties: false
-      title: Address
-    FullName:
-      type: object
-      properties:
-        firstName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's first name.
-        lastName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's last name.
-      additionalProperties: false
-      title: FullName
-    BadRequestError:
-      type: object
-      properties:
-        type:
-          const: bad_request
-        message:
-          type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
-      required:
-      - type
-      - message
-      - code
-    ListRetrieveResponse:
+    ListUpdateResponse:
       type: object
       properties:
         id:
@@ -1440,81 +1552,17 @@ components:
       - httpLink
       - fields
       additionalProperties: false
-    ServiceUnavailableError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: too_many_requests
         message:
           type: string
-          default: Service Unavailable
+          default: Too Many Requests
       required:
       - type
       - message
-    ListCreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the list.
-        createdAt:
-          type: string
-          description: ISO 8601 timestamp of when the list was created.
-        httpLink:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: URL to view the list in the Lightfield web app, or null.
-        fields:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              valueType:
-                enum:
-                - ADDRESS
-                - CHECKBOX
-                - CURRENCY
-                - DATETIME
-                - EMAIL
-                - FULL_NAME
-                - MARKDOWN
-                - MULTI_SELECT
-                - NUMBER
-                - SINGLE_SELECT
-                - SOCIAL_HANDLE
-                - TELEPHONE
-                - TEXT
-                - URL
-                - HTML
-                description: The data type of the field.
-              value:
-                anyOf:
-                - type: string
-                - type: integer
-                  minimum: -9007199254740991
-                  maximum: 9007199254740991
-                - type: number
-                - type: boolean
-                - type: 'null'
-                - type: array
-                  items:
-                    type: string
-                - $ref: '#/components/schemas/Address'
-                - $ref: '#/components/schemas/FullName'
-                description: The field value, or null if unset.
-            required:
-            - valueType
-            - value
-          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
-      required:
-      - id
-      - createdAt
-      - httpLink
-      - fields
-      additionalProperties: false
     UnsupportedMediaTypeError:
       type: object
       properties:
@@ -1523,134 +1571,6 @@ components:
         message:
           type: string
           default: Unsupported Media Type
-      required:
-      - type
-      - message
-    ListListContactsResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          description: The object type, always `"list"`.
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: Unique identifier for the entity.
-              createdAt:
-                type: string
-                description: ISO 8601 timestamp of when the entity was created.
-              updatedAt:
-                anyOf:
-                - type: string
-                - type: 'null'
-                description: ISO 8601 timestamp of when the entity was last updated, or null.
-              httpLink:
-                anyOf:
-                - type: string
-                - type: 'null'
-                description: URL to view the entity in the Lightfield web app, or null.
-              externalId:
-                anyOf:
-                - type: string
-                - type: 'null'
-                description: External identifier for the entity, or null if unset.
-              fields:
-                type: object
-                propertyNames:
-                  type: string
-                additionalProperties:
-                  type: object
-                  properties:
-                    valueType:
-                      enum:
-                      - ADDRESS
-                      - CHECKBOX
-                      - CURRENCY
-                      - DATETIME
-                      - EMAIL
-                      - FULL_NAME
-                      - MARKDOWN
-                      - MULTI_SELECT
-                      - NUMBER
-                      - SINGLE_SELECT
-                      - SOCIAL_HANDLE
-                      - TELEPHONE
-                      - TEXT
-                      - URL
-                      - HTML
-                      description: The data type of the field.
-                    value:
-                      anyOf:
-                      - type: string
-                      - type: integer
-                        minimum: -9007199254740991
-                        maximum: 9007199254740991
-                      - type: number
-                      - type: boolean
-                      - type: 'null'
-                      - type: array
-                        items:
-                          type: string
-                      - $ref: '#/components/schemas/Address'
-                      - $ref: '#/components/schemas/FullName'
-                      description: The field value, or null if unset.
-                  required:
-                  - valueType
-                  - value
-                description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
-              relationships:
-                type: object
-                propertyNames:
-                  type: string
-                additionalProperties:
-                  type: object
-                  properties:
-                    cardinality:
-                      type: string
-                      description: Whether the relationship is `has_one` or `has_many`.
-                    objectType:
-                      type: string
-                      description: The type of the related object (e.g. `account`, `contact`).
-                    values:
-                      type: array
-                      items:
-                        type: string
-                      description: IDs of the related entities.
-                  required:
-                  - cardinality
-                  - objectType
-                  - values
-                description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
-            required:
-            - id
-            - createdAt
-            - updatedAt
-            - httpLink
-            - fields
-            - relationships
-            additionalProperties: false
-          description: Array of entity objects for the current page.
-        totalCount:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740991
-          description: Total number of entities matching the query.
-      required:
-      - object
-      - data
-      - totalCount
-    NotFoundError:
-      type: object
-      properties:
-        type:
-          const: not_found
-        message:
-          type: string
-          default: Not Found
       required:
       - type
       - message
@@ -1771,6 +1691,86 @@ components:
       - object
       - data
       - totalCount
+    ListRetrieveResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the list.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the list was created.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the list in the Lightfield web app, or null.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$objectType`).
+      required:
+      - id
+      - createdAt
+      - httpLink
+      - fields
+      additionalProperties: false
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
   securitySchemes:
     bearerAuth:
       type: http

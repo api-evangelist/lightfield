@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: API Reference Accounts Files API
+  title: Reference Files API
   version: 0.0.0
 tags:
 - name: Files
@@ -12,13 +12,13 @@ paths:
       description: 'Creates a new file upload session and returns an upload URL.
 
 
-        After uploading the file bytes to `uploadUrl`, call `POST /v1/files/{id}/complete` to finalize the upload. Optionally pass `purpose` to validate MIME type and size constraints at creation time. See <u>[File uploads](/using-the-api/file-uploads/)</u> for the full upload flow, supported purposes, and size limits. If you are uploading a meeting transcript, see <u>[Uploading meeting transcripts](/using-the-api/uploading-meeting-transcripts/)</u> for the follow-up meeting attachment flow.
+        After uploading the file bytes to `uploadUrl`, call `POST /v1/files/{id}/complete` to finalize the upload. Optionally pass `purpose` to validate MIME type and size constraints at creation time. See File uploads for the full upload flow, supported purposes, and size limits. If you are uploading a meeting transcript, see Uploading meeting transcripts for the follow-up meeting attachment flow.
 
 
-        **[Required scope](/using-the-api/scopes/):** `files:create`
+        **Required scope:** `files:create`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+        **Rate limit category:** Write'
       security:
       - bearerAuth: []
       parameters:
@@ -142,13 +142,13 @@ paths:
     get:
       operationId: file.list
       summary: List files
-      description: 'Returns a paginated list of files in your workspace. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.
+      description: 'Returns a paginated list of files in your workspace. Use `offset` and `limit` to paginate through results. See List endpoints for more information about pagination.
 
 
-        **[Required scope](/using-the-api/scopes/):** `files:read`
+        **Required scope:** `files:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -265,10 +265,10 @@ paths:
         If an optional `md5` hex digest is provided, the server validates the checksum before marking the file as completed.
 
 
-        **[Required scope](/using-the-api/scopes/):** `files:create`
+        **Required scope:** `files:create`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+        **Rate limit category:** Write'
       security:
       - bearerAuth: []
       parameters:
@@ -382,10 +382,10 @@ paths:
       description: 'Retrieves a single file by its ID.
 
 
-        **[Required scope](/using-the-api/scopes/):** `files:read`
+        **Required scope:** `files:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+        **Rate limit category:** Read'
       security:
       - bearerAuth: []
       parameters:
@@ -487,10 +487,10 @@ paths:
       description: 'Returns a temporary download URL for the file. Only available for files in `COMPLETED` status.
 
 
-        **[Required scope](/using-the-api/scopes/):** `files:read`
+        **Required scope:** `files:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+        **Rate limit category:** Read'
       security:
       - bearerAuth: []
       parameters:
@@ -589,10 +589,10 @@ paths:
     post:
       operationId: file.cancel
       summary: Cancel a file upload
-      description: 'Cancels a pending upload by transitioning the file to `CANCELLED`. Only files in `PENDING` status can be cancelled. **[Required scope](/using-the-api/scopes/):** `files:create`
+      description: 'Cancels a pending upload by transitioning the file to `CANCELLED`. Only files in `PENDING` status can be cancelled. **Required scope:** `files:create`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Write'
+        **Rate limit category:** Write'
       security:
       - bearerAuth: []
       parameters:
@@ -697,7 +697,127 @@ paths:
       - Files
 components:
   schemas:
-    FileCompleteResponse:
+    FileUrlResponse:
+      type: object
+      properties:
+        url:
+          type: string
+          description: Temporary download URL for the file.
+        expiresAt:
+          type: string
+          description: When the download URL expires.
+      required:
+      - url
+      - expiresAt
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    FileListResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          description: The object type, always `"list"`.
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Unique identifier for the file.
+              status:
+                enum:
+                - PENDING
+                - COMPLETED
+                - CANCELLED
+                - EXPIRED
+                description: Current upload status of the file.
+              filename:
+                type: string
+                description: Original filename.
+              mimeType:
+                type: string
+                description: MIME type of the file.
+              sizeBytes:
+                type: integer
+                minimum: -9007199254740991
+                maximum: 9007199254740991
+                description: File size in bytes.
+              createdAt:
+                type: string
+                description: When the file upload session was created.
+              completedAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: When the file upload was completed.
+              expiresAt:
+                anyOf:
+                - type: string
+                - type: 'null'
+                description: When the upload session expires. Null once completed, cancelled, or expired.
+            required:
+            - id
+            - status
+            - filename
+            - mimeType
+            - sizeBytes
+            - createdAt
+            - completedAt
+            - expiresAt
+          description: Array of file objects for the current page.
+        totalCount:
+          type: integer
+          minimum: 0
+          maximum: 9007199254740991
+          description: Total number of matching files.
+      required:
+      - object
+      - data
+      - totalCount
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    FileCancelResponse:
       type: object
       properties:
         id:
@@ -789,134 +909,7 @@ components:
       - createdAt
       - completedAt
       - expiresAt
-    InternalServerError:
-      type: object
-      properties:
-        type:
-          const: internal_server_error
-        message:
-          type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
-    ForbiddenError:
-      type: object
-      properties:
-        type:
-          const: forbidden
-        message:
-          type: string
-          default: Forbidden
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
-    FileUrlResponse:
-      type: object
-      properties:
-        url:
-          type: string
-          description: Temporary download URL for the file.
-        expiresAt:
-          type: string
-          description: When the download URL expires.
-      required:
-      - url
-      - expiresAt
-    BadRequestError:
-      type: object
-      properties:
-        type:
-          const: bad_request
-        message:
-          type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
-      required:
-      - type
-      - message
-      - code
-    ServiceUnavailableError:
-      type: object
-      properties:
-        type:
-          const: service_unavailable
-        message:
-          type: string
-          default: Service Unavailable
-      required:
-      - type
-      - message
-    NotFoundError:
-      type: object
-      properties:
-        type:
-          const: not_found
-        message:
-          type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    FileCancelResponse:
+    FileCompleteResponse:
       type: object
       properties:
         id:
@@ -962,6 +955,66 @@ components:
       - createdAt
       - completedAt
       - expiresAt
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
     FileCreateResponse:
       type: object
       properties:
@@ -1020,81 +1073,28 @@ components:
       - expiresAt
       - uploadUrl
       - uploadHeaders
-    UnprocessableContentError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: unprocessable_content
+          const: too_many_requests
         message:
           type: string
-          default: Unprocessable Content
+          default: Too Many Requests
       required:
       - type
       - message
-    FileListResponse:
+    UnsupportedMediaTypeError:
       type: object
       properties:
-        object:
+        type:
+          const: unsupported_media_type
+        message:
           type: string
-          description: The object type, always `"list"`.
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: Unique identifier for the file.
-              status:
-                enum:
-                - PENDING
-                - COMPLETED
-                - CANCELLED
-                - EXPIRED
-                description: Current upload status of the file.
-              filename:
-                type: string
-                description: Original filename.
-              mimeType:
-                type: string
-                description: MIME type of the file.
-              sizeBytes:
-                type: integer
-                minimum: -9007199254740991
-                maximum: 9007199254740991
-                description: File size in bytes.
-              createdAt:
-                type: string
-                description: When the file upload session was created.
-              completedAt:
-                anyOf:
-                - type: string
-                - type: 'null'
-                description: When the file upload was completed.
-              expiresAt:
-                anyOf:
-                - type: string
-                - type: 'null'
-                description: When the upload session expires. Null once completed, cancelled, or expired.
-            required:
-            - id
-            - status
-            - filename
-            - mimeType
-            - sizeBytes
-            - createdAt
-            - completedAt
-            - expiresAt
-          description: Array of file objects for the current page.
-        totalCount:
-          type: integer
-          minimum: 0
-          maximum: 9007199254740991
-          description: Total number of matching files.
+          default: Unsupported Media Type
       required:
-      - object
-      - data
-      - totalCount
+      - type
+      - message
   securitySchemes:
     bearerAuth:
       type: http

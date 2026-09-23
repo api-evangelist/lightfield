@@ -1,9 +1,9 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: API Reference Accounts WorkflowRun API
+  title: Reference Workflow Run API
   version: 0.0.0
 tags:
-- name: WorkflowRun
+- name: Workflow Run
 paths:
   /v1/workflowRun/{runId}/status:
     get:
@@ -56,20 +56,9 @@ paths:
                 $ref: '#/components/schemas/InternalServerError'
       security: []
       tags:
-      - WorkflowRun
+      - Workflow Run
 components:
   schemas:
-    InternalServerError:
-      type: object
-      properties:
-        type:
-          const: internal_server_error
-        message:
-          type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
     ForbiddenError:
       type: object
       properties:
@@ -78,6 +67,17 @@ components:
         message:
           type: string
           default: Forbidden
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
       required:
       - type
       - message
@@ -92,14 +92,6 @@ components:
       required:
       - type
       - message
-    WorkflowRunStatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Current status of the workflow run (e.g. `running`, `completed`, `failed`).
-      required:
-      - status
     BadRequestError:
       type: object
       properties:
@@ -116,14 +108,22 @@ components:
       - type
       - message
       - code
-    NotFoundError:
+    WorkflowRunStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Current status of the workflow run (e.g. `running`, `completed`, `failed`).
+      required:
+      - status
+    InternalServerError:
       type: object
       properties:
         type:
-          const: not_found
+          const: internal_server_error
         message:
           type: string
-          default: Not Found
+          default: Internal Server Error
       required:
       - type
       - message

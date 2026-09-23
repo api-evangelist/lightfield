@@ -1,6 +1,6 @@
-openapi: 3.1.1
+openapi: 3.2.0
 info:
-  title: API Reference Accounts Members API
+  title: Reference Members API
   version: 0.0.0
 tags:
 - name: Members
@@ -12,10 +12,10 @@ paths:
       description: 'Retrieves a single member by their ID.
 
 
-        **[Required scope](/using-the-api/scopes/):** `members:read`
+        **Required scope:** `members:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Read'
+        **Rate limit category:** Read'
       security:
       - bearerAuth: []
       parameters:
@@ -114,13 +114,13 @@ paths:
     get:
       operationId: member.list
       summary: List members
-      description: 'Returns a paginated list of members in your workspace. Use `offset` and `limit` to paginate through results. See <u>[List endpoints](/using-the-api/list-endpoints/)</u> for more information about pagination.
+      description: 'Returns a paginated list of members in your workspace. Use `offset` and `limit` to paginate through results. See List endpoints for more information about pagination.
 
 
-        **[Required scope](/using-the-api/scopes/):** `members:read`
+        **Required scope:** `members:read`
 
 
-        **[Rate limit category](/using-the-api/rate-limits/):** Search'
+        **Rate limit category:** Search'
       security:
       - bearerAuth: []
       parameters:
@@ -348,14 +348,25 @@ components:
       - object
       - data
       - totalCount
-    InternalServerError:
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: forbidden
         message:
           type: string
-          default: Internal Server Error
+          default: Forbidden
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
       required:
       - type
       - message
@@ -370,36 +381,52 @@ components:
       required:
       - type
       - message
-    TooManyRequestsError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: too_many_requests
+          const: unauthorized
         message:
           type: string
-          default: Too Many Requests
+          default: Unauthorized
       required:
       - type
       - message
-    UnsupportedMediaTypeError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: unsupported_media_type
+          const: bad_request
         message:
           type: string
-          default: Unsupported Media Type
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
       required:
       - type
       - message
-    ForbiddenError:
+      - code
+    ServiceUnavailableError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: service_unavailable
         message:
           type: string
-          default: Forbidden
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
       required:
       - type
       - message
@@ -504,17 +531,6 @@ components:
       - httpLink
       - fields
       - relationships
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
     FullName:
       type: object
       properties:
@@ -530,63 +546,47 @@ components:
           description: The contact's last name.
       additionalProperties: false
       title: FullName
-    UnauthorizedError:
+    InternalServerError:
       type: object
       properties:
         type:
-          const: unauthorized
+          const: internal_server_error
         message:
           type: string
-          default: Unauthorized
+          default: Internal Server Error
       required:
       - type
       - message
-    BadRequestError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: bad_request
+          const: conflict
         message:
           type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
+          default: Conflict
       required:
       - type
       - message
-      - code
-    ServiceUnavailableError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: too_many_requests
         message:
           type: string
-          default: Service Unavailable
+          default: Too Many Requests
       required:
       - type
       - message
-    NotFoundError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unsupported_media_type
         message:
           type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
+          default: Unsupported Media Type
       required:
       - type
       - message
