@@ -660,63 +660,89 @@ components:
       - objectType
       - accessLevel
       additionalProperties: false
-    ForbiddenError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: conflict
         message:
           type: string
-          default: Forbidden
+          default: Conflict
       required:
       - type
       - message
-    Address:
+    UnsupportedMediaTypeError:
       type: object
       properties:
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 1.
-        street2:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 2.
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: City name.
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: State or province.
-        postalCode:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Postal or ZIP code.
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: 2-letter ISO 3166-1 alpha-2 country code.
-        latitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Latitude coordinate.
-        longitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Longitude coordinate.
-      additionalProperties: false
-      title: Address
-    MeetingCreateResponse:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    MeetingRetrieveResponse:
       type: object
       properties:
         id:
@@ -826,36 +852,14 @@ components:
       - objectType
       - accessLevel
       additionalProperties: false
-    NotFoundError:
+    ServiceUnavailableError:
       type: object
       properties:
         type:
-          const: not_found
+          const: service_unavailable
         message:
           type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
+          default: Service Unavailable
       required:
       - type
       - message
@@ -987,7 +991,7 @@ components:
       - object
       - data
       - totalCount
-    MeetingRetrieveResponse:
+    MeetingCreateResponse:
       type: object
       properties:
         id:
@@ -1097,41 +1101,81 @@ components:
       - objectType
       - accessLevel
       additionalProperties: false
-    ServiceUnavailableError:
+    InternalServerError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: internal_server_error
         message:
           type: string
-          default: Service Unavailable
+          default: Internal Server Error
       required:
       - type
       - message
-    BadRequestError:
+    NotFoundError:
       type: object
       properties:
         type:
-          const: bad_request
+          const: not_found
         message:
           type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
+          default: Not Found
       required:
       - type
       - message
-      - code
-    UnprocessableContentError:
+    Address:
+      type: object
+      properties:
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 1.
+        street2:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 2.
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: City name.
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: State or province.
+        postalCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Postal or ZIP code.
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: 2-letter ISO 3166-1 alpha-2 country code.
+        latitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Latitude coordinate.
+        longitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Longitude coordinate.
+      additionalProperties: false
+      title: Address
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: unprocessable_content
+          const: forbidden
         message:
           type: string
-          default: Unprocessable Content
+          default: Forbidden
       required:
       - type
       - message
@@ -1150,50 +1194,6 @@ components:
           description: The contact's last name.
       additionalProperties: false
       title: FullName
-    InternalServerError:
-      type: object
-      properties:
-        type:
-          const: internal_server_error
-        message:
-          type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
   securitySchemes:
     bearerAuth:
       type: http

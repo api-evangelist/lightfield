@@ -697,17 +697,168 @@ paths:
       - Files
 components:
   schemas:
-    FileUrlResponse:
+    ConflictError:
       type: object
       properties:
-        url:
+        type:
+          const: conflict
+        message:
           type: string
-          description: Temporary download URL for the file.
-        expiresAt:
-          type: string
-          description: When the download URL expires.
+          default: Conflict
       required:
-      - url
+      - type
+      - message
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    BadRequestError:
+      type: object
+      properties:
+        type:
+          const: bad_request
+        message:
+          type: string
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    FileRetrieveResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the file.
+        status:
+          enum:
+          - PENDING
+          - COMPLETED
+          - CANCELLED
+          - EXPIRED
+          description: Current upload status of the file.
+        filename:
+          type: string
+          description: Original filename.
+        mimeType:
+          type: string
+          description: MIME type of the file.
+        sizeBytes:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: File size in bytes.
+        createdAt:
+          type: string
+          description: When the file upload session was created.
+        completedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the file upload was completed.
+        expiresAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the upload session expires. Null once completed, cancelled, or expired.
+      required:
+      - id
+      - status
+      - filename
+      - mimeType
+      - sizeBytes
+      - createdAt
+      - completedAt
+      - expiresAt
+    FileCancelResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the file.
+        status:
+          enum:
+          - PENDING
+          - COMPLETED
+          - CANCELLED
+          - EXPIRED
+          description: Current upload status of the file.
+        filename:
+          type: string
+          description: Original filename.
+        mimeType:
+          type: string
+          description: MIME type of the file.
+        sizeBytes:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: File size in bytes.
+        createdAt:
+          type: string
+          description: When the file upload session was created.
+        completedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the file upload was completed.
+        expiresAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the upload session expires. Null once completed, cancelled, or expired.
+      required:
+      - id
+      - status
+      - filename
+      - mimeType
+      - sizeBytes
+      - createdAt
+      - completedAt
       - expiresAt
     ForbiddenError:
       type: object
@@ -720,17 +871,52 @@ components:
       required:
       - type
       - message
-    NotFoundError:
+    FileCompleteResponse:
       type: object
       properties:
-        type:
-          const: not_found
-        message:
+        id:
           type: string
-          default: Not Found
+          description: Unique identifier for the file.
+        status:
+          enum:
+          - PENDING
+          - COMPLETED
+          - CANCELLED
+          - EXPIRED
+          description: Current upload status of the file.
+        filename:
+          type: string
+          description: Original filename.
+        mimeType:
+          type: string
+          description: MIME type of the file.
+        sizeBytes:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: File size in bytes.
+        createdAt:
+          type: string
+          description: When the file upload session was created.
+        completedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the file upload was completed.
+        expiresAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the upload session expires. Null once completed, cancelled, or expired.
       required:
-      - type
-      - message
+      - id
+      - status
+      - filename
+      - mimeType
+      - sizeBytes
+      - createdAt
+      - completedAt
+      - expiresAt
     FileListResponse:
       type: object
       properties:
@@ -795,166 +981,6 @@ components:
       - object
       - data
       - totalCount
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
-    FileCancelResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the file.
-        status:
-          enum:
-          - PENDING
-          - COMPLETED
-          - CANCELLED
-          - EXPIRED
-          description: Current upload status of the file.
-        filename:
-          type: string
-          description: Original filename.
-        mimeType:
-          type: string
-          description: MIME type of the file.
-        sizeBytes:
-          type: integer
-          minimum: -9007199254740991
-          maximum: 9007199254740991
-          description: File size in bytes.
-        createdAt:
-          type: string
-          description: When the file upload session was created.
-        completedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the file upload was completed.
-        expiresAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the upload session expires. Null once completed, cancelled, or expired.
-      required:
-      - id
-      - status
-      - filename
-      - mimeType
-      - sizeBytes
-      - createdAt
-      - completedAt
-      - expiresAt
-    FileRetrieveResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the file.
-        status:
-          enum:
-          - PENDING
-          - COMPLETED
-          - CANCELLED
-          - EXPIRED
-          description: Current upload status of the file.
-        filename:
-          type: string
-          description: Original filename.
-        mimeType:
-          type: string
-          description: MIME type of the file.
-        sizeBytes:
-          type: integer
-          minimum: -9007199254740991
-          maximum: 9007199254740991
-          description: File size in bytes.
-        createdAt:
-          type: string
-          description: When the file upload session was created.
-        completedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the file upload was completed.
-        expiresAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the upload session expires. Null once completed, cancelled, or expired.
-      required:
-      - id
-      - status
-      - filename
-      - mimeType
-      - sizeBytes
-      - createdAt
-      - completedAt
-      - expiresAt
-    FileCompleteResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the file.
-        status:
-          enum:
-          - PENDING
-          - COMPLETED
-          - CANCELLED
-          - EXPIRED
-          description: Current upload status of the file.
-        filename:
-          type: string
-          description: Original filename.
-        mimeType:
-          type: string
-          description: MIME type of the file.
-        sizeBytes:
-          type: integer
-          minimum: -9007199254740991
-          maximum: 9007199254740991
-          description: File size in bytes.
-        createdAt:
-          type: string
-          description: When the file upload session was created.
-        completedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the file upload was completed.
-        expiresAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the upload session expires. Null once completed, cancelled, or expired.
-      required:
-      - id
-      - status
-      - filename
-      - mimeType
-      - sizeBytes
-      - createdAt
-      - completedAt
-      - expiresAt
     ServiceUnavailableError:
       type: object
       properties:
@@ -977,22 +1003,18 @@ components:
       required:
       - type
       - message
-    BadRequestError:
+    FileUrlResponse:
       type: object
       properties:
-        type:
-          const: bad_request
-        message:
+        url:
           type: string
-          default: Bad Request
-        code:
+          description: Temporary download URL for the file.
+        expiresAt:
           type: string
-        param:
-          type: string
+          description: When the download URL expires.
       required:
-      - type
-      - message
-      - code
+      - url
+      - expiresAt
     InternalServerError:
       type: object
       properties:
@@ -1004,14 +1026,14 @@ components:
       required:
       - type
       - message
-    ConflictError:
+    NotFoundError:
       type: object
       properties:
         type:
-          const: conflict
+          const: not_found
         message:
           type: string
-          default: Conflict
+          default: Not Found
       required:
       - type
       - message
@@ -1073,28 +1095,6 @@ components:
       - expiresAt
       - uploadUrl
       - uploadHeaders
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
   securitySchemes:
     bearerAuth:
       type: http

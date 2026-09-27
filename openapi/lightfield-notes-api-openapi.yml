@@ -668,95 +668,44 @@ components:
       - fields
       - relationships
       additionalProperties: false
-    ForbiddenError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: conflict
         message:
           type: string
-          default: Forbidden
+          default: Conflict
       required:
       - type
       - message
-    Address:
-      type: object
-      properties:
-        street:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 1.
-        street2:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Street address line 2.
-        city:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: City name.
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: State or province.
-        postalCode:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: Postal or ZIP code.
-        country:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: 2-letter ISO 3166-1 alpha-2 country code.
-        latitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Latitude coordinate.
-        longitude:
-          anyOf:
-          - type: number
-          - type: 'null'
-          description: Longitude coordinate.
-      additionalProperties: false
-      title: Address
-    NotFoundError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unsupported_media_type
         message:
           type: string
-          default: Not Found
+          default: Unsupported Media Type
       required:
       - type
       - message
-    GatewayTimeoutError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: gateway_timeout
+          const: bad_request
         message:
           type: string
-          default: Gateway Timeout
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
       required:
       - type
       - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
+      - code
     NoteListResponse:
       type: object
       properties:
@@ -874,48 +823,39 @@ components:
       - object
       - data
       - totalCount
-    BadRequestError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: bad_request
+          const: too_many_requests
         message:
           type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
+          default: Too Many Requests
       required:
       - type
       - message
-      - code
-    ServiceUnavailableError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: unauthorized
         message:
           type: string
-          default: Service Unavailable
+          default: Unauthorized
       required:
       - type
       - message
-    FullName:
+    GatewayTimeoutError:
       type: object
       properties:
-        firstName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's first name.
-        lastName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's last name.
-      additionalProperties: false
-      title: FullName
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
     UnprocessableContentError:
       type: object
       properties:
@@ -1026,25 +966,14 @@ components:
       - fields
       - relationships
       additionalProperties: false
-    InternalServerError:
+    ServiceUnavailableError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: service_unavailable
         message:
           type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
+          default: Service Unavailable
       required:
       - type
       - message
@@ -1147,28 +1076,99 @@ components:
       - fields
       - relationships
       additionalProperties: false
-    TooManyRequestsError:
+    InternalServerError:
       type: object
       properties:
         type:
-          const: too_many_requests
+          const: internal_server_error
         message:
           type: string
-          default: Too Many Requests
+          default: Internal Server Error
       required:
       - type
       - message
-    UnsupportedMediaTypeError:
+    NotFoundError:
       type: object
       properties:
         type:
-          const: unsupported_media_type
+          const: not_found
         message:
           type: string
-          default: Unsupported Media Type
+          default: Not Found
       required:
       - type
       - message
+    Address:
+      type: object
+      properties:
+        street:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 1.
+        street2:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Street address line 2.
+        city:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: City name.
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: State or province.
+        postalCode:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Postal or ZIP code.
+        country:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: 2-letter ISO 3166-1 alpha-2 country code.
+        latitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Latitude coordinate.
+        longitude:
+          anyOf:
+          - type: number
+          - type: 'null'
+          description: Longitude coordinate.
+      additionalProperties: false
+      title: Address
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    FullName:
+      type: object
+      properties:
+        firstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's first name.
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's last name.
+      additionalProperties: false
+      title: FullName
   securitySchemes:
     bearerAuth:
       type: http

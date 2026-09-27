@@ -348,47 +348,25 @@ components:
       - object
       - data
       - totalCount
-    ForbiddenError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: conflict
         message:
           type: string
-          default: Forbidden
+          default: Conflict
       required:
       - type
       - message
-    NotFoundError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unsupported_media_type
         message:
           type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
+          default: Unsupported Media Type
       required:
       - type
       - message
@@ -408,25 +386,36 @@ components:
       - type
       - message
       - code
-    ServiceUnavailableError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: unauthorized
         message:
           type: string
-          default: Service Unavailable
+          default: Unauthorized
       required:
       - type
       - message
-    UnprocessableContentError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: unprocessable_content
+          const: too_many_requests
         message:
           type: string
-          default: Unprocessable Content
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
       required:
       - type
       - message
@@ -531,6 +520,61 @@ components:
       - httpLink
       - fields
       - relationships
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
     FullName:
       type: object
       properties:
@@ -546,50 +590,6 @@ components:
           description: The contact's last name.
       additionalProperties: false
       title: FullName
-    InternalServerError:
-      type: object
-      properties:
-        type:
-          const: internal_server_error
-        message:
-          type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
   securitySchemes:
     bearerAuth:
       type: http

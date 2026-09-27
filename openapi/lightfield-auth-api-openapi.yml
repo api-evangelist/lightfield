@@ -106,85 +106,25 @@ paths:
       - Auth
 components:
   schemas:
-    ForbiddenError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: conflict
         message:
           type: string
-          default: Forbidden
+          default: Conflict
       required:
       - type
       - message
-    NotFoundError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unsupported_media_type
         message:
           type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
-    BadRequestError:
-      type: object
-      properties:
-        type:
-          const: bad_request
-        message:
-          type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
-      required:
-      - type
-      - message
-      - code
-    ServiceUnavailableError:
-      type: object
-      properties:
-        type:
-          const: service_unavailable
-        message:
-          type: string
-          default: Service Unavailable
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
+          default: Unsupported Media Type
       required:
       - type
       - message
@@ -213,25 +153,30 @@ components:
       - tokenType
       - subjectType
       - scopes
-    InternalServerError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: bad_request
         message:
           type: string
-          default: Internal Server Error
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
       required:
       - type
       - message
-    ConflictError:
+      - code
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: conflict
+          const: unauthorized
         message:
           type: string
-          default: Conflict
+          default: Unauthorized
       required:
       - type
       - message
@@ -246,14 +191,69 @@ components:
       required:
       - type
       - message
-    UnsupportedMediaTypeError:
+    GatewayTimeoutError:
       type: object
       properties:
         type:
-          const: unsupported_media_type
+          const: gateway_timeout
         message:
           type: string
-          default: Unsupported Media Type
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
       required:
       - type
       - message
