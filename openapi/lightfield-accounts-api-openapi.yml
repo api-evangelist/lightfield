@@ -943,6 +943,17 @@ paths:
       - Accounts
 components:
   schemas:
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
     ConflictError:
       type: object
       properties:
@@ -954,14 +965,14 @@ components:
       required:
       - type
       - message
-    UnsupportedMediaTypeError:
+    GatewayTimeoutError:
       type: object
       properties:
         type:
-          const: unsupported_media_type
+          const: gateway_timeout
         message:
           type: string
-          default: Unsupported Media Type
+          default: Gateway Timeout
       required:
       - type
       - message
@@ -981,149 +992,6 @@ components:
       - type
       - message
       - code
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
-      required:
-      - type
-      - message
-    AccountRetrieveResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the entity.
-        createdAt:
-          type: string
-          description: ISO 8601 timestamp of when the entity was created.
-        updatedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: ISO 8601 timestamp of when the entity was last updated, or null.
-        httpLink:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: URL to view the entity in the Lightfield web app, or null.
-        externalId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: External identifier for the entity, or null if unset.
-        fields:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              valueType:
-                enum:
-                - ADDRESS
-                - CHECKBOX
-                - CURRENCY
-                - DATETIME
-                - EMAIL
-                - FULL_NAME
-                - MARKDOWN
-                - MULTI_SELECT
-                - NUMBER
-                - SINGLE_SELECT
-                - SOCIAL_HANDLE
-                - TELEPHONE
-                - TEXT
-                - URL
-                - HTML
-                description: The data type of the field.
-              value:
-                anyOf:
-                - type: string
-                - type: integer
-                  minimum: -9007199254740991
-                  maximum: 9007199254740991
-                - type: number
-                - type: boolean
-                - type: 'null'
-                - type: array
-                  items:
-                    type: string
-                - $ref: '#/components/schemas/Address'
-                - $ref: '#/components/schemas/FullName'
-                description: The field value, or null if unset.
-            required:
-            - valueType
-            - value
-          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
-        relationships:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              cardinality:
-                type: string
-                description: Whether the relationship is `has_one` or `has_many`.
-              objectType:
-                type: string
-                description: The type of the related object (e.g. `account`, `contact`).
-              values:
-                type: array
-                items:
-                  type: string
-                description: IDs of the related entities.
-            required:
-            - cardinality
-            - objectType
-            - values
-          description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
-      required:
-      - id
-      - createdAt
-      - updatedAt
-      - httpLink
-      - fields
-      - relationships
-      additionalProperties: false
     AccountListResponse:
       type: object
       properties:
@@ -1241,116 +1109,17 @@ components:
       - object
       - data
       - totalCount
-    ServiceUnavailableError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: unauthorized
         message:
           type: string
-          default: Service Unavailable
+          default: Unauthorized
       required:
       - type
       - message
-    AccountCreateResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the entity.
-        createdAt:
-          type: string
-          description: ISO 8601 timestamp of when the entity was created.
-        updatedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: ISO 8601 timestamp of when the entity was last updated, or null.
-        httpLink:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: URL to view the entity in the Lightfield web app, or null.
-        externalId:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: External identifier for the entity, or null if unset.
-        fields:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              valueType:
-                enum:
-                - ADDRESS
-                - CHECKBOX
-                - CURRENCY
-                - DATETIME
-                - EMAIL
-                - FULL_NAME
-                - MARKDOWN
-                - MULTI_SELECT
-                - NUMBER
-                - SINGLE_SELECT
-                - SOCIAL_HANDLE
-                - TELEPHONE
-                - TEXT
-                - URL
-                - HTML
-                description: The data type of the field.
-              value:
-                anyOf:
-                - type: string
-                - type: integer
-                  minimum: -9007199254740991
-                  maximum: 9007199254740991
-                - type: number
-                - type: boolean
-                - type: 'null'
-                - type: array
-                  items:
-                    type: string
-                - $ref: '#/components/schemas/Address'
-                - $ref: '#/components/schemas/FullName'
-                description: The field value, or null if unset.
-            required:
-            - valueType
-            - value
-          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
-        relationships:
-          type: object
-          propertyNames:
-            type: string
-          additionalProperties:
-            type: object
-            properties:
-              cardinality:
-                type: string
-                description: Whether the relationship is `has_one` or `has_many`.
-              objectType:
-                type: string
-                description: The type of the related object (e.g. `account`, `contact`).
-              values:
-                type: array
-                items:
-                  type: string
-                description: IDs of the related entities.
-            required:
-            - cardinality
-            - objectType
-            - values
-          description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
-      required:
-      - id
-      - createdAt
-      - updatedAt
-      - httpLink
-      - fields
-      - relationships
-      additionalProperties: false
     AccountDefinitionsResponse:
       type: object
       properties:
@@ -1491,18 +1260,7 @@ components:
       required:
       - type
       - message
-    NotFoundError:
-      type: object
-      properties:
-        type:
-          const: not_found
-        message:
-          type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    AccountUpdateResponse:
+    AccountCreateResponse:
       type: object
       properties:
         id:
@@ -1646,6 +1404,248 @@ components:
           description: Longitude coordinate.
       additionalProperties: false
       title: Address
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    AccountRetrieveResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the entity.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the entity was created.
+        updatedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: ISO 8601 timestamp of when the entity was last updated, or null.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the entity in the Lightfield web app, or null.
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: External identifier for the entity, or null if unset.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+        relationships:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              cardinality:
+                type: string
+                description: Whether the relationship is `has_one` or `has_many`.
+              objectType:
+                type: string
+                description: The type of the related object (e.g. `account`, `contact`).
+              values:
+                type: array
+                items:
+                  type: string
+                description: IDs of the related entities.
+            required:
+            - cardinality
+            - objectType
+            - values
+          description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - httpLink
+      - fields
+      - relationships
+      additionalProperties: false
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    AccountUpdateResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the entity.
+        createdAt:
+          type: string
+          description: ISO 8601 timestamp of when the entity was created.
+        updatedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: ISO 8601 timestamp of when the entity was last updated, or null.
+        httpLink:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URL to view the entity in the Lightfield web app, or null.
+        externalId:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: External identifier for the entity, or null if unset.
+        fields:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              valueType:
+                enum:
+                - ADDRESS
+                - CHECKBOX
+                - CURRENCY
+                - DATETIME
+                - EMAIL
+                - FULL_NAME
+                - MARKDOWN
+                - MULTI_SELECT
+                - NUMBER
+                - SINGLE_SELECT
+                - SOCIAL_HANDLE
+                - TELEPHONE
+                - TEXT
+                - URL
+                - HTML
+                description: The data type of the field.
+              value:
+                anyOf:
+                - type: string
+                - type: integer
+                  minimum: -9007199254740991
+                  maximum: 9007199254740991
+                - type: number
+                - type: boolean
+                - type: 'null'
+                - type: array
+                  items:
+                    type: string
+                - $ref: '#/components/schemas/Address'
+                - $ref: '#/components/schemas/FullName'
+                description: The field value, or null if unset.
+            required:
+            - valueType
+            - value
+          description: Map of field names to their typed values. System fields are prefixed with `$` (e.g. `$name`, `$email`); custom attributes use their bare slug.
+        relationships:
+          type: object
+          propertyNames:
+            type: string
+          additionalProperties:
+            type: object
+            properties:
+              cardinality:
+                type: string
+                description: Whether the relationship is `has_one` or `has_many`.
+              objectType:
+                type: string
+                description: The type of the related object (e.g. `account`, `contact`).
+              values:
+                type: array
+                items:
+                  type: string
+                description: IDs of the related entities.
+            required:
+            - cardinality
+            - objectType
+            - values
+          description: Map of relationship names to their associated entities. System relationships are prefixed with `$` (e.g. `$owner`, `$contact`).
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - httpLink
+      - fields
+      - relationships
+      additionalProperties: false
     ForbiddenError:
       type: object
       properties:

@@ -59,14 +59,6 @@ paths:
       - Workflow Run
 components:
   schemas:
-    WorkflowRunStatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Current status of the workflow run (e.g. `running`, `completed`, `failed`).
-      required:
-      - status
     BadRequestError:
       type: object
       properties:
@@ -105,6 +97,14 @@ components:
       required:
       - type
       - message
+    WorkflowRunStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Current status of the workflow run (e.g. `running`, `completed`, `failed`).
+      required:
+      - status
     NotFoundError:
       type: object
       properties:

@@ -229,6 +229,28 @@ paths:
       - Members
 components:
   schemas:
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
     MemberListResponse:
       type: object
       properties:
@@ -348,44 +370,6 @@ components:
       - object
       - data
       - totalCount
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
-    BadRequestError:
-      type: object
-      properties:
-        type:
-          const: bad_request
-        message:
-          type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
-      required:
-      - type
-      - message
-      - code
     UnauthorizedError:
       type: object
       properties:
@@ -394,28 +378,6 @@ components:
         message:
           type: string
           default: Unauthorized
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
       required:
       - type
       - message
@@ -520,14 +482,30 @@ components:
       - httpLink
       - fields
       - relationships
-    ServiceUnavailableError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: bad_request
         message:
           type: string
-          default: Service Unavailable
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
       required:
       - type
       - message
@@ -542,14 +520,14 @@ components:
       required:
       - type
       - message
-    InternalServerError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: too_many_requests
         message:
           type: string
-          default: Internal Server Error
+          default: Too Many Requests
       required:
       - type
       - message
@@ -561,6 +539,28 @@ components:
         message:
           type: string
           default: Not Found
+      required:
+      - type
+      - message
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
       required:
       - type
       - message
