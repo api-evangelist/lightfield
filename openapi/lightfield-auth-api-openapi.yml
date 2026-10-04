@@ -106,25 +106,25 @@ paths:
       - Auth
 components:
   schemas:
-    ServiceUnavailableError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: unsupported_media_type
         message:
           type: string
-          default: Service Unavailable
+          default: Unsupported Media Type
       required:
       - type
       - message
-    ConflictError:
+    NotFoundError:
       type: object
       properties:
         type:
-          const: conflict
+          const: not_found
         message:
           type: string
-          default: Conflict
+          default: Not Found
       required:
       - type
       - message
@@ -144,14 +144,36 @@ components:
       - type
       - message
       - code
-    UnauthorizedError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: unauthorized
+          const: too_many_requests
         message:
           type: string
-          default: Unauthorized
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
       required:
       - type
       - message
@@ -180,58 +202,25 @@ components:
       - tokenType
       - subjectType
       - scopes
-    InternalServerError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: unauthorized
         message:
           type: string
-          default: Internal Server Error
+          default: Unauthorized
       required:
       - type
       - message
-    UnprocessableContentError:
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: unprocessable_content
+          const: forbidden
         message:
           type: string
-          default: Unprocessable Content
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    NotFoundError:
-      type: object
-      properties:
-        type:
-          const: not_found
-        message:
-          type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
+          default: Forbidden
       required:
       - type
       - message
@@ -246,14 +235,25 @@ components:
       required:
       - type
       - message
-    ForbiddenError:
+    ServiceUnavailableError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: service_unavailable
         message:
           type: string
-          default: Forbidden
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
       required:
       - type
       - message

@@ -743,6 +743,28 @@ components:
       - createdAt
       - completedAt
       - expiresAt
+    UnsupportedMediaTypeError:
+      type: object
+      properties:
+        type:
+          const: unsupported_media_type
+        message:
+          type: string
+          default: Unsupported Media Type
+      required:
+      - type
+      - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
     FileListResponse:
       type: object
       properties:
@@ -807,14 +829,41 @@ components:
       - object
       - data
       - totalCount
-    ServiceUnavailableError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: service_unavailable
+          const: bad_request
         message:
           type: string
-          default: Service Unavailable
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
+      required:
+      - type
+      - message
+      - code
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    UnprocessableContentError:
+      type: object
+      properties:
+        type:
+          const: unprocessable_content
+        message:
+          type: string
+          default: Unprocessable Content
       required:
       - type
       - message
@@ -826,6 +875,17 @@ components:
         message:
           type: string
           default: Conflict
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
       required:
       - type
       - message
@@ -875,79 +935,17 @@ components:
       - createdAt
       - completedAt
       - expiresAt
-    BadRequestError:
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: bad_request
+          const: forbidden
         message:
           type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
+          default: Forbidden
       required:
       - type
       - message
-      - code
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
-    FileCancelResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the file.
-        status:
-          enum:
-          - PENDING
-          - COMPLETED
-          - CANCELLED
-          - EXPIRED
-          description: Current upload status of the file.
-        filename:
-          type: string
-          description: Original filename.
-        mimeType:
-          type: string
-          description: MIME type of the file.
-        sizeBytes:
-          type: integer
-          minimum: -9007199254740991
-          maximum: 9007199254740991
-          description: File size in bytes.
-        createdAt:
-          type: string
-          description: When the file upload session was created.
-        completedAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the file upload was completed.
-        expiresAt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: When the upload session expires. Null once completed, cancelled, or expired.
-      required:
-      - id
-      - status
-      - filename
-      - mimeType
-      - sizeBytes
-      - createdAt
-      - completedAt
-      - expiresAt
     FileUrlResponse:
       type: object
       properties:
@@ -960,83 +958,6 @@ components:
       required:
       - url
       - expiresAt
-    InternalServerError:
-      type: object
-      properties:
-        type:
-          const: internal_server_error
-        message:
-          type: string
-          default: Internal Server Error
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
-      required:
-      - type
-      - message
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    NotFoundError:
-      type: object
-      properties:
-        type:
-          const: not_found
-        message:
-          type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    ForbiddenError:
-      type: object
-      properties:
-        type:
-          const: forbidden
-        message:
-          type: string
-          default: Forbidden
-      required:
-      - type
-      - message
     FileCreateResponse:
       type: object
       properties:
@@ -1095,6 +1016,85 @@ components:
       - expiresAt
       - uploadUrl
       - uploadHeaders
+    FileCancelResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the file.
+        status:
+          enum:
+          - PENDING
+          - COMPLETED
+          - CANCELLED
+          - EXPIRED
+          description: Current upload status of the file.
+        filename:
+          type: string
+          description: Original filename.
+        mimeType:
+          type: string
+          description: MIME type of the file.
+        sizeBytes:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: File size in bytes.
+        createdAt:
+          type: string
+          description: When the file upload session was created.
+        completedAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the file upload was completed.
+        expiresAt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: When the upload session expires. Null once completed, cancelled, or expired.
+      required:
+      - id
+      - status
+      - filename
+      - mimeType
+      - sizeBytes
+      - createdAt
+      - completedAt
+      - expiresAt
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
   securitySchemes:
     bearerAuth:
       type: http

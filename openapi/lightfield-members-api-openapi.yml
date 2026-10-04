@@ -229,28 +229,6 @@ paths:
       - Members
 components:
   schemas:
-    ServiceUnavailableError:
-      type: object
-      properties:
-        type:
-          const: service_unavailable
-        message:
-          type: string
-          default: Service Unavailable
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
-      required:
-      - type
-      - message
     MemberListResponse:
       type: object
       properties:
@@ -370,17 +348,43 @@ components:
       - object
       - data
       - totalCount
-    UnauthorizedError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: unauthorized
+          const: unsupported_media_type
         message:
           type: string
-          default: Unauthorized
+          default: Unsupported Media Type
       required:
       - type
       - message
+    NotFoundError:
+      type: object
+      properties:
+        type:
+          const: not_found
+        message:
+          type: string
+          default: Not Found
+      required:
+      - type
+      - message
+    FullName:
+      type: object
+      properties:
+        firstName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's first name.
+        lastName:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: The contact's last name.
+      additionalProperties: false
+      title: FullName
     MemberRetrieveResponse:
       type: object
       properties:
@@ -498,14 +502,14 @@ components:
       - type
       - message
       - code
-    InternalServerError:
+    TooManyRequestsError:
       type: object
       properties:
         type:
-          const: internal_server_error
+          const: too_many_requests
         message:
           type: string
-          default: Internal Server Error
+          default: Too Many Requests
       required:
       - type
       - message
@@ -520,47 +524,25 @@ components:
       required:
       - type
       - message
-    TooManyRequestsError:
+    ConflictError:
       type: object
       properties:
         type:
-          const: too_many_requests
+          const: conflict
         message:
           type: string
-          default: Too Many Requests
+          default: Conflict
       required:
       - type
       - message
-    NotFoundError:
+    UnauthorizedError:
       type: object
       properties:
         type:
-          const: not_found
+          const: unauthorized
         message:
           type: string
-          default: Not Found
-      required:
-      - type
-      - message
-    UnsupportedMediaTypeError:
-      type: object
-      properties:
-        type:
-          const: unsupported_media_type
-        message:
-          type: string
-          default: Unsupported Media Type
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
+          default: Unauthorized
       required:
       - type
       - message
@@ -575,21 +557,39 @@ components:
       required:
       - type
       - message
-    FullName:
+    GatewayTimeoutError:
       type: object
       properties:
-        firstName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's first name.
-        lastName:
-          anyOf:
-          - type: string
-          - type: 'null'
-          description: The contact's last name.
-      additionalProperties: false
-      title: FullName
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
+      required:
+      - type
+      - message
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    InternalServerError:
+      type: object
+      properties:
+        type:
+          const: internal_server_error
+        message:
+          type: string
+          default: Internal Server Error
+      required:
+      - type
+      - message
   securitySchemes:
     bearerAuth:
       type: http
