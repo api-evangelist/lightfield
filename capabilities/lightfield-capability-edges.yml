@@ -1,0 +1,46 @@
+slug: lightfield
+provider: Lightfield
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Opportunities
+  spec_file: lightfield-opportunities-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.95
+  evidence: POST /v1/opportunities  opportunity.create  Create an opportunity
+  reason: Explicit CRUD over sales opportunities in a CRM platform ('Create an opportunity', 'List opportunities',
+    'Update an opportunity'), which is exactly deal/opportunity lifecycle management.
+- tag: Contacts
+  spec_file: lightfield-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: POST /v1/contacts  contact.create  Create a contact; GET /v1/contacts/definitions  Get contact
+    field definitions
+  reason: Create/read/update/list of person-level CRM contact records with schemas FullName and Address
+    — maintenance of customer/person master data within a CRM. Maps to Customer Data Management.
+- tag: Accounts
+  spec_file: lightfield-accounts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /v1/accounts  account.create  Create an account; GET /v1/accounts/definitions  Get account
+    field definitions
+  reason: CRUD plus field-definition introspection over CRM account records on a customer relationship
+    management platform — i.e. maintenance of the customer master record. Customer Data Management is
+    the closest fit; some chance the intended reading is Account Management (relationship-led), hence
+    0.7.

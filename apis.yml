@@ -295,6 +295,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/lightfield-capability-edges.yml
+  name: Lightfield Business Capability Map
 - type: Overlay
   url: overlays/lightfield-api-overlay.yaml
 - type: PostmanWorkspace
