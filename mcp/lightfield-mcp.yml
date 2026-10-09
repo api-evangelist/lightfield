@@ -56,3 +56,17 @@ deployment:
   probe: gated
   checked: '2026-08-12'
   source: catalog MCP census
+rfc9728:
+  endpoint: https://mcp.lightfield.app/mcp
+  metadata_url: https://mcp.lightfield.app/.well-known/oauth-protected-resource/mcp
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mcp.lightfield.app/mcp
+    authorization_servers:
+    - https://api.stytch.lightfield.app
+    scopes_supported:
+    - openid
+    - offline_access
