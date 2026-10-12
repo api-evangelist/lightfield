@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/lightfield/integrations
+- https://n8n.io/integrations/lightfield/
+- https://composio.dev/toolkits/lightfield
+- https://monid.ai/tools/lightfield
+checked:
+- https://composio.dev/toolkits/lightfield
+- https://monid.ai/tools/lightfield
+- https://n8n.io/integrations/lightfield/
+- https://zapier.com/apps/lightfield/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
