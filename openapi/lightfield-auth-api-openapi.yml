@@ -106,14 +106,69 @@ paths:
       - Auth
 components:
   schemas:
-    UnsupportedMediaTypeError:
+    ForbiddenError:
       type: object
       properties:
         type:
-          const: unsupported_media_type
+          const: forbidden
         message:
           type: string
-          default: Unsupported Media Type
+          default: Forbidden
+      required:
+      - type
+      - message
+    ServiceUnavailableError:
+      type: object
+      properties:
+        type:
+          const: service_unavailable
+        message:
+          type: string
+          default: Service Unavailable
+      required:
+      - type
+      - message
+    ConflictError:
+      type: object
+      properties:
+        type:
+          const: conflict
+        message:
+          type: string
+          default: Conflict
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
+    TooManyRequestsError:
+      type: object
+      properties:
+        type:
+          const: too_many_requests
+        message:
+          type: string
+          default: Too Many Requests
+      required:
+      - type
+      - message
+    GatewayTimeoutError:
+      type: object
+      properties:
+        type:
+          const: gateway_timeout
+        message:
+          type: string
+          default: Gateway Timeout
       required:
       - type
       - message
@@ -128,52 +183,14 @@ components:
       required:
       - type
       - message
-    BadRequestError:
+    UnsupportedMediaTypeError:
       type: object
       properties:
         type:
-          const: bad_request
+          const: unsupported_media_type
         message:
           type: string
-          default: Bad Request
-        code:
-          type: string
-        param:
-          type: string
-      required:
-      - type
-      - message
-      - code
-    TooManyRequestsError:
-      type: object
-      properties:
-        type:
-          const: too_many_requests
-        message:
-          type: string
-          default: Too Many Requests
-      required:
-      - type
-      - message
-    UnprocessableContentError:
-      type: object
-      properties:
-        type:
-          const: unprocessable_content
-        message:
-          type: string
-          default: Unprocessable Content
-      required:
-      - type
-      - message
-    ConflictError:
-      type: object
-      properties:
-        type:
-          const: conflict
-        message:
-          type: string
-          default: Conflict
+          default: Unsupported Media Type
       required:
       - type
       - message
@@ -202,47 +219,30 @@ components:
       - tokenType
       - subjectType
       - scopes
-    UnauthorizedError:
+    BadRequestError:
       type: object
       properties:
         type:
-          const: unauthorized
+          const: bad_request
         message:
           type: string
-          default: Unauthorized
+          default: Bad Request
+        code:
+          type: string
+        param:
+          type: string
       required:
       - type
       - message
-    ForbiddenError:
+      - code
+    UnprocessableContentError:
       type: object
       properties:
         type:
-          const: forbidden
+          const: unprocessable_content
         message:
           type: string
-          default: Forbidden
-      required:
-      - type
-      - message
-    GatewayTimeoutError:
-      type: object
-      properties:
-        type:
-          const: gateway_timeout
-        message:
-          type: string
-          default: Gateway Timeout
-      required:
-      - type
-      - message
-    ServiceUnavailableError:
-      type: object
-      properties:
-        type:
-          const: service_unavailable
-        message:
-          type: string
-          default: Service Unavailable
+          default: Unprocessable Content
       required:
       - type
       - message

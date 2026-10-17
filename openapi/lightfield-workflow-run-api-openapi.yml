@@ -59,6 +59,28 @@ paths:
       - Workflow Run
 components:
   schemas:
+    ForbiddenError:
+      type: object
+      properties:
+        type:
+          const: forbidden
+        message:
+          type: string
+          default: Forbidden
+      required:
+      - type
+      - message
+    UnauthorizedError:
+      type: object
+      properties:
+        type:
+          const: unauthorized
+        message:
+          type: string
+          default: Unauthorized
+      required:
+      - type
+      - message
     NotFoundError:
       type: object
       properties:
@@ -94,28 +116,6 @@ components:
       - type
       - message
       - code
-    ForbiddenError:
-      type: object
-      properties:
-        type:
-          const: forbidden
-        message:
-          type: string
-          default: Forbidden
-      required:
-      - type
-      - message
-    UnauthorizedError:
-      type: object
-      properties:
-        type:
-          const: unauthorized
-        message:
-          type: string
-          default: Unauthorized
-      required:
-      - type
-      - message
     InternalServerError:
       type: object
       properties:
