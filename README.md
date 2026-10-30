@@ -64,61 +64,199 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Lightfield is an agent-native CRM platform. It captures customer interactions — calls, emails and
-meetings — as unstructured data, organizes them into a versioned context graph of CRM objects, and
-lets AI agents reason over that graph to generate pipeline, prepare for meetings, enrich records and
-drive follow-up.
+Lightfield is an agent-native customer relationship management (CRM) platform for high-growth and AI-native go-to-market teams. Rather than depending on manual data entry, Lightfield captures customer interactions — calls, emails, meetings and external signals — as unstructured data, organizes them into a versioned context graph of CRM objects, and lets AI agents reason over that graph to generate pipeline, prepare for meetings, enrich records and drive follow-up. The public Lightfield API (beta) provides read/write access to every CRM entity — accounts, contacts, opportunities, meetings, notes, tasks, lists, emails, files, members, custom objects and workflow runs — across 55 operations, with first-party TypeScript, Python and Go SDKs, a Go CLI, and a hosted Model Context Protocol server at mcp.lightfield.app secured with OAuth 2.1. Workflows and Automations add trigger-driven agent pipelines fed by inbound webhooks, object lifecycle events and schedules. Backed by Greylock and Lightspeed Venture Partners.
 
-Backed by Greylock and Lightspeed Venture Partners — https://lightfield.app/
+**Areas:** Company · Application · CRM · Sales · Artificial Intelligence · Agents · Go-To-Market · Productivity · Software-as-a-Service
 
-## API
+## Lightfield on APIs.io
 
-The Lightfield API (public beta) provides read/write access to every CRM entity — accounts,
-contacts, opportunities, meetings, notes, tasks, lists, emails, files, members, custom objects and
-workflow runs.
+Everything profiled for Lightfield is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lightfield/](https://apis.io/providers/lightfield/)** — or go straight to one of the APIs or properties below.
 
-| | |
+### APIs (13)
+
+- [Lightfield Accounts API](https://apis.io/apis/lightfield/lightfield-accounts-api/) — The Accounts API from Lightfield — 3 operation(s) for accounts.
+- [Lightfield Auth API](https://apis.io/apis/lightfield/lightfield-auth-api/) — The Auth API from Lightfield — 1 operation(s) for auth.
+- [Lightfield Contacts API](https://apis.io/apis/lightfield/lightfield-contacts-api/) — The Contacts API from Lightfield — 3 operation(s) for contacts.
+- [Lightfield Emails API](https://apis.io/apis/lightfield/lightfield-emails-api/) — The Emails API from Lightfield — 4 operation(s) for emails.
+- [Lightfield Files API](https://apis.io/apis/lightfield/lightfield-files-api/) — The Files API from Lightfield — 5 operation(s) for files.
+- [Lightfield Lists API](https://apis.io/apis/lightfield/lightfield-lists-api/) — The Lists API from Lightfield — 5 operation(s) for lists.
+- [Lightfield Meetings API](https://apis.io/apis/lightfield/lightfield-meetings-api/) — The Meetings API from Lightfield — 2 operation(s) for meetings.
+- [Lightfield Members API](https://apis.io/apis/lightfield/lightfield-members-api/) — The Members API from Lightfield — 2 operation(s) for members.
+- [Lightfield Notes API](https://apis.io/apis/lightfield/lightfield-notes-api/) — The Notes API from Lightfield — 2 operation(s) for notes.
+- [Lightfield Objects API](https://apis.io/apis/lightfield/lightfield-objects-api/) — The Objects API from Lightfield — 5 operation(s) for objects.
+- [Lightfield Opportunities API](https://apis.io/apis/lightfield/lightfield-opportunities-api/) — The Opportunities API from Lightfield — 3 operation(s) for opportunities.
+- [Lightfield Tasks API](https://apis.io/apis/lightfield/lightfield-tasks-api/) — The Tasks API from Lightfield — 3 operation(s) for tasks.
+- [Lightfield Workflow Run API](https://apis.io/apis/lightfield/lightfield-workflow-run-api/) — The Workflow Run API from Lightfield — 1 operation(s) for workflow run.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Lightfield Events](https://apis.io/asyncapis/lightfield/lightfield-events/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [lightfield](https://apis.io/servers/lightfield/lightfield/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Lightfield Agentic Access](https://apis.io/agentic-access/lightfield/lightfield-agentic-access/)
+
+#### Collections (26)
+
+Postman and Open Collection request collections.
+
+- [API Reference Accounts API](https://apis.io/collections/lightfield/open-lightfield-accounts-api/)
+- [API Reference Accounts Auth API](https://apis.io/collections/lightfield/open-lightfield-auth-api/)
+- [API Reference Accounts Contacts API](https://apis.io/collections/lightfield/open-lightfield-contacts-api/)
+- [API Reference Accounts Emails API](https://apis.io/collections/lightfield/open-lightfield-emails-api/)
+- [API Reference Accounts Files API](https://apis.io/collections/lightfield/open-lightfield-files-api/)
+- [API Reference Accounts Lists API](https://apis.io/collections/lightfield/open-lightfield-lists-api/)
+- [API Reference Accounts Meetings API](https://apis.io/collections/lightfield/open-lightfield-meetings-api/)
+- [API Reference Accounts Members API](https://apis.io/collections/lightfield/open-lightfield-members-api/)
+- [API Reference Accounts Notes API](https://apis.io/collections/lightfield/open-lightfield-notes-api/)
+- [API Reference Accounts Objects API](https://apis.io/collections/lightfield/open-lightfield-objects-api/)
+- [API Reference Accounts Opportunities API](https://apis.io/collections/lightfield/open-lightfield-opportunities-api/)
+- [API Reference Accounts Tasks API](https://apis.io/collections/lightfield/open-lightfield-tasks-api/)
+- [API Reference Accounts WorkflowRun API](https://apis.io/collections/lightfield/open-lightfield-workflowrun-api/)
+- [API Reference Accounts API](https://apis.io/collections/lightfield/postman-lightfield-accounts-api/)
+- [API Reference Accounts Auth API](https://apis.io/collections/lightfield/postman-lightfield-auth-api/)
+- [API Reference Accounts Contacts API](https://apis.io/collections/lightfield/postman-lightfield-contacts-api/)
+- [API Reference Accounts Emails API](https://apis.io/collections/lightfield/postman-lightfield-emails-api/)
+- [API Reference Accounts Files API](https://apis.io/collections/lightfield/postman-lightfield-files-api/)
+- [API Reference Accounts Lists API](https://apis.io/collections/lightfield/postman-lightfield-lists-api/)
+- [API Reference Accounts Meetings API](https://apis.io/collections/lightfield/postman-lightfield-meetings-api/)
+- [API Reference Accounts Members API](https://apis.io/collections/lightfield/postman-lightfield-members-api/)
+- [API Reference Accounts Notes API](https://apis.io/collections/lightfield/postman-lightfield-notes-api/)
+- [API Reference Accounts Objects API](https://apis.io/collections/lightfield/postman-lightfield-objects-api/)
+- [API Reference Accounts Opportunities API](https://apis.io/collections/lightfield/postman-lightfield-opportunities-api/)
+- [API Reference Accounts Tasks API](https://apis.io/collections/lightfield/postman-lightfield-tasks-api/)
+- …and 1 more published on APIs.io
+
+#### Overlays (14)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Lightfield Accounts Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-accounts-api-phrasing-overlay/)
+- [Lightfield Api Overlay](https://apis.io/overlays/lightfield/lightfield-api-overlay/)
+- [Lightfield Auth Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-auth-api-phrasing-overlay/)
+- [Lightfield Contacts Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-contacts-api-phrasing-overlay/)
+- [Lightfield Emails Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-emails-api-phrasing-overlay/)
+- [Lightfield Files Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-files-api-phrasing-overlay/)
+- [Lightfield Lists Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-lists-api-phrasing-overlay/)
+- [Lightfield Meetings Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-meetings-api-phrasing-overlay/)
+- [Lightfield Members Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-members-api-phrasing-overlay/)
+- [Lightfield Notes Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-notes-api-phrasing-overlay/)
+- [Lightfield Objects Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-objects-api-phrasing-overlay/)
+- [Lightfield Opportunities Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-opportunities-api-phrasing-overlay/)
+- [Lightfield Tasks Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-tasks-api-phrasing-overlay/)
+- [Lightfield Workflow Run Api Phrasing Overlay](https://apis.io/overlays/lightfield/lightfield-workflow-run-api-phrasing-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Lightfield Authentication](https://apis.io/security/lightfield/lightfield-authentication/)
+- [Lightfield Domain Security](https://apis.io/security/lightfield/lightfield-domain-security/)
+- [Lightfield Trust Center](https://apis.io/security/lightfield/lightfield-trust-center/)
+- [Lightfield Vulnerability Disclosure](https://apis.io/security/lightfield/lightfield-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Lightfield Scopes](https://apis.io/scopes/lightfield/lightfield-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Lightfield Plans Pricing](https://apis.io/plans/lightfield/lightfield-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Lightfield Rate Limits](https://apis.io/rate-limits/lightfield/lightfield-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://lightfield.app/)
+- [Documentation](https://docs.lightfield.app/)
+- [Getting started](https://docs.lightfield.app/getting-started/http-quickstart/)
+- [API reference](https://docs.lightfield.app/api/)
+- [Pricing](https://lightfield.app/pricing)
+- [Sign up](https://crm.lightfield.app/signup)
+- [Support](https://support.lightfield.app)
+- [Blog](https://lightfield.app/blog)
+- [Security](https://docs.lightfield.app/security/)
+- [Compliance](https://docs.lightfield.app/security/)
+- [Terms of service](https://lightfield.app/terms)
+- [Privacy policy](https://lightfield.app/privacy)
+- [GitHub](https://github.com/Lightfld)
+- [Status](https://status.lightfield.app/)
+
+## API Evangelist rating
+
+**Kin Score 69.4** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| Base URL | `https://api.lightfield.app/v1` |
-| Documentation | https://docs.lightfield.app/ |
-| API reference | https://docs.lightfield.app/api/ |
-| Spec | OpenAPI 3.1.1 — 39 paths, 55 operations, 69 schemas |
-| Auth | Bearer API key (`sk_lf_...`), 26 scopes |
-| Versioning | `Lightfield-Version: 2026-03-01` (required date header) |
-| Idempotency | `Idempotency-Key` on POST writes, 255 chars, 24h retention |
-| Pagination | `limit` (max 25) / `offset` |
-| Rate limits | 25 rps per category, per organization |
-| MCP server | `https://mcp.lightfield.app/mcp` (Streamable HTTP, OAuth 2.1) |
-| Status | https://status.lightfield.app/ |
+| Discoverability | 75.0 |
+| Contract quality | 55.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 84.2 |
+| Developer ergonomics | 74.4 |
+| Access clarity | 92.1 |
 
-## SDKs and tooling
+**Agent readiness 67.4** — agent-native
 
-- TypeScript — [`lightfield`](https://www.npmjs.com/package/lightfield) on npm
-- Python — [`lightfield`](https://pypi.org/project/lightfield/) on PyPI
-- Go — [`github.com/Lightfld/lightfield-go`](https://github.com/Lightfld/lightfield-go)
-- CLI — `brew install Lightfld/lightfield/lightfield`
-- GitHub — https://github.com/Lightfld
-
-## Artifacts in this repo
-
-| Directory | Artifact |
+| Agent-readiness dimension | Result |
 |---|---|
-| `openapi/` | Provider-published OpenAPI 3.1.1 description |
-| `overlays/` | API Evangelist Overlay 1.0.0 adding servers, tags, applied security and runtime semantics |
-| `authentication/` | Auth profile — REST bearer keys plus the MCP OAuth 2.1 surface |
-| `scopes/` | 26 published API-key scopes plus MCP OAuth scopes |
-| `conventions/` | Idempotency, pagination, filtering, versioning, error envelope, rate limits |
-| `errors/` | Status-level problem catalog and the 400-level error-code registry |
-| `data-model/` | Derived entity graph over the definition-driven object model |
-| `lifecycle/` | Beta status, date-header versioning, status page, support |
-| `changelog/` | Weekly dated product changelog, 2026-03-20 onward |
-| `asyncapi/` | Event surface — workflow triggers, inbound webhooks, HTTP egress |
-| `mcp/` | Hosted MCP server manifest and OAuth metadata |
-| `skills/` | Four packaged Agent Skills grounded in real operationIds |
-| `agentic-access/` | Recommended `x-agentic-access` contracts for all 55 operations |
-| `packages/` | First-party TypeScript, Python, Go and CLI distributions |
-| `cli/` | CLI command surface, install methods and flags |
-| `well-known/` | RFC 8414 / RFC 9728 discovery documents from the MCP host |
-| `security/` | Domain security probe, vulnerability disclosure policy, trust center |
-| `conformance/` | Standards conformance assertions |
-| `llms/` | llms.txt view of the provider and these artifacts |
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 41.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lightfield/](https://apis.io/providers/lightfield/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Lightfield: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lightfield/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
